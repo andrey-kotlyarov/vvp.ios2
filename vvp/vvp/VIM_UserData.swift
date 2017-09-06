@@ -42,6 +42,11 @@ class VIM_UserData: NSObject
         
         super.init()
         
+        //
+        //
+        //
+        print("VIM_UserData: launchNum = \(launchNumber); token = \(token ?? "-")")
+        
         //SAVE DATA
         self.saveUserData()
         

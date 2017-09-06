@@ -23,6 +23,7 @@
 		8740CD631F6028E100BABC8C /* VIM_AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD621F6028E100BABC8C /* VIM_AuthData.swift */; };
 		8740CD671F60386A00BABC8C /* Stream.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8740CD661F60386A00BABC8C /* Stream.storyboard */; };
 		8740CD691F6038BE00BABC8C /* VIS_StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD681F6038BE00BABC8C /* VIS_StreamViewController.swift */; };
+		8740CD6B1F6047EB00BABC8C /* VIM_Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD6A1F6047EB00BABC8C /* VIM_Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +58,7 @@
 		8740CD621F6028E100BABC8C /* VIM_AuthData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_AuthData.swift; sourceTree = "<group>"; };
 		8740CD661F60386A00BABC8C /* Stream.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stream.storyboard; sourceTree = "<group>"; };
 		8740CD681F6038BE00BABC8C /* VIS_StreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIS_StreamViewController.swift; sourceTree = "<group>"; };
+		8740CD6A1F6047EB00BABC8C /* VIM_Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				8740CD5E1F6028B900BABC8C /* VIM_DesignData.swift */,
 				8740CD601F6028CE00BABC8C /* VIM_UserData.swift */,
 				8740CD621F6028E100BABC8C /* VIM_AuthData.swift */,
+				8740CD6A1F6047EB00BABC8C /* VIM_Profile.swift */,
 			);
 			name = "Model (VIM)";
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8740CD6B1F6047EB00BABC8C /* VIM_Profile.swift in Sources */,
 				8740CD5B1F60285200BABC8C /* VIU_Color.swift in Sources */,
 				8740CD611F6028CE00BABC8C /* VIM_UserData.swift in Sources */,
 				8740CD4F1F60252A00BABC8C /* VIL_RootViewController.swift in Sources */,
