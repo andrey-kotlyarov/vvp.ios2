@@ -113,6 +113,9 @@ A8KpIDIwMTcgVmlydHVhbCBWaWRlbyBQYXNzA
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Viewer"/>
+                                <connections>
+                                    <action selector="btnViewer_OnTouchUp:" destination="kgw-jl-9xr" eventType="touchUpInside" id="q2c-QZ-rvY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-fJ-GpW">
                                 <rect key="frame" x="107" y="270" width="160" height="32"/>
@@ -122,6 +125,9 @@ A8KpIDIwMTcgVmlydHVhbCBWaWRlbyBQYXNzA
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Streamer"/>
+                                <connections>
+                                    <action selector="btnStreamer_OnTouchUp:" destination="kgw-jl-9xr" eventType="touchUpInside" id="MpY-ks-FDg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -134,6 +140,10 @@ A8KpIDIwMTcgVmlydHVhbCBWaWRlbyBQYXNzA
                             <constraint firstItem="Q15-xn-GgW" firstAttribute="centerX" secondItem="gFJ-CL-Hd4" secondAttribute="centerX" id="nV4-sy-kZ0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnStreamer" destination="fYa-fJ-GpW" id="S7P-kh-BQg"/>
+                        <outlet property="btnViewer" destination="EfP-dl-JWU" id="A58-D8-Ovr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPA-OJ-jLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

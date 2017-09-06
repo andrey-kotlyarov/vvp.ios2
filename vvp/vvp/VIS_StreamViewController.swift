@@ -1,5 +1,5 @@
 //
-//  VIL_MenuViewController.swift
+//  VIS_StreamViewController.swift
 //  vvp
 //
 //  Created by Kotlyarov Andrey on 06.09.17.
@@ -8,37 +8,15 @@
 
 import UIKit
 
-
-
-class VIL_MenuViewController: UIViewController
+class VIS_StreamViewController: UIViewController
 {
-    @IBOutlet var btnViewer: UIButton!
-    @IBOutlet var btnStreamer: UIButton!
     
-    @IBAction func btnViewer_OnTouchUp(_ sender: Any)
+    @IBOutlet var btnBack: UIButton!
+    
+    @IBAction func btnBack_OnTouchUp(_ sender: Any)
     {
-        print("Go to Viewer")
+        dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func btnStreamer_OnTouchUp(_ sender: Any)
-    {
-        print("Go to Streamer")
-        
-        let sb = UIStoryboard.init(name: "Stream", bundle: nil)
-        let vcStream = sb.instantiateViewController(withIdentifier: "visStream") as! VIS_StreamViewController
-        
-        present(vcStream, animated: true, completion: nil)
-    }
-    
-    
-    
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle
-    {
-        return .default
-    }
-    
-    
     
     
     override func viewDidLoad()

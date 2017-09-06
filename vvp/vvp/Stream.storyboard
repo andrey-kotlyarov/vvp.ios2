@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Stream View Controller-->
+        <scene sceneID="Hfm-ve-t9l">
+            <objects>
+                <viewController storyboardIdentifier="visStream" id="O4u-p7-5oR" customClass="VIS_StreamViewController" customModule="vvp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OZW-Ee-fNb"/>
+                        <viewControllerLayoutGuide type="bottom" id="0oj-zP-ifG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c8H-iZ-fPb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Streamer here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DU-3Z-4BN">
+                                <rect key="frame" x="37" y="303.5" width="300" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Xn5-Ea-RJ8"/>
+                                    <constraint firstAttribute="height" constant="60" id="r1a-BV-DCN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGb-eh-efa">
+                                <rect key="frame" x="168" y="403.5" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="RKv-ye-Yhr"/>
+                                    <constraint firstAttribute="height" constant="38" id="bNo-bc-lgh"/>
+                                </constraints>
+                                <state key="normal" image="btn_back_38"/>
+                                <connections>
+                                    <action selector="btnBack_OnTouchUp:" destination="O4u-p7-5oR" eventType="touchUpInside" id="GqO-qQ-UEa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bGb-eh-efa" firstAttribute="centerX" secondItem="c8H-iZ-fPb" secondAttribute="centerX" id="1cJ-sN-0mK"/>
+                            <constraint firstItem="3DU-3Z-4BN" firstAttribute="centerX" secondItem="c8H-iZ-fPb" secondAttribute="centerX" id="aJI-Zi-CCz"/>
+                            <constraint firstItem="bGb-eh-efa" firstAttribute="top" secondItem="3DU-3Z-4BN" secondAttribute="bottom" constant="40" id="nax-lT-3jf"/>
+                            <constraint firstItem="3DU-3Z-4BN" firstAttribute="centerY" secondItem="c8H-iZ-fPb" secondAttribute="centerY" id="tFm-py-E5Z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnBack" destination="bGb-eh-efa" id="HaI-ql-vmM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vNK-0x-YOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-274" y="33"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btn_back_38" width="38" height="38"/>
+    </resources>
+</document>
