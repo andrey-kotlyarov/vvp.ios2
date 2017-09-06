@@ -14,8 +14,8 @@ class VIM_UserData: NSObject
 {
     static let current = VIM_UserData()
     
-    private let _isDebugMode = true
-    private let _isLocalMode = true
+    private let _isDebugMode = false
+    private let _isLocalMode = false
     
     private let _keyLaunchNumber = "LAUNCH_NUMBER"
     private let _keyToken = "TOKEN"

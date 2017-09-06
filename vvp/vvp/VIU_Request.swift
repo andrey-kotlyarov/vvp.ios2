@@ -20,12 +20,12 @@ class VIU_Request: NSObject
     init(cmd: String)
     {
         //var url: URL? = URL(string: "https://www2.jevin.net/ws/wsJevin2.aspx")
-        var url: URL? = URL(string: "https://virtualvideopass.com/ws/wsTest.aspx")
+        var url: URL? = URL(string: "http://virtualvideopass.com/WebAPI/ws_1")
         
         //if isLocalMode
         if VIM_UserData.current.isLocalMode()
         {
-            url = URL(string: "http://10.3.15.21:8080/ws/wsTest.aspx")
+            url = URL(string: "http://10.3.15.21:8080/WebAPI/ws_1")
         }
         
         self._urlRequest = NSMutableURLRequest(url: url!)
@@ -36,15 +36,15 @@ class VIU_Request: NSObject
     /*
      class func correctedUrl(_ url: String) -> String
      {
-     var newUrl: String = url
+         var newUrl: String = url
      
-     //if isLocalMode
-     if VIM_UserData.current.isLocalMode()
-     {
-     newUrl = url.replacingOccurrences(of: "localhost:12345", with: "10.3.15.21:8888")
-     }
+         //if isLocalMode
+         if VIM_UserData.current.isLocalMode()
+         {
+             newUrl = url.replacingOccurrences(of: "localhost:12345", with: "10.3.15.21:8888")
+         }
      
-     return newUrl
+         return newUrl
      }
      */
     
@@ -85,10 +85,26 @@ class VIU_Request: NSObject
         return self._urlRequest as URLRequest
     }
     
-    /*
+     /*
      func isWWW2Jevin() -> Bool
      {
-     return (_urlRequest.url!.host! == "www2.jevin.net")
+         return (_urlRequest.url!.host! == "www2.jevin.net")
      }
      */
+    
+    override var description: String
+    {
+        var desc = String()
+        
+        //desc += super.description + " - "
+        
+        desc += "VIU_REQUEST ("
+        
+        desc += "_urlRequest = " + "\(_urlRequest)" + "; "
+        desc += "_postValues = " + "\(_postValues)" + "; "
+        
+        desc += ")"
+        
+        return desc
+    }
 }
