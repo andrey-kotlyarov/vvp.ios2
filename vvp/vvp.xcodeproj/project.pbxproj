@@ -16,6 +16,11 @@
 		8740CD531F60256A00BABC8C /* VIL_MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD521F60256A00BABC8C /* VIL_MenuViewController.swift */; };
 		8740CD541F60263500BABC8C /* WowzaGoCoderSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8740CD4C1F60246A00BABC8C /* WowzaGoCoderSDK.framework */; };
 		8740CD551F60263500BABC8C /* WowzaGoCoderSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8740CD4C1F60246A00BABC8C /* WowzaGoCoderSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8740CD5B1F60285200BABC8C /* VIU_Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD5A1F60285200BABC8C /* VIU_Color.swift */; };
+		8740CD5D1F60287900BABC8C /* VIU_Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD5C1F60287900BABC8C /* VIU_Request.swift */; };
+		8740CD5F1F6028B900BABC8C /* VIM_DesignData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD5E1F6028B900BABC8C /* VIM_DesignData.swift */; };
+		8740CD611F6028CE00BABC8C /* VIM_UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD601F6028CE00BABC8C /* VIM_UserData.swift */; };
+		8740CD631F6028E100BABC8C /* VIM_AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD621F6028E100BABC8C /* VIM_AuthData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +48,11 @@
 		8740CD4E1F60252A00BABC8C /* VIL_RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_RootViewController.swift; sourceTree = "<group>"; };
 		8740CD501F60255000BABC8C /* VIL_LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_LoginViewController.swift; sourceTree = "<group>"; };
 		8740CD521F60256A00BABC8C /* VIL_MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_MenuViewController.swift; sourceTree = "<group>"; };
+		8740CD5A1F60285200BABC8C /* VIU_Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIU_Color.swift; sourceTree = "<group>"; };
+		8740CD5C1F60287900BABC8C /* VIU_Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIU_Request.swift; sourceTree = "<group>"; };
+		8740CD5E1F6028B900BABC8C /* VIM_DesignData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_DesignData.swift; sourceTree = "<group>"; };
+		8740CD601F6028CE00BABC8C /* VIM_UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_UserData.swift; sourceTree = "<group>"; };
+		8740CD621F6028E100BABC8C /* VIM_AuthData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_AuthData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				8740CD4A1F60217500BABC8C /* Wowza */,
+				8740CD581F6027D100BABC8C /* Util (VIU) */,
+				8740CD571F6027B200BABC8C /* Model (VIM) */,
 				8740CD3F1F60215300BABC8C /* Assets.xcassets */,
 				8740CD4B1F6021AD00BABC8C /* VIL (Main, Login, Launch) */,
 				8740CD441F60215300BABC8C /* Info.plist */,
@@ -103,6 +115,33 @@
 				8740CD521F60256A00BABC8C /* VIL_MenuViewController.swift */,
 			);
 			name = "VIL (Main, Login, Launch)";
+			sourceTree = "<group>";
+		};
+		8740CD571F6027B200BABC8C /* Model (VIM) */ = {
+			isa = PBXGroup;
+			children = (
+				8740CD591F6027E700BABC8C /* Enum (VIE) */,
+				8740CD5E1F6028B900BABC8C /* VIM_DesignData.swift */,
+				8740CD601F6028CE00BABC8C /* VIM_UserData.swift */,
+				8740CD621F6028E100BABC8C /* VIM_AuthData.swift */,
+			);
+			name = "Model (VIM)";
+			sourceTree = "<group>";
+		};
+		8740CD581F6027D100BABC8C /* Util (VIU) */ = {
+			isa = PBXGroup;
+			children = (
+				8740CD5A1F60285200BABC8C /* VIU_Color.swift */,
+				8740CD5C1F60287900BABC8C /* VIU_Request.swift */,
+			);
+			name = "Util (VIU)";
+			sourceTree = "<group>";
+		};
+		8740CD591F6027E700BABC8C /* Enum (VIE) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Enum (VIE)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,8 +218,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8740CD5B1F60285200BABC8C /* VIU_Color.swift in Sources */,
+				8740CD611F6028CE00BABC8C /* VIM_UserData.swift in Sources */,
 				8740CD4F1F60252A00BABC8C /* VIL_RootViewController.swift in Sources */,
+				8740CD5F1F6028B900BABC8C /* VIM_DesignData.swift in Sources */,
+				8740CD5D1F60287900BABC8C /* VIU_Request.swift in Sources */,
 				8740CD531F60256A00BABC8C /* VIL_MenuViewController.swift in Sources */,
+				8740CD631F6028E100BABC8C /* VIM_AuthData.swift in Sources */,
 				8740CD391F60215200BABC8C /* AppDelegate.swift in Sources */,
 				8740CD511F60255000BABC8C /* VIL_LoginViewController.swift in Sources */,
 			);

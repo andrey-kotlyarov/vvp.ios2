@@ -22,17 +22,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_color_318x106" translatesAutoresizingMaskIntoConstraints="NO" id="TX0-1v-qwA">
-                                <rect key="frame" x="28" y="80.5" width="318" height="106"/>
+                                <rect key="frame" x="28" y="160.5" width="318" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="106" id="3f8-lx-uu4"/>
                                     <constraint firstAttribute="width" constant="318" id="p8z-hG-6yY"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qvr-5G-TyD">
+                                <rect key="frame" x="28" y="619" width="318" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="318" id="G68-cv-SxO"/>
+                                    <constraint firstAttribute="height" constant="32" id="vYf-xA-pIH"/>
+                                </constraints>
+                                <string key="text" base64-UTF8="YES">
+A8KpIDIwMTcgVmlydHVhbCBWaWRlbyBQYXNzA
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TX0-1v-qwA" firstAttribute="centerY" secondItem="z8T-wH-9zC" secondAttribute="centerY" constant="-200" id="J5G-E6-FlO"/>
+                            <constraint firstItem="1oa-6S-T0g" firstAttribute="top" secondItem="Qvr-5G-TyD" secondAttribute="bottom" constant="16" id="BvS-YE-9qq"/>
+                            <constraint firstItem="TX0-1v-qwA" firstAttribute="centerY" secondItem="z8T-wH-9zC" secondAttribute="centerY" constant="-120" id="J5G-E6-FlO"/>
                             <constraint firstItem="TX0-1v-qwA" firstAttribute="centerX" secondItem="z8T-wH-9zC" secondAttribute="centerX" id="PSx-yO-inw"/>
+                            <constraint firstItem="Qvr-5G-TyD" firstAttribute="centerX" secondItem="z8T-wH-9zC" secondAttribute="centerX" id="Ylw-O1-6hu"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,8 +55,94 @@
             </objects>
             <point key="canvasLocation" x="68" y="170"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Byd-UY-Qil">
+            <objects>
+                <viewController storyboardIdentifier="vilLogin" id="EDQ-G4-v3F" customClass="VIL_LoginViewController" customModule="vvp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IkC-zO-ZCi"/>
+                        <viewControllerLayoutGuide type="bottom" id="By4-dH-xN4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nqA-hA-Ure">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_color_195x65" translatesAutoresizingMaskIntoConstraints="NO" id="Oxm-9H-7yk">
+                                <rect key="frame" x="89.5" y="181" width="195" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="195" id="Vjf-Nb-USG"/>
+                                    <constraint firstAttribute="height" constant="65" id="YHi-zB-JFO"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Oxm-9H-7yk" firstAttribute="centerY" secondItem="nqA-hA-Ure" secondAttribute="centerY" constant="-120" id="FUo-8I-187"/>
+                            <constraint firstItem="Oxm-9H-7yk" firstAttribute="centerX" secondItem="nqA-hA-Ure" secondAttribute="centerX" id="Wq1-Lm-XCk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B15-5o-fO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="810" y="170"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="3rh-z6-4Wc">
+            <objects>
+                <viewController storyboardIdentifier="vilMenu" id="kgw-jl-9xr" customClass="VIL_MenuViewController" customModule="vvp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n44-2i-WDZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fwz-I5-Yf5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gFJ-CL-Hd4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_dcolor_90x30" translatesAutoresizingMaskIntoConstraints="NO" id="Q15-xn-GgW">
+                                <rect key="frame" x="142" y="28" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="9Is-vr-ZfD"/>
+                                    <constraint firstAttribute="height" constant="30" id="soV-XI-WxD"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfP-dl-JWU">
+                                <rect key="frame" x="107" y="148" width="160" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="M8P-Pu-sHe"/>
+                                    <constraint firstAttribute="width" constant="160" id="RON-6V-Yjl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Viewer"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-fJ-GpW">
+                                <rect key="frame" x="107" y="270" width="160" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="G8v-Yw-aDB"/>
+                                    <constraint firstAttribute="height" constant="32" id="nO9-VP-38J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Streamer"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fYa-fJ-GpW" firstAttribute="top" secondItem="EfP-dl-JWU" secondAttribute="bottom" constant="90" id="IAA-dR-Nl0"/>
+                            <constraint firstItem="Q15-xn-GgW" firstAttribute="top" secondItem="n44-2i-WDZ" secondAttribute="bottom" constant="8" id="No4-T2-EZD"/>
+                            <constraint firstItem="EfP-dl-JWU" firstAttribute="centerX" secondItem="gFJ-CL-Hd4" secondAttribute="centerX" id="XCh-mX-xdk"/>
+                            <constraint firstItem="fYa-fJ-GpW" firstAttribute="centerX" secondItem="gFJ-CL-Hd4" secondAttribute="centerX" id="hpu-NO-ovV"/>
+                            <constraint firstItem="EfP-dl-JWU" firstAttribute="top" secondItem="Q15-xn-GgW" secondAttribute="bottom" constant="90" id="mvR-YJ-fya"/>
+                            <constraint firstItem="Q15-xn-GgW" firstAttribute="centerX" secondItem="gFJ-CL-Hd4" secondAttribute="centerX" id="nV4-sy-kZ0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPA-OJ-jLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1538" y="170"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="logo_color_195x65" width="195" height="65"/>
         <image name="logo_color_318x106" width="318" height="106"/>
+        <image name="logo_dcolor_90x30" width="90" height="30"/>
     </resources>
 </document>

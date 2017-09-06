@@ -8,15 +8,22 @@
 
 import UIKit
 
-class VIL_MenuViewController: UIViewController {
-
-    override func viewDidLoad() {
+class VIL_MenuViewController: UIViewController
+{
+    override var preferredStatusBarStyle: UIStatusBarStyle
+    {
+        return .default
+    }
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
