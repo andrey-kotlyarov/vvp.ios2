@@ -148,7 +148,7 @@ class VIL_LoginViewController: UIViewController
         
         
         let alertController = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
-        alertController.view.tintColor = VIM_DesignData.current.colorBG_D
+        alertController.view.tintColor = VIM_DesignData.current.colorBG
         
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(action)
@@ -158,9 +158,9 @@ class VIL_LoginViewController: UIViewController
         return
     }
     
-    private func myDidError(_ title: String, error: Error) -> Void
+    private func myDidError(_ title: String, error: Error?) -> Void
     {
-        self.myDidError(title, errorMessage: error.localizedDescription)
+        self.myDidError(title, errorMessage: error?.localizedDescription ?? "")
     }
     
     private func myLoadAuthData()
@@ -201,9 +201,10 @@ class VIL_LoginViewController: UIViewController
         
         viuRequest.addPostValue(self._txtUsername!.text!, forKey: "username")
         viuRequest.addPostValue(self._txtPassword!.text!, forKey: "pass")
-        //viuRequest.addPostValue("22", forKey: "orgid")
+        viuRequest.addPostValue("22", forKey: "orgid")
         viuRequest.addPostValue(String(VIM_DesignData.current.sizeType), forKey: "sizetype")
         
+        //DEBUG
         //print(viuRequest)
         
         let task = URLSession.shared.dataTask(
@@ -211,34 +212,89 @@ class VIL_LoginViewController: UIViewController
             completionHandler:
             {
                 (data: Data?, response: URLResponse?, error: Error?) in
-            
+                
                 //
+                // completionHandler START
                 //
                 //
                 
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self._viuActivity?.hide()
+                //DEBUG
+                //print("data: \(data)")
+                //print("response: \(response)")
+                //print("error: \(error)")
                 
-                if error != nil
+                DispatchQueue.main.async()
                 {
-                    self.myDidError("URL Error", error:error!)
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self._viuActivity?.hide()
+                    
+                    if error != nil || response == nil || data == nil
+                    {
+                        self.myDidError("URL Error", error:error)
+                        return
+                    }
+                    
+                    if (response as? HTTPURLResponse)!.statusCode / 100 != 2 || response!.mimeType != "application/json"
+                    {
+                        self.myDidError("HTTP Error", errorMessage: "HTTP error details:\nmime-type: \(response!.mimeType ?? "-")\nstatus-code: \((response as? HTTPURLResponse)!.statusCode)")
+                        return
+                    }
+                    
+                    do
+                    {
+                        let allJsonData: NSMutableDictionary = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSMutableDictionary
+                        
+                        let json_code = allJsonData["code"] as! Int
+                        let json_mess = allJsonData["mess"] as! String
+                        
+                        //DEBUG
+                        //print("JSON: \(allJsonData)")
+                        //print("JSON_code: \(json_code); JSON_mess: \(json_mess)")
+                        
+                        if json_code != 0
+                        {
+                            if json_code == 2
+                            {
+                                self._txtPassword?.text = ""
+                            }
+                            
+                            
+                            self.myDidError("API Error", errorMessage: json_mess + "\n(code = \(json_code))")
+                            return
+                        }
+                        
+                        //TODO !!!!!!!!
+                        /*
+                        let json_data = allJsonData["data"] as! NSDictionary
+                        let username = json_data["username"] as! String
+                        //let password = json_data["password"] as! String
+                        VIM_AuthData.current.updateBy(username: username, password: self._txtPassword!.text!)
+                        
+                        
+                        //self.performSegue(withIdentifier: "jeLoginToOrgs", sender: self)
+                        let vcMenu = self.storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
+                        self.present(vcMenu, animated: false, completion: nil)
+                        */
+                        
+                        
+                        
+                    }
+                    catch let jsonError as NSError
+                    {
+                        self.myDidError("JSON Error", error:(jsonError as Error))
+                        return
+                    }
+                    catch let jsonError
+                    {
+                        self.myDidError("JSON Error", error:jsonError)
+                        return
+                    }
+                    
                     return
                 }
                 
-                if response?.mimeType != "application/json__"
-                {
-                    self.myDidError("HTTP Error", errorMessage: "tetststt stststt sststst ststs ")
-                }
-                        
-                
-                
-                
-                print("data: \(data)")
-                print("response: \(response)")
-                print("error: \(error)")
-                
-                
                 //
+                // completionHandler END
                 //
                 //
             }
@@ -253,55 +309,13 @@ class VIL_LoginViewController: UIViewController
             completionHandler:{ (response: URLResponse?, data: Data?, connectionError: Error?) -> Void in
                 
          
-         
-                 
-                 let httpResponse: HTTPURLResponse = response as! HTTPURLResponse
-                 
-                 if
-                 httpResponse.statusCode / 100 != 2
-                 ||
-                 httpResponse.mimeType != "application/json"
-                 {
-                 let errorString = NSLocalizedString("HTTP Error", comment: "Error message displayed when receving a HTTP error.")
-                 
-                 let userInfo = [NSLocalizedDescriptionKey: errorString]
-                 let httpError = NSError(domain: "HTTP", code: httpResponse.statusCode, userInfo: userInfo)
-                 
-                 self.myDidError(httpError)
-                 
-                 return
-                 }
-                 
                  
                  do
                  {
-                 let allJsonData: NSMutableDictionary = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSMutableDictionary
+         
                  
-                 //print("JSON: \(allJsonData)")
-                 
-                 let json_code = allJsonData["code"] as! Int
-                 let json_mess = allJsonData["mess"] as! String
-                 
-                 if json_code != 0
-                 {
-                 
-                 let errorString = NSLocalizedString("JSON", comment: "Error message displayed when error in JSON.")
-                 
-                 let userInfo = [NSLocalizedDescriptionKey: errorString]
-                 let httpError = NSError(domain: "JSON", code: httpResponse.statusCode, userInfo: userInfo)
-                 
-                 self.myDidError(httpError)
- 
-                 let errorString = NSLocalizedString(json_mess, comment: "Error message displayed when ERROR.")
-                 
-                 let userInfo = [NSLocalizedDescriptionKey: errorString]
-                 let error = NSError(domain: "ERROR", code: httpResponse.statusCode, userInfo: userInfo)
-                 
-                 self.myDidError(error)
-                 
-                 
-                 return
-                 }
+         
+         
                  
                  //let json_data = allJsonData["data"] as! NSDictionary
                  //VIM_AuthData.current.updateBy(username: self._txtUsername!.text!, password: self._txtPassword!.text!)
@@ -316,11 +330,7 @@ class VIL_LoginViewController: UIViewController
                  let vcMenu = self.storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
                  self.present(vcMenu, animated: false, completion: nil)
                  }
-                 catch let jsonError as NSError
-                 {
-                 self.myDidError(jsonError)
-                 }
-                
+         
                 return
             }
             
