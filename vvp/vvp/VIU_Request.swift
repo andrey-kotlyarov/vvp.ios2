@@ -22,6 +22,7 @@ class VIU_Request: NSObject
         //var url: URL? = URL(string: "https://www2.jevin.net/ws/wsJevin2.aspx")
         var url: URL? = URL(string: "http://virtualvideopass.com/WebAPI/ws_1")
         
+        
         //if isLocalMode
         if VIM_UserData.current.isLocalMode()
         {

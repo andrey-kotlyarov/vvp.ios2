@@ -124,13 +124,13 @@ class VIL_LoginViewController: UIViewController
     // My Private Methods
     //
     
-    fileprivate func myHideKeyboard()
+    private func myHideKeyboard()
     {
         self._txtUsername?.resignFirstResponder()
         self._txtPassword?.resignFirstResponder()
     }
-    
-    fileprivate func myDidError(_ error: NSError)
+    /*
+    private func myDidError(_ error: NSError)
     {
         self.myHideKeyboard()
         
@@ -139,6 +139,28 @@ class VIL_LoginViewController: UIViewController
         //self._jeuAlertView?.show()
         
         return
+    }
+    */
+    
+    private func myDidError(_ title: String, errorMessage: String) -> Void
+    {
+        self.myHideKeyboard()
+        
+        
+        let alertController = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
+        alertController.view.tintColor = VIM_DesignData.current.colorBG_D
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(action)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+        return
+    }
+    
+    private func myDidError(_ title: String, error: Error) -> Void
+    {
+        self.myDidError(title, errorMessage: error.localizedDescription)
     }
     
     private func myLoadAuthData()
@@ -153,16 +175,159 @@ class VIL_LoginViewController: UIViewController
         
         
         
+        
+        
+        
+        
+        /*
         let viuRequest: VIU_Request = VIU_Request(cmd: "login")
         
         viuRequest.addPostValue(self._txtUsername!.text!, forKey: "login")
         viuRequest.addPostValue(self._txtPassword!.text!, forKey: "pass")
-        
+        */
         //debug
         //viuRequest.addPostValue(val: "2500", forKey: "_delay_")
         //print(viuRequest)
         
+        //
+        //DEBUG
+        //
+        //http://virtualvideopass.com/WebAPI/ws_1?cmd=auth&username=2&pass=3&orgid=4&sizetype=5
         
+        
+        
+        
+        let viuRequest: VIU_Request = VIU_Request(cmd: "auth")
+        
+        viuRequest.addPostValue(self._txtUsername!.text!, forKey: "username")
+        viuRequest.addPostValue(self._txtPassword!.text!, forKey: "pass")
+        //viuRequest.addPostValue("22", forKey: "orgid")
+        viuRequest.addPostValue(String(VIM_DesignData.current.sizeType), forKey: "sizetype")
+        
+        //print(viuRequest)
+        
+        let task = URLSession.shared.dataTask(
+            with: viuRequest.urlRequest(),
+            completionHandler:
+            {
+                (data: Data?, response: URLResponse?, error: Error?) in
+            
+                //
+                //
+                //
+                
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self._viuActivity?.hide()
+                
+                if error != nil
+                {
+                    self.myDidError("URL Error", error:error!)
+                    return
+                }
+                
+                if response?.mimeType != "application/json__"
+                {
+                    self.myDidError("HTTP Error", errorMessage: "tetststt stststt sststst ststs ")
+                }
+                        
+                
+                
+                
+                print("data: \(data)")
+                print("response: \(response)")
+                print("error: \(error)")
+                
+                
+                //
+                //
+                //
+            }
+        )
+        task.resume()
+        
+        
+        /*
+        NSURLConnection.sendAsynchronousRequest(
+            viuRequest.urlRequest() as URLRequest,
+            queue: OperationQueue.main,
+            completionHandler:{ (response: URLResponse?, data: Data?, connectionError: Error?) -> Void in
+                
+         
+         
+                 
+                 let httpResponse: HTTPURLResponse = response as! HTTPURLResponse
+                 
+                 if
+                 httpResponse.statusCode / 100 != 2
+                 ||
+                 httpResponse.mimeType != "application/json"
+                 {
+                 let errorString = NSLocalizedString("HTTP Error", comment: "Error message displayed when receving a HTTP error.")
+                 
+                 let userInfo = [NSLocalizedDescriptionKey: errorString]
+                 let httpError = NSError(domain: "HTTP", code: httpResponse.statusCode, userInfo: userInfo)
+                 
+                 self.myDidError(httpError)
+                 
+                 return
+                 }
+                 
+                 
+                 do
+                 {
+                 let allJsonData: NSMutableDictionary = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSMutableDictionary
+                 
+                 //print("JSON: \(allJsonData)")
+                 
+                 let json_code = allJsonData["code"] as! Int
+                 let json_mess = allJsonData["mess"] as! String
+                 
+                 if json_code != 0
+                 {
+                 
+                 let errorString = NSLocalizedString("JSON", comment: "Error message displayed when error in JSON.")
+                 
+                 let userInfo = [NSLocalizedDescriptionKey: errorString]
+                 let httpError = NSError(domain: "JSON", code: httpResponse.statusCode, userInfo: userInfo)
+                 
+                 self.myDidError(httpError)
+ 
+                 let errorString = NSLocalizedString(json_mess, comment: "Error message displayed when ERROR.")
+                 
+                 let userInfo = [NSLocalizedDescriptionKey: errorString]
+                 let error = NSError(domain: "ERROR", code: httpResponse.statusCode, userInfo: userInfo)
+                 
+                 self.myDidError(error)
+                 
+                 
+                 return
+                 }
+                 
+                 //let json_data = allJsonData["data"] as! NSDictionary
+                 //VIM_AuthData.current.updateBy(username: self._txtUsername!.text!, password: self._txtPassword!.text!)
+                 //
+                 //
+                 let username = allJsonData["data"] as! String
+                 let password = allJsonData["data"] as! String
+                 VIM_AuthData.current.updateBy(username: username, password: password)
+                 
+                 
+                 //self.performSegue(withIdentifier: "jeLoginToOrgs", sender: self)
+                 let vcMenu = self.storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
+                 self.present(vcMenu, animated: false, completion: nil)
+                 }
+                 catch let jsonError as NSError
+                 {
+                 self.myDidError(jsonError)
+                 }
+                
+                return
+            }
+            
+        )
+        */
+        
+        /*
         NSURLConnection.sendAsynchronousRequest(
             viuRequest.urlRequest() as URLRequest,
             queue: OperationQueue.main,
@@ -247,7 +412,7 @@ class VIL_LoginViewController: UIViewController
             }/* as! (URLResponse?, Data?, Error?) -> Void*/
         
         )
-        
+        */
         //NSURLConnection.sendAsynchronousRequest(<#T##request: URLRequest##URLRequest#>, queue: <#T##OperationQueue#>, completionHandler: <#T##(URLResponse?, Data?, Error?) -> Void#>)
         
         

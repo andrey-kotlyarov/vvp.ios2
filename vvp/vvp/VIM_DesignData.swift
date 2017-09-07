@@ -41,7 +41,7 @@ class VIM_DesignData: NSObject
         //
         //
         //
-        print("VIM_DesignData: init")
+        //print("VIM_DesignData: init")
     }
     
     

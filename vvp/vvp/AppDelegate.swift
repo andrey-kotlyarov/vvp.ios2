@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let _ = VIM_AuthData.current
         
         
+        
         // Override point for customization after application launch.
         return true
     }

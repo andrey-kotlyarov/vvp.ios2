@@ -44,7 +44,7 @@ class VIM_AuthData: NSObject
         //
         //
         //
-        print("VIM_AuthData: init")
+        //print("VIM_AuthData: init")
     }
     
     
