@@ -47,6 +47,21 @@ class VIL_MenuViewController: UIViewController
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    /*
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        print("Menu Controler - WILL DISAPPEAR")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool)
+    {
+        print("Menu Controler - DID  DISAPPEAR")
+    }
+    */
+    
+    
 
     override func didReceiveMemoryWarning()
     {

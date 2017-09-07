@@ -21,38 +21,122 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Streamer here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DU-3Z-4BN">
-                                <rect key="frame" x="37" y="303.5" width="300" height="60"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evU-GL-ZGo">
+                                <rect key="frame" x="0.0" y="20" width="375" height="58"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXR-3e-eFc">
+                                        <rect key="frame" x="10" y="10" width="38" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="38" id="6L1-bD-HMU"/>
+                                            <constraint firstAttribute="height" constant="38" id="ad1-se-tmt"/>
+                                        </constraints>
+                                        <state key="normal" image="btn_back_38"/>
+                                        <connections>
+                                            <action selector="btnBack_OnTouchUp:" destination="O4u-p7-5oR" eventType="touchUpInside" id="d2x-G6-ipf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqA-fQ-kxG">
+                                        <rect key="frame" x="327" y="10" width="38" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="a5x-lb-3o1"/>
+                                            <constraint firstAttribute="width" constant="38" id="yXn-wW-Itn"/>
+                                        </constraints>
+                                        <state key="normal" image="btn_mic_on_38"/>
+                                        <connections>
+                                            <action selector="btnMicOnOff_OnTouchUp:" destination="O4u-p7-5oR" eventType="touchUpInside" id="WXe-Uo-aQI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38C-nN-ZM4">
+                                        <rect key="frame" x="279" y="10" width="38" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="38" id="SFJ-5Q-RRQ"/>
+                                            <constraint firstAttribute="height" constant="38" id="eFC-ie-bLW"/>
+                                        </constraints>
+                                        <state key="normal" image="btn_flash_off_38"/>
+                                        <connections>
+                                            <action selector="btnFlashOnOff_OnTouchUp:" destination="O4u-p7-5oR" eventType="touchUpInside" id="3EX-TV-Ol7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="Xn5-Ea-RJ8"/>
-                                    <constraint firstAttribute="height" constant="60" id="r1a-BV-DCN"/>
+                                    <constraint firstItem="SXR-3e-eFc" firstAttribute="centerY" secondItem="evU-GL-ZGo" secondAttribute="centerY" id="9ds-yK-NhB"/>
+                                    <constraint firstAttribute="trailing" secondItem="KqA-fQ-kxG" secondAttribute="trailing" constant="10" id="bVF-8H-ejH"/>
+                                    <constraint firstItem="KqA-fQ-kxG" firstAttribute="leading" secondItem="38C-nN-ZM4" secondAttribute="trailing" constant="10" id="lw5-cl-s2L"/>
+                                    <constraint firstAttribute="height" constant="58" id="njw-LG-rdv"/>
+                                    <constraint firstItem="KqA-fQ-kxG" firstAttribute="centerY" secondItem="evU-GL-ZGo" secondAttribute="centerY" id="tty-n4-fL7"/>
+                                    <constraint firstItem="38C-nN-ZM4" firstAttribute="centerY" secondItem="evU-GL-ZGo" secondAttribute="centerY" id="ui4-Rk-Sw7"/>
+                                    <constraint firstItem="SXR-3e-eFc" firstAttribute="leading" secondItem="evU-GL-ZGo" secondAttribute="leading" constant="10" id="xxb-pk-vnt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGb-eh-efa">
-                                <rect key="frame" x="168" y="403.5" width="38" height="38"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8h2-ye-scO">
+                                <rect key="frame" x="0.0" y="579" width="375" height="88"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRh-6W-9gI">
+                                        <rect key="frame" x="35" y="25" width="38" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="0C2-D5-iIj"/>
+                                            <constraint firstAttribute="width" constant="38" id="SLa-el-CyB"/>
+                                        </constraints>
+                                        <state key="normal" image="btn_camera_switch_38"/>
+                                        <connections>
+                                            <action selector="btnCameraSwitch_OnTouchUp:" destination="O4u-p7-5oR" eventType="touchUpInside" id="rgk-hI-fwb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Et4-W1-EB3">
+                                        <rect key="frame" x="302" y="25" width="38" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="38" id="XdR-d9-c27"/>
+                                            <constraint firstAttribute="height" constant="38" id="cUF-iF-Wtz"/>
+                                        </constraints>
+                                        <state key="normal" image="btn_settings_38"/>
+                                        <connections>
+                                            <action selector="btnSettings_OnTouchUp:" destination="O4u-p7-5oR" eventType="touchUpInside" id="sxP-cQ-ZQC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kr2-0e-jsl">
+                                        <rect key="frame" x="153" y="10" width="68" height="68"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="68" id="24k-hS-Jdu"/>
+                                            <constraint firstAttribute="height" constant="68" id="E7R-Ct-VmO"/>
+                                        </constraints>
+                                        <state key="normal" image="btn_start_68"/>
+                                        <connections>
+                                            <action selector="btnStartStop_OnTouchUp:" destination="O4u-p7-5oR" eventType="touchUpInside" id="1GF-NR-RmB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="38" id="RKv-ye-Yhr"/>
-                                    <constraint firstAttribute="height" constant="38" id="bNo-bc-lgh"/>
+                                    <constraint firstAttribute="height" constant="88" id="3hb-3Q-gbZ"/>
+                                    <constraint firstItem="kr2-0e-jsl" firstAttribute="centerY" secondItem="8h2-ye-scO" secondAttribute="centerY" id="EWZ-yG-qpz"/>
+                                    <constraint firstItem="kr2-0e-jsl" firstAttribute="centerX" secondItem="8h2-ye-scO" secondAttribute="centerX" id="XJm-AS-WdA"/>
+                                    <constraint firstItem="vRh-6W-9gI" firstAttribute="centerY" secondItem="8h2-ye-scO" secondAttribute="centerY" id="Z1g-s4-Ke1"/>
+                                    <constraint firstAttribute="trailing" secondItem="Et4-W1-EB3" secondAttribute="trailing" constant="35" id="bGs-cD-Jhh"/>
+                                    <constraint firstItem="Et4-W1-EB3" firstAttribute="centerY" secondItem="8h2-ye-scO" secondAttribute="centerY" id="mPR-9w-I6f"/>
+                                    <constraint firstItem="vRh-6W-9gI" firstAttribute="leading" secondItem="8h2-ye-scO" secondAttribute="leading" constant="35" id="pfB-N2-sN9"/>
                                 </constraints>
-                                <state key="normal" image="btn_back_38"/>
-                                <connections>
-                                    <action selector="btnBack_OnTouchUp:" destination="O4u-p7-5oR" eventType="touchUpInside" id="GqO-qQ-UEa"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bGb-eh-efa" firstAttribute="centerX" secondItem="c8H-iZ-fPb" secondAttribute="centerX" id="1cJ-sN-0mK"/>
-                            <constraint firstItem="3DU-3Z-4BN" firstAttribute="centerX" secondItem="c8H-iZ-fPb" secondAttribute="centerX" id="aJI-Zi-CCz"/>
-                            <constraint firstItem="bGb-eh-efa" firstAttribute="top" secondItem="3DU-3Z-4BN" secondAttribute="bottom" constant="40" id="nax-lT-3jf"/>
-                            <constraint firstItem="3DU-3Z-4BN" firstAttribute="centerY" secondItem="c8H-iZ-fPb" secondAttribute="centerY" id="tFm-py-E5Z"/>
+                            <constraint firstAttribute="trailing" secondItem="evU-GL-ZGo" secondAttribute="trailing" id="4yd-hS-d8U"/>
+                            <constraint firstItem="0oj-zP-ifG" firstAttribute="top" secondItem="8h2-ye-scO" secondAttribute="bottom" id="I2C-Sf-1p1"/>
+                            <constraint firstItem="evU-GL-ZGo" firstAttribute="leading" secondItem="c8H-iZ-fPb" secondAttribute="leading" id="R0i-0J-MqH"/>
+                            <constraint firstItem="8h2-ye-scO" firstAttribute="leading" secondItem="c8H-iZ-fPb" secondAttribute="leading" id="clk-dE-gbt"/>
+                            <constraint firstItem="evU-GL-ZGo" firstAttribute="top" secondItem="OZW-Ee-fNb" secondAttribute="bottom" id="hBX-tr-oI6"/>
+                            <constraint firstAttribute="trailing" secondItem="8h2-ye-scO" secondAttribute="trailing" id="hyQ-Ae-iqp"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnBack" destination="bGb-eh-efa" id="HaI-ql-vmM"/>
+                        <outlet property="btnBack" destination="SXR-3e-eFc" id="zk2-4A-CeH"/>
+                        <outlet property="btnCameraSwitch" destination="vRh-6W-9gI" id="46t-j2-UvM"/>
+                        <outlet property="btnFlashOnOff" destination="38C-nN-ZM4" id="viJ-g1-Isb"/>
+                        <outlet property="btnMicOnOff" destination="KqA-fQ-kxG" id="GpX-8U-bZd"/>
+                        <outlet property="btnSettings" destination="Et4-W1-EB3" id="bmc-67-iMw"/>
+                        <outlet property="btnStartStop" destination="kr2-0e-jsl" id="P2O-db-AcC"/>
+                        <outlet property="viewBottom" destination="8h2-ye-scO" id="tvk-bP-YjU"/>
+                        <outlet property="viewTop" destination="evU-GL-ZGo" id="rpC-Xq-HFt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNK-0x-YOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -62,5 +146,10 @@
     </scenes>
     <resources>
         <image name="btn_back_38" width="38" height="38"/>
+        <image name="btn_camera_switch_38" width="38" height="38"/>
+        <image name="btn_flash_off_38" width="38" height="38"/>
+        <image name="btn_mic_on_38" width="38" height="38"/>
+        <image name="btn_settings_38" width="38" height="38"/>
+        <image name="btn_start_68" width="68" height="68"/>
     </resources>
 </document>

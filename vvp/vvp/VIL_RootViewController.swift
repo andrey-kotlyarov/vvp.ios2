@@ -68,8 +68,12 @@ class VIL_RootViewController: UIViewController
         self.myLoadAuthData()
         
         //DEBUG
-        let vcLogin = storyboard?.instantiateViewController(withIdentifier: "vilLogin") as! VIL_LoginViewController
-        present(vcLogin, animated: false, completion: nil)
+        //let vcLogin = storyboard?.instantiateViewController(withIdentifier: "vilLogin") as! VIL_LoginViewController
+        //present(vcLogin, animated: false, completion: nil)
+        
+        //DEBUG
+        let vcMenu = storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
+        present(vcMenu, animated: false, completion: nil)
     }
     
     override func didReceiveMemoryWarning()
