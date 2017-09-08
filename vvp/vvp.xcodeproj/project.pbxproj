@@ -26,6 +26,7 @@
 		8740CD671F60386A00BABC8C /* Stream.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8740CD661F60386A00BABC8C /* Stream.storyboard */; };
 		8740CD691F6038BE00BABC8C /* VIS_StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD681F6038BE00BABC8C /* VIS_StreamViewController.swift */; };
 		8740CD6B1F6047EB00BABC8C /* VIM_Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD6A1F6047EB00BABC8C /* VIM_Profile.swift */; };
+		87FBC6961F62D14800F479FD /* VIM_Org.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FBC6951F62D14800F479FD /* VIM_Org.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +64,7 @@
 		8740CD661F60386A00BABC8C /* Stream.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stream.storyboard; sourceTree = "<group>"; };
 		8740CD681F6038BE00BABC8C /* VIS_StreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIS_StreamViewController.swift; sourceTree = "<group>"; };
 		8740CD6A1F6047EB00BABC8C /* VIM_Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_Profile.swift; sourceTree = "<group>"; };
+		87FBC6951F62D14800F479FD /* VIM_Org.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_Org.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				8740CD601F6028CE00BABC8C /* VIM_UserData.swift */,
 				8740CD621F6028E100BABC8C /* VIM_AuthData.swift */,
 				8740CD6A1F6047EB00BABC8C /* VIM_Profile.swift */,
+				87FBC6951F62D14800F479FD /* VIM_Org.swift */,
 			);
 			name = "Model (VIM)";
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				553713AE1F608CFB00E67BC9 /* VIL_LoginTableViewCell.swift in Sources */,
 				8740CD5F1F6028B900BABC8C /* VIM_DesignData.swift in Sources */,
 				8740CD5D1F60287900BABC8C /* VIU_Request.swift in Sources */,
+				87FBC6961F62D14800F479FD /* VIM_Org.swift in Sources */,
 				8740CD531F60256A00BABC8C /* VIL_MenuViewController.swift in Sources */,
 				8740CD631F6028E100BABC8C /* VIM_AuthData.swift in Sources */,
 				8740CD391F60215200BABC8C /* AppDelegate.swift in Sources */,

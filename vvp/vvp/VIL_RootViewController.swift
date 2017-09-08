@@ -12,6 +12,8 @@ import UIKit
 
 class VIL_RootViewController: UIViewController
 {
+    fileprivate var _viuActivity: VIU_Activity?
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle
     {
@@ -42,6 +44,8 @@ class VIL_RootViewController: UIViewController
         //
         //
         //
+        
+        self._viuActivity = VIU_Activity()
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -65,11 +69,11 @@ class VIL_RootViewController: UIViewController
         */
         
         
-        self.myLoadAuthData()
+        self.myTask_Auth()
         
         //DEBUG
-        let vcLogin = storyboard?.instantiateViewController(withIdentifier: "vilLogin") as! VIL_LoginViewController
-        present(vcLogin, animated: false, completion: nil)
+        //let vcLogin = storyboard?.instantiateViewController(withIdentifier: "vilLogin") as! VIL_LoginViewController
+        //present(vcLogin, animated: false, completion: nil)
         
         //DEBUG
         //let vcMenu = storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
@@ -98,122 +102,142 @@ class VIL_RootViewController: UIViewController
     // My methods
     //
     
-    fileprivate func myDidError(_ error: NSError)
+    private func myDidError(_ title: String, errorMessage: String) -> Void
     {
-        //TODO
-        /*
-        self._jeuAlertView = JEU_AlertView(title: ""/*[error domain]*/, message: error.localizedDescription, delegate: self, cancelButtonTitle: "Retry")
-        self._jeuAlertView?.show()
-        */
+        let alertController = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
+        alertController.view.tintColor = VIM_DesignData.current.colorBG
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(action)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
         return
     }
     
-    fileprivate func myLoadAuthData()
+    private func myDidError(_ title: String, error: Error?) -> Void
     {
-        //DEBUG
-        //return
-        /*
-        if JEM_UserData.currentUserData().token == nil
-        {
-            self.performSegue(withIdentifier: "jeLaunchToLogin", sender: self)
-        }
-        else
+        self.myDidError(title, errorMessage: error?.localizedDescription ?? "")
+    }
+    
+    
+    
+    private func myTask_Auth() -> Void
+    {
+        if let token = VIM_UserData.current.token
         {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            self._jeuActivity?.showWithAlpha(0.0)
-            
-            
-            let jeuRequest: JEU_Request = JEU_Request(cmd: "getAuthData")
-            
-            jeuRequest.addPostValue(JEM_UserData.currentUserData().token!, forKey: "token")
-            jeuRequest.addPostValue(String(JEM_UserData.currentUserData().orgId), forKey: "orgid")
-            jeuRequest.addPostValue(String(JEM_Design.currentDesign().sizeType), forKey: "sizetype")
-            
-            //debug
-            //jeuRequest.addPostValue(val: "2500", forKey: "_delay_")
-            
-            
-            //
-            //
-            //
-            
-            NSURLConnection.sendAsynchronousRequest(
-                jeuRequest.urlRequest() as URLRequest,
-                queue: OperationQueue.main,
-                //completionHandler:{ (response: NSURLResponse!, data: NSData!, connectionError: NSError?) -> Void in
-                completionHandler:{ (response: URLResponse?, data: Data?, connectionError: NSError?) -> Void in
-                    
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                    self._jeuActivity?.hide()
-                    
-                    if connectionError != nil
+            self._viuActivity?.show()
+        
+            let viuRequest: VIU_Request = VIU_Request(cmd: "auth")
+        
+            viuRequest.addPostValue(token, forKey: "token")
+            viuRequest.addPostValue(String(VIM_DesignData.current.sizeType), forKey: "sizetype")
+        
+            //DEBUG
+            //viuRequest.addPostValue("2500", forKey: "_delay_")
+        
+            //DEBUG
+            //print(viuRequest)
+        
+            let task = URLSession.shared.dataTask(
+                with: viuRequest.urlRequest(),
+                completionHandler:
+                {
+                    (data: Data?, response: URLResponse?, error: Error?) in
+                
+                    //
+                    // completionHandler START
+                    //
+                    //
+                
+                    //DEBUG
+                    //print("data: \(data)")
+                    //print("response: \(response)")
+                    //print("error: \(error)")
+                
+                    DispatchQueue.main.async()
                     {
-                        self.myDidError(connectionError!)
-                        return
-                    }
-                    
-                    let httpResponse: HTTPURLResponse = response as! HTTPURLResponse
-                    
-                    if
-                        httpResponse.statusCode / 100 != 2
-                            ||
-                            httpResponse.mimeType != "application/json"
-                    {
-                        let errorString = NSLocalizedString("HTTP Error", comment: "Error message displayed when receving a HTTP error.")
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                        self._viuActivity?.hide()
                         
-                        let userInfo = [NSLocalizedDescriptionKey: errorString]
-                        let httpError = NSError(domain: "HTTP", code: httpResponse.statusCode, userInfo: userInfo)
-                        
-                        self.myDidError(httpError)
-                        
-                        return
-                    }
-                    
-                    
-                    //var jsonError: NSError?
-                    //let allJsonData: NSMutableDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError)! as NSMutableDictionary
-                    
-                    do
-                    {
-                        let allJsonData: NSMutableDictionary = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSMutableDictionary
-                        
-                        let json_code = allJsonData["code"] as! Int
-                        //let json_mess = allJsonData["mess"] as! String
-                        
-                        if json_code != 0
+                        if error != nil || response == nil || data == nil
                         {
-                            JEM_UserData.currentUserData().clearUserData()
-                            self.performSegue(withIdentifier: "jeLaunchToLogin", sender: self)
-                            
+                            self.myDidError("URL Error", error:error)
                             return
                         }
                         
-                        let json_data = allJsonData["data"] as! NSDictionary
+                        if (response as? HTTPURLResponse)!.statusCode / 100 != 2 || response!.mimeType != "application/json"
+                        {
+                            self.myDidError("HTTP Error", errorMessage: "HTTP error details:\nmime-type: \(response!.mimeType ?? "-")\nstatus-code: \((response as? HTTPURLResponse)!.statusCode)")
+                            return
+                        }
                         
+                        do
+                        {
+                            let allJsonData: NSMutableDictionary = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSMutableDictionary
+                            
+                            let json_code = allJsonData["code"] as! Int
+                            //let json_mess = allJsonData["mess"] as! String
+                            
+                            //DEBUG
+                            //print("JSON: \(allJsonData)")
+                            //print("JSON_code: \(json_code); JSON_mess: \(json_mess)")
+                            
+                            if json_code != 0
+                            {
+                                //GOTO Login ControllView
+                                let vcLogin = self.storyboard?.instantiateViewController(withIdentifier: "vilLogin") as! VIL_LoginViewController
+                                self.present(vcLogin, animated: false, completion: nil)
+                                return
+                            }
+                            
+                            
+                            
+                            let json_data = allJsonData["data"] as! NSDictionary
+                            VIM_AuthData.current.updateBy(json_data)
+                            
+                            VIM_UserData.current.token = VIM_AuthData.current.token
+                            VIM_UserData.current.orgId = VIM_AuthData.current.org?.orgId
+                            VIM_UserData.current.saveUserData()
+                            
+                            if VIM_AuthData.current.org != nil
+                            {
+                                //GOTO Menu ControllView
+                                
+                                let vcMenu = self.storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
+                                self.present(vcMenu, animated: false, completion: nil)
+                            }
+                            else
+                            {
+                                //GOTO Select Orgs ControllView
+                                //TODO
+                            }
+                            
+                        }
+                        catch let jsonError as NSError
+                        {
+                            self.myDidError("JSON Error", error:(jsonError as Error))
+                            return
+                        }
                         
-                        
-                        JEM_AuthData.currentAuthData().updateBy(json_data)
-                        
-                        JEM_UserData.currentUserData().token = JEM_AuthData.currentAuthData().token
-                        JEM_UserData.currentUserData().orgId = JEM_AuthData.currentAuthData().org!.orgId
-                        JEM_UserData.currentUserData().saveUserData()
-                        
-                        self.performSegue(withIdentifier: "jeLaunchToActions", sender: self)
-                        
+                        return
                     }
-                    catch let jsonError as NSError
-                    {
-                        self.myDidError(jsonError)
-                    }
-                    
-                    return
-                    } as! (URLResponse?, Data?, Error?) -> Void
+                
+                    //
+                    // completionHandler END
+                    //
+                    //
+                }
             )
-            
-            
-            return
+            task.resume()
         }
-        */
+        else
+        {
+            //GOTO Login ControllView
+            let vcLogin = self.storyboard?.instantiateViewController(withIdentifier: "vilLogin") as! VIL_LoginViewController
+            self.present(vcLogin, animated: false, completion: nil)
+        }
     }
 
 }

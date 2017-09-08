@@ -19,9 +19,11 @@ class VIM_UserData: NSObject
     
     private let _keyLaunchNumber = "LAUNCH_NUMBER"
     private let _keyToken = "TOKEN"
+    private let _keyOrgId = "ORG_ID"
     
     var launchNumber: Int
     var token: String?
+    var orgId: Int?
     
     
     
@@ -30,22 +32,23 @@ class VIM_UserData: NSObject
         //print("user data init - start")
         self.launchNumber = 0
         self.token = nil
+        self.orgId = nil
         
-        
-        let userDefaults = UserDefaults.standard
         
         // --- LAUNCH NUMBER ---
-        self.launchNumber = userDefaults.integer(forKey: self._keyLaunchNumber) + 1
+        self.launchNumber = UserDefaults.standard.integer(forKey: self._keyLaunchNumber) + 1
         
         // --- TOKEN ---
-        self.token = userDefaults.object(forKey: self._keyToken) as! String?
+        self.token = UserDefaults.standard.object(forKey: self._keyToken) as! String?
         
+        // --- ORG_ID ---
+        //self.orgId = userDefaults.integer(forKey: self._keyOrgId)
+        self.orgId = UserDefaults.standard.object(forKey: self._keyOrgId) as! Int?
+ 
         super.init()
         
-        //
-        //
-        //
-        print("VIM_UserData: launchNum = \(launchNumber); token = \(token ?? "-")")
+        //DEBUG
+        //print("VIM_UserData: launchNum = \(launchNumber); token = \(token ?? "[nil]"); orgId = \(orgId != nil ? String(orgId!) : "[nil]")")
         
         //SAVE DATA
         self.saveUserData()
@@ -71,6 +74,7 @@ class VIM_UserData: NSObject
         
         userDefaults.set(self.launchNumber, forKey: self._keyLaunchNumber)
         userDefaults.set(self.token, forKey: self._keyToken)
+        userDefaults.set(self.orgId, forKey: self._keyOrgId)
         
         userDefaults.synchronize()
         
@@ -96,7 +100,8 @@ class VIM_UserData: NSObject
         
         desc += "VIM_USER-DATA ("
         desc += "launchNumber = " + String(launchNumber) + "; "
-        desc += "token = " + (self.token == nil ? "[empty]" : self.token!) + "; "
+        desc += "token = " + (self.token == nil ? "[nil]" : self.token!) + "; "
+        desc += "orgId = " + (orgId != nil ? String(orgId!) : "[nil]")
         desc += ")"
         
         return desc

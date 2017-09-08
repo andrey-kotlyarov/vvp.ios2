@@ -18,11 +18,13 @@ class VIM_AuthData: NSObject
     
     var token: String?
     var profile: VIM_Profile?
-    //var org: VIM_Org?
+    var orgs: [VIM_Org]?
+    var org: VIM_Org?
+    
     //var menu: VIM_Menu?
     
-    var username: String?
-    var password: String?
+    //var username: String?
+    //var password: String?
     //var availableOrgs: [VIM_Org]?
     
     
@@ -31,11 +33,13 @@ class VIM_AuthData: NSObject
     {
         self.token = nil
         self.profile = nil
-        //self.org = nil
+        self.orgs = nil
+        self.org = nil
+        
         //self.menu = nil
         
-        self.username = nil
-        self.password = nil
+        //self.username = nil
+        //self.password = nil
         //self.availableOrgs = nil
         
         super.init()
@@ -54,6 +58,7 @@ class VIM_AuthData: NSObject
         return (self.token != nil && self.profile != nil)
     }
     
+    /*
     func updateBy(username: String, password: String)
     {
         self.token = nil;
@@ -75,21 +80,50 @@ class VIM_AuthData: NSObject
         }
         */
     }
-    
+    */
     //func updateBy(#dict: NSDictionary)
     func updateBy(_ dict: NSDictionary)
     {
-        self.username = nil
-        self.password = nil
+        //self.username = nil
+        //self.password = nil
         //self.availableOrgs = nil
         
         
         self.token = dict["token"] as! String?
         self.profile = VIM_Profile(dict: dict["profile"] as! NSDictionary)
+        self.org = nil
+        
+        
+        self.orgs = []
+        let json_org_items = dict["orgs"] as! NSArray
+        
+        for json_org_item in json_org_items
+        {
+            let org_item = VIM_Org(dict: json_org_item as! NSDictionary)
+            self.orgs?.append(org_item)
+            
+            if org_item.orgId == VIM_UserData.current.orgId
+            {
+                org = org_item
+            }
+        }
+        
+        
+        if org == nil && orgs?.count == 1
+        {
+            self.org = self.orgs?[0]
+        }
+        
+        
         //self.org = VIM_Org(dict: dict["org"] as! NSDictionary)
         //self.menu = VIM_Menu(dict: dict["menu"] as! NSDictionary)
         
-        VIM_DesignData.current.setColorsByProfile(self.profile)
+        
+        
+        //
+        //VIM_DesignData.current.setColorsByOrg(self.org)
+        //VIM_DesignData.current.setColorsByProfile(self.profile)
+        //
     }
     
     
@@ -97,8 +131,11 @@ class VIM_AuthData: NSObject
     
     func clearAuthData()
     {
-        self.token = nil;
-        self.profile = nil;
+        self.token = nil
+        self.profile = nil
+        self.orgs = nil
+        self.org = nil
+        
         //self.org = nil;
         //self.menu = nil;
         
@@ -111,7 +148,9 @@ class VIM_AuthData: NSObject
         //
         //
         
-        VIM_DesignData.current.setColorsByDefault()
+        //
+        //VIM_DesignData.current.setColorsByDefault()
+        //
     }
     
     
@@ -124,14 +163,17 @@ class VIM_AuthData: NSObject
         //desc += super.description + " - "
         
         desc += "VIM_AUTH-DATA ("
-        desc += "token = " + (self.token == nil ? "[empty]" : self.token!) + "; "
+        desc += "token = " + (self.token == nil ? "[nil]" : self.token!) + "; "
         
-        desc += "profile = " + (self.profile == nil ? "[empty]" : self.profile!.description) + "; "
-        //desc += "org = " + (self.org == nil ? "[empty]" : self.org!.description) + "; "
+        desc += "profile = " + (self.profile == nil ? "[nil]" : self.profile!.description) + "; "
+        desc += "orgs = " + (self.orgs == nil ? "[nil]" : self.orgs!.description) + "; "
+        desc += "org = " + (self.org == nil ? "[nil]" : self.org!.description) + "; "
+        
+        
         //desc += "menu = " + (self.menu == nil ? "[empty]" : self.menu!.description) + "; "
         
-        desc += "username = " + (self.username == nil ? "[empty]" : self.username!) + "; "
-        desc += "password = " + (self.password == nil ? "[empty]" : self.password!) + "; "
+        //desc += "username = " + (self.username == nil ? "[empty]" : self.username!) + "; "
+        //desc += "password = " + (self.password == nil ? "[empty]" : self.password!) + "; "
         //desc += "availableOrgs = " + (self.availableOrgs == nil ? "[empty]" : self.availableOrgs!.description) + ""
         
         desc += ")"
