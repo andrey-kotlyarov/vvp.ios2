@@ -69,15 +69,18 @@ class VIL_RootViewController: UIViewController
         */
         
         
-        self.myTask_Auth()
         
         //DEBUG
         //let vcLogin = storyboard?.instantiateViewController(withIdentifier: "vilLogin") as! VIL_LoginViewController
         //present(vcLogin, animated: false, completion: nil)
+        //return
         
         //DEBUG
-        //let vcMenu = storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
-        //present(vcMenu, animated: false, completion: nil)
+        let vcMenu = storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
+        present(vcMenu, animated: false, completion: nil)
+        return
+        
+        self.myTask_Auth()
     }
     
     override func didReceiveMemoryWarning()

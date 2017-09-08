@@ -12,6 +12,9 @@ import UIKit
 
 class VIL_MenuViewController: UIViewController
 {
+    @IBOutlet var selOrgs: UIPickerView!
+    
+    
     @IBOutlet var btnViewer: UIButton!
     @IBOutlet var btnStreamer: UIButton!
     
@@ -46,6 +49,11 @@ class VIL_MenuViewController: UIViewController
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        selOrgs.dataSource = self
+        selOrgs.delegate = self
+        
+        
     }
     
     
@@ -81,3 +89,48 @@ class VIL_MenuViewController: UIViewController
     */
 
 }
+
+
+
+extension VIL_MenuViewController: UIPickerViewDataSource
+{
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int
+    {
+        return 2
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
+        return 5
+    }
+}
+
+extension VIL_MenuViewController: UIPickerViewDelegate
+{
+    /*
+    // returns width of column and height of row for each component.
+    @available(iOS 2.0, *)
+    optional public func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat
+    
+    @available(iOS 2.0, *)
+    optional public func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat
+    
+    
+    // these methods return either a plain NSString, a NSAttributedString, or a view (e.g UILabel) to display the row for the component.
+    // for the view versions, we cache any hidden and thus unused views and pass them back for reuse.
+    // If you return back a different object, the old one will be released. the view will be centered in the row rect
+    @available(iOS 2.0, *)
+    optional public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    
+    @available(iOS 6.0, *)
+    optional public func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? // attributed title is favored if both methods are implemented
+    
+    @available(iOS 2.0, *)
+    optional public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
+    
+    
+    @available(iOS 2.0, *)
+    optional public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    */
+}
+

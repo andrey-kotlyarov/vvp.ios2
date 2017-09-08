@@ -164,49 +164,51 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                                     <constraint firstAttribute="height" constant="30" id="soV-XI-WxD"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfP-dl-JWU">
-                                <rect key="frame" x="107" y="148" width="160" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="M8P-Pu-sHe"/>
-                                    <constraint firstAttribute="width" constant="160" id="RON-6V-Yjl"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfP-dl-JWU">
+                                <rect key="frame" x="107" y="406" width="160" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Viewer"/>
                                 <connections>
                                     <action selector="btnViewer_OnTouchUp:" destination="kgw-jl-9xr" eventType="touchUpInside" id="q2c-QZ-rvY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-fJ-GpW">
-                                <rect key="frame" x="107" y="270" width="160" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="G8v-Yw-aDB"/>
-                                    <constraint firstAttribute="height" constant="32" id="nO9-VP-38J"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-fJ-GpW">
+                                <rect key="frame" x="107" y="495" width="160" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Streamer"/>
                                 <connections>
                                     <action selector="btnStreamer_OnTouchUp:" destination="kgw-jl-9xr" eventType="touchUpInside" id="MpY-ks-FDg"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nd6-ZX-zp0">
+                                <rect key="frame" x="0.0" y="182" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Organization" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3NP-z5-TjZ">
+                                <rect key="frame" x="0.0" y="117" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fYa-fJ-GpW" firstAttribute="top" secondItem="EfP-dl-JWU" secondAttribute="bottom" constant="90" id="IAA-dR-Nl0"/>
                             <constraint firstItem="Q15-xn-GgW" firstAttribute="top" secondItem="n44-2i-WDZ" secondAttribute="bottom" constant="8" id="No4-T2-EZD"/>
-                            <constraint firstItem="EfP-dl-JWU" firstAttribute="centerX" secondItem="gFJ-CL-Hd4" secondAttribute="centerX" id="XCh-mX-xdk"/>
-                            <constraint firstItem="fYa-fJ-GpW" firstAttribute="centerX" secondItem="gFJ-CL-Hd4" secondAttribute="centerX" id="hpu-NO-ovV"/>
-                            <constraint firstItem="EfP-dl-JWU" firstAttribute="top" secondItem="Q15-xn-GgW" secondAttribute="bottom" constant="90" id="mvR-YJ-fya"/>
                             <constraint firstItem="Q15-xn-GgW" firstAttribute="centerX" secondItem="gFJ-CL-Hd4" secondAttribute="centerX" id="nV4-sy-kZ0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnStreamer" destination="fYa-fJ-GpW" id="S7P-kh-BQg"/>
                         <outlet property="btnViewer" destination="EfP-dl-JWU" id="A58-D8-Ovr"/>
+                        <outlet property="selOrgs" destination="Nd6-ZX-zp0" id="pXQ-0H-ynG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPA-OJ-jLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1538" y="170"/>
+            <point key="canvasLocation" x="1536.8" y="169.56521739130437"/>
         </scene>
     </scenes>
     <resources>
