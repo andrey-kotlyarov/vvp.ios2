@@ -13,7 +13,7 @@ import UIKit
 class VIL_LoginViewController: UIViewController
 {
     @IBOutlet var tblLogin: UITableView!
-    @IBOutlet var btnSignin: UIButton!
+    @IBOutlet var btnLogin: UIButton!
     
     
     fileprivate var _viuActivity: VIU_Activity?
@@ -23,7 +23,7 @@ class VIL_LoginViewController: UIViewController
     
     
     
-    @IBAction func btnSignin_OnTouchUp(_ sender: Any)
+    @IBAction func btnLogin_OnTouchUp(_ sender: Any)
     {
         self.myTask_Login()
     }
@@ -80,10 +80,10 @@ class VIL_LoginViewController: UIViewController
         
         
         //BTN SIGN IN
-        self.btnSignin.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
-        self.btnSignin.layer.cornerRadius = 4.0;
-        self.btnSignin.layer.masksToBounds = true;
-        self.btnSignin.clipsToBounds = true;
+        self.btnLogin.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
+        self.btnLogin.layer.cornerRadius = 4.0;
+        self.btnLogin.layer.masksToBounds = true;
+        self.btnLogin.clipsToBounds = true;
         
         _txtUsername = nil;
         _txtPassword = nil;
@@ -237,18 +237,26 @@ class VIL_LoginViewController: UIViewController
                         VIM_UserData.current.orgId = VIM_AuthData.current.org?.orgId
                         VIM_UserData.current.saveUserData()
                         
+                        
+                        let vcMenu = self.storyboard?.instantiateViewController(withIdentifier: "vilNavMenu") as! VIL_MenuNavController
+                        self.present(vcMenu, animated: false, completion: nil)
+                        
+                        /*
                         if VIM_AuthData.current.org != nil
                         {
                             //GOTO Menu ControllView
                             
-                            let vcMenu = self.storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
-                            self.present(vcMenu, animated: false, completion: nil)
+                         
+                            
+                            //let vcMenu = self.storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
+                            //self.present(vcMenu, animated: false, completion: nil)
                         }
                         else
                         {
                             //GOTO Select Orgs ControllView
                             //TODO
                         }
+                        */
                     }
                     catch let jsonError as NSError
                     {

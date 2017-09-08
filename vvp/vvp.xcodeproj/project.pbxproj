@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		553713AE1F608CFB00E67BC9 /* VIL_LoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553713AD1F608CFB00E67BC9 /* VIL_LoginTableViewCell.swift */; };
 		553713B01F60A9A300E67BC9 /* VIU_Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553713AF1F60A9A300E67BC9 /* VIU_Activity.swift */; };
+		55724B9C1F631D7C00BCE6EE /* VIL_MenuNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55724B9B1F631D7C00BCE6EE /* VIL_MenuNavController.swift */; };
+		55724B9E1F631E6D00BCE6EE /* UI_MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55724B9D1F631E6D00BCE6EE /* UI_MenuTableViewController.swift */; };
+		55724BA01F631F6A00BCE6EE /* UI_MenuOrgTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55724B9F1F631F6A00BCE6EE /* UI_MenuOrgTableViewController.swift */; };
 		8740CD391F60215200BABC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD381F60215200BABC8C /* AppDelegate.swift */; };
 		8740CD3E1F60215300BABC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8740CD3C1F60215300BABC8C /* Main.storyboard */; };
 		8740CD401F60215300BABC8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8740CD3F1F60215300BABC8C /* Assets.xcassets */; };
 		8740CD431F60215300BABC8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8740CD411F60215300BABC8C /* LaunchScreen.storyboard */; };
 		8740CD4F1F60252A00BABC8C /* VIL_RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD4E1F60252A00BABC8C /* VIL_RootViewController.swift */; };
 		8740CD511F60255000BABC8C /* VIL_LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD501F60255000BABC8C /* VIL_LoginViewController.swift */; };
-		8740CD531F60256A00BABC8C /* VIL_MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD521F60256A00BABC8C /* VIL_MenuViewController.swift */; };
 		8740CD541F60263500BABC8C /* WowzaGoCoderSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8740CD4C1F60246A00BABC8C /* WowzaGoCoderSDK.framework */; };
 		8740CD551F60263500BABC8C /* WowzaGoCoderSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8740CD4C1F60246A00BABC8C /* WowzaGoCoderSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8740CD5B1F60285200BABC8C /* VIU_Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD5A1F60285200BABC8C /* VIU_Color.swift */; };
@@ -46,6 +48,9 @@
 /* Begin PBXFileReference section */
 		553713AD1F608CFB00E67BC9 /* VIL_LoginTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_LoginTableViewCell.swift; sourceTree = "<group>"; };
 		553713AF1F60A9A300E67BC9 /* VIU_Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIU_Activity.swift; sourceTree = "<group>"; };
+		55724B9B1F631D7C00BCE6EE /* VIL_MenuNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_MenuNavController.swift; sourceTree = "<group>"; };
+		55724B9D1F631E6D00BCE6EE /* UI_MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI_MenuTableViewController.swift; sourceTree = "<group>"; };
+		55724B9F1F631F6A00BCE6EE /* UI_MenuOrgTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI_MenuOrgTableViewController.swift; sourceTree = "<group>"; };
 		8740CD351F60215200BABC8C /* vvp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vvp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8740CD381F60215200BABC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8740CD3D1F60215300BABC8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,7 +60,6 @@
 		8740CD4C1F60246A00BABC8C /* WowzaGoCoderSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WowzaGoCoderSDK.framework; sourceTree = "<group>"; };
 		8740CD4E1F60252A00BABC8C /* VIL_RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_RootViewController.swift; sourceTree = "<group>"; };
 		8740CD501F60255000BABC8C /* VIL_LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_LoginViewController.swift; sourceTree = "<group>"; };
-		8740CD521F60256A00BABC8C /* VIL_MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_MenuViewController.swift; sourceTree = "<group>"; };
 		8740CD5A1F60285200BABC8C /* VIU_Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIU_Color.swift; sourceTree = "<group>"; };
 		8740CD5C1F60287900BABC8C /* VIU_Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIU_Request.swift; sourceTree = "<group>"; };
 		8740CD5E1F6028B900BABC8C /* VIM_DesignData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_DesignData.swift; sourceTree = "<group>"; };
@@ -127,7 +131,9 @@
 				8740CD4E1F60252A00BABC8C /* VIL_RootViewController.swift */,
 				8740CD501F60255000BABC8C /* VIL_LoginViewController.swift */,
 				553713AD1F608CFB00E67BC9 /* VIL_LoginTableViewCell.swift */,
-				8740CD521F60256A00BABC8C /* VIL_MenuViewController.swift */,
+				55724B9B1F631D7C00BCE6EE /* VIL_MenuNavController.swift */,
+				55724B9D1F631E6D00BCE6EE /* UI_MenuTableViewController.swift */,
+				55724B9F1F631F6A00BCE6EE /* UI_MenuOrgTableViewController.swift */,
 			);
 			name = "VIL (Main, Login, Launch)";
 			sourceTree = "<group>";
@@ -260,12 +266,14 @@
 				8740CD4F1F60252A00BABC8C /* VIL_RootViewController.swift in Sources */,
 				8740CD691F6038BE00BABC8C /* VIS_StreamViewController.swift in Sources */,
 				553713AE1F608CFB00E67BC9 /* VIL_LoginTableViewCell.swift in Sources */,
+				55724BA01F631F6A00BCE6EE /* UI_MenuOrgTableViewController.swift in Sources */,
 				8740CD5F1F6028B900BABC8C /* VIM_DesignData.swift in Sources */,
 				8740CD5D1F60287900BABC8C /* VIU_Request.swift in Sources */,
 				87FBC6961F62D14800F479FD /* VIM_Org.swift in Sources */,
-				8740CD531F60256A00BABC8C /* VIL_MenuViewController.swift in Sources */,
 				8740CD631F6028E100BABC8C /* VIM_AuthData.swift in Sources */,
+				55724B9E1F631E6D00BCE6EE /* UI_MenuTableViewController.swift in Sources */,
 				8740CD391F60215200BABC8C /* AppDelegate.swift in Sources */,
+				55724B9C1F631D7C00BCE6EE /* VIL_MenuNavController.swift in Sources */,
 				8740CD511F60255000BABC8C /* VIL_LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

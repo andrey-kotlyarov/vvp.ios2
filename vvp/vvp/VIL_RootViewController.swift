@@ -70,15 +70,26 @@ class VIL_RootViewController: UIViewController
         
         
         
-        //DEBUG
+        //DEBUG - to login
         //let vcLogin = storyboard?.instantiateViewController(withIdentifier: "vilLogin") as! VIL_LoginViewController
         //present(vcLogin, animated: false, completion: nil)
         //return
+        //return
         
-        //DEBUG
-        let vcMenu = storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
-        present(vcMenu, animated: false, completion: nil)
-        return
+        //DEBUG - to menu
+        //let vcMenu = self.storyboard?.instantiateViewController(withIdentifier: "vilNavMenu") as! VIL_MenuNavController
+        //self.present(vcMenu, animated: false, completion: nil)
+        //return
+        //return
+            
+        
+        //DEBUG - to stream
+        //let sb = UIStoryboard.init(name: "Stream", bundle: nil)
+        //let vcStream = sb.instantiateViewController(withIdentifier: "visStream") as! VIS_StreamViewController
+        //present(vcStream, animated: true, completion: nil)
+        //return
+        //return
+        
         
         self.myTask_Auth()
     }
@@ -208,8 +219,11 @@ class VIL_RootViewController: UIViewController
                             {
                                 //GOTO Menu ControllView
                                 
-                                let vcMenu = self.storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
+                                let vcMenu = self.storyboard?.instantiateViewController(withIdentifier: "vilNavMenu") as! VIL_MenuNavController
                                 self.present(vcMenu, animated: false, completion: nil)
+                                
+                                //let vcMenu = self.storyboard?.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
+                                //self.present(vcMenu, animated: false, completion: nil)
                             }
                             else
                             {

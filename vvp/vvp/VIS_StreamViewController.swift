@@ -410,10 +410,15 @@ class VIS_StreamViewController: UIViewController
         
         
         //dismiss(animated: true, completion: nil)
-        let sb = UIStoryboard.init(name: "Main", bundle: nil)
-        let vcMenu = sb.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
         
-        present(vcMenu, animated: true, completion: nil)
+        //let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        //let vcMenu = sb.instantiateViewController(withIdentifier: "vilMenu") as! VIL_MenuViewController
+        //present(vcMenu, animated: true, completion: nil)
+        
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let vcMenu = sb.instantiateViewController(withIdentifier: "vilNavMenu") as! VIL_MenuNavController
+        self.present(vcMenu, animated: false, completion: nil)
+        
     }
     
     
