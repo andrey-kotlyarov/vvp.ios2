@@ -135,7 +135,7 @@ class VIL_LoginViewController: UIViewController
         
         
         let alertController = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
-        alertController.view.tintColor = VIM_DesignData.current.colorBG
+        alertController.view.tintColor = VIM_DesignData.current.colorTint
         
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(action)
@@ -346,6 +346,11 @@ extension VIL_LoginViewController: UITableViewDataSource
 
 extension VIL_LoginViewController: UITableViewDelegate
 {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 44.0

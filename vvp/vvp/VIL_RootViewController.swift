@@ -119,7 +119,7 @@ class VIL_RootViewController: UIViewController
     private func myDidError(_ title: String, errorMessage: String) -> Void
     {
         let alertController = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
-        alertController.view.tintColor = VIM_DesignData.current.colorBG
+        alertController.view.tintColor = VIM_DesignData.current.colorTint
         
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(action)

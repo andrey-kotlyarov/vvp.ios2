@@ -145,7 +145,7 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
             </objects>
             <point key="canvasLocation" x="810" y="170"/>
         </scene>
-        <!--Menu-->
+        <!--VVP Menu-->
         <scene sceneID="UPK-c7-k6C">
             <objects>
                 <tableViewController storyboardIdentifier="vilMenu" id="Ddt-ab-jRs" customClass="UI_MenuTableViewController" customModule="vvp" customModuleProvider="target" sceneMemberID="viewController">
@@ -168,7 +168,7 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                             <outlet property="delegate" destination="Ddt-ab-jRs" id="6JK-Cr-zgx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Menu" id="rrm-pz-uRF"/>
+                    <navigationItem key="navigationItem" title="VVP Menu" id="rrm-pz-uRF"/>
                     <connections>
                         <segue destination="8Js-Ql-p8v" kind="show" identifier="vilMenuToProfile" id="rc1-2H-V9k"/>
                         <segue destination="SDU-mM-tEG" kind="show" identifier="vilMenuToOrg" id="imT-Lb-YKo"/>
@@ -191,7 +191,7 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OPV-p4-Fzz" id="nLj-gG-sHJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

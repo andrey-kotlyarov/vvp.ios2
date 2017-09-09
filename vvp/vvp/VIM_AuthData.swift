@@ -108,10 +108,9 @@ class VIM_AuthData: NSObject
             }
         }
         
-        
-        if org == nil && orgs?.count == 1
+        if org == nil && orgs != nil && orgs!.count > 0
         {
-            self.org = self.orgs?[0]
+            self.org = self.orgs![0]
         }
         
         

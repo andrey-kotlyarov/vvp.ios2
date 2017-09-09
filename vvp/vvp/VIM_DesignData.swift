@@ -21,7 +21,7 @@ class VIM_DesignData: NSObject
     
     let colorLogo: UIColor
     let colorRed: UIColor
-    
+    let colorTint: UIColor
     
     
     override private init()
@@ -34,6 +34,7 @@ class VIM_DesignData: NSObject
         
         self.colorLogo = VIU_Color.colorFromHexString(hex: "#ff8400")!
         self.colorRed = VIU_Color.colorFromHexString(hex: "#e71a1a")!
+        self.colorTint = VIU_Color.colorFromHexString(hex: "#0e608f")!
         
         
         super.init()
@@ -80,6 +81,8 @@ class VIM_DesignData: NSObject
         
         desc += "colorLogo = " + self.colorLogo.description + "; "
         desc += "colorRed = " + self.colorRed.description + "; "
+        desc += "colorTint = " + self.colorTint.description + "; "
+        
         
         //desc += "locale = " + self.locale.description + "; "
         //desc += "dateFormatterLong = " + self.dateFormatterLong.description + "; "

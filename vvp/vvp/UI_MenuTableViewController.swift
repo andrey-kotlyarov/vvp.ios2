@@ -22,8 +22,15 @@ class UI_MenuTableViewController: UITableViewController
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         
-        tableView.tintColor = VIM_DesignData.current.colorRed
+        tableView.tintColor = VIM_DesignData.current.colorTint
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        self.tableView.reloadData()
+    }
+    
 
     override func didReceiveMemoryWarning()
     {
@@ -68,8 +75,11 @@ class UI_MenuTableViewController: UITableViewController
         
         if indexPath.section == 0
         {
-            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-            cell.textLabel?.text = "Organization"
+            //cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            //cell.textLabel?.text = "Organization"
+            
+            cell.accessoryType = (VIM_AuthData.current.orgs!.count > 1 ? UITableViewCellAccessoryType.disclosureIndicator : UITableViewCellAccessoryType.none)
+            cell.textLabel?.text = "Organization: " + (VIM_AuthData.current.org?.name ?? "")
         }
         
         if indexPath.section == 1
@@ -145,6 +155,36 @@ class UI_MenuTableViewController: UITableViewController
     
     
     
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath)
+    {
+        if indexPath.row == 0
+        {
+            //"Viewer"
+            let alertController = UIAlertController(title: "VVP VIEWER", message: "About Virtual Video Pass Viewer", preferredStyle: .alert)
+            alertController.view.tintColor = VIM_DesignData.current.colorTint
+            
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(action)
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        if indexPath.row == 1
+        {
+            //"Streamer"
+            let alertController = UIAlertController(title: "VVP STREAMER", message: "About Virtual Video Pass Streamer", preferredStyle: .alert)
+            alertController.view.tintColor = VIM_DesignData.current.colorTint
+            
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(action)
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+        
+    }
+    
+    
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -187,6 +227,9 @@ class UI_MenuTableViewController: UITableViewController
     {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        //DEBUG
+        //print("S1: " + segue.identifier!)
     }
     
 
