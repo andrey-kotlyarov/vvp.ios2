@@ -8,8 +8,16 @@
 
 import UIKit
 
-class UI_MenuTableViewController: UITableViewController
+
+
+class VIL_MenuTableViewController: UITableViewController
 {
+    
+    
+    
+    
+    
+    
 
     override func viewDidLoad()
     {
@@ -53,11 +61,9 @@ class UI_MenuTableViewController: UITableViewController
         switch section
         {
             case 0:
-                rowsCount = 1
-            case 1:
                 rowsCount = 2
-            case 2:
-                rowsCount = 1
+            case 1:
+                rowsCount = 3
             default:
                 rowsCount = 0
         }
@@ -69,21 +75,29 @@ class UI_MenuTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
-        cell.textLabel?.text = ""
         
-        
-        if indexPath.section == 0
+        if indexPath.section == 0 && indexPath.row == 0
         {
-            //cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-            //cell.textLabel?.text = "Organization"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MenuProfileCell", for: indexPath) as! VIL_MenuProfileTableViewCell
+            
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            cell.myUpdateCell(profile: VIM_AuthData.current.profile!)
+            
+            return cell
+        }
+        else if indexPath.section == 0 && indexPath.row == 1
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
             
             cell.accessoryType = (VIM_AuthData.current.orgs!.count > 1 ? UITableViewCellAccessoryType.disclosureIndicator : UITableViewCellAccessoryType.none)
             cell.textLabel?.text = "Organization: " + (VIM_AuthData.current.org?.name ?? "")
+            
+            return cell
         }
-        
-        if indexPath.section == 1
+        else
         {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
+            
             cell.accessoryType = UITableViewCellAccessoryType.detailButton
             
             if indexPath.row == 0
@@ -94,16 +108,71 @@ class UI_MenuTableViewController: UITableViewController
             {
                 cell.textLabel?.text = "Streamer"
             }
+            if indexPath.row == 2
+            {
+                cell.accessoryType = UITableViewCellAccessoryType.none
+                cell.textLabel?.text = "Other"
+            }
+            
+            return cell
+        }
+    }
+    
+    
+    
+    
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        if indexPath.section == 0 && indexPath.row == 0
+        {
+            return 72.0
         }
         
-        if indexPath.section == 2
+        return 44.0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        if indexPath.section == 0 && indexPath.row == 0
         {
-            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-            cell.textLabel?.text = "Profile"
+            return 72.0
         }
-        // Configure the cell...
-
-        return cell
+        
+        return 44.0
+    }
+    
+    /*
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        let label = UILabel()
+        label.text = "HEADER \(section)"
+        
+        
+        return label
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    {
+        let label = UILabel()
+        label.text = "FOOTER \(section)"
+        
+        
+        return label
+    }
+    */
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        if section == 0
+        {
+            return "PROFILE"
+        }
+        if section == 1
+        {
+            return "ACTIONS"
+        }
+        
+        return ""
     }
  
 
@@ -157,7 +226,7 @@ class UI_MenuTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath)
     {
-        if indexPath.row == 0
+        if indexPath.section == 1 && indexPath.row == 0
         {
             //"Viewer"
             let alertController = UIAlertController(title: "VVP VIEWER", message: "About Virtual Video Pass Viewer", preferredStyle: .alert)
@@ -169,7 +238,7 @@ class UI_MenuTableViewController: UITableViewController
             self.present(alertController, animated: true, completion: nil)
             
         }
-        if indexPath.row == 1
+        if indexPath.section == 1 && indexPath.row == 1
         {
             //"Streamer"
             let alertController = UIAlertController(title: "VVP STREAMER", message: "About Virtual Video Pass Streamer", preferredStyle: .alert)
@@ -192,7 +261,12 @@ class UI_MenuTableViewController: UITableViewController
         tableView.deselectRow(at: indexPath, animated: true)
         
         
-        if indexPath.section == 0
+        if indexPath.section == 0 && indexPath.row == 0
+        {
+            performSegue(withIdentifier: "vilMenuToProfile", sender: self)
+        }
+        
+        if indexPath.section == 0 && indexPath.row == 1
         {
             performSegue(withIdentifier: "vilMenuToOrg", sender: self)
         }
@@ -211,12 +285,14 @@ class UI_MenuTableViewController: UITableViewController
                 let vcStream = sb.instantiateViewController(withIdentifier: "visStream") as! VIS_StreamViewController
                 self.present(vcStream, animated: true, completion: nil)
             }
+            
+            if indexPath.row == 2
+            {
+                
+            }
         }
         
-        if indexPath.section == 2
-        {
-            performSegue(withIdentifier: "vilMenuToProfile", sender: self)
-        }
+        
     }
 
     

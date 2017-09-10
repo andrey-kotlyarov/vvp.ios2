@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UI_MenuOrgTableViewController: UITableViewController
+class VIL_MenuOrgTableViewController: UITableViewController
 {
     
     private var _checkedCellOrg: UITableViewCell?
@@ -30,6 +30,15 @@ class UI_MenuOrgTableViewController: UITableViewController
         
         self.navigationItem.title = "Organization"
         
+        let btnBack = UIBarButtonItem(title: "< VVPass", style: .plain, target: self, action: #selector(btnNavBack))
+        //btnBack.style = .
+        self.navigationItem.leftBarButtonItem = btnBack
+        
+    }
+    
+    func btnNavBack()
+    {
+        self.navigationController?.popViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning()

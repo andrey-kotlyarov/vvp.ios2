@@ -145,10 +145,10 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
             </objects>
             <point key="canvasLocation" x="810" y="170"/>
         </scene>
-        <!--VVP Menu-->
+        <!--Virtual Video Pass-->
         <scene sceneID="UPK-c7-k6C">
             <objects>
-                <tableViewController storyboardIdentifier="vilMenu" id="Ddt-ab-jRs" customClass="UI_MenuTableViewController" customModule="vvp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="vilMenu" id="Ddt-ab-jRs" customClass="VIL_MenuTableViewController" customModule="vvp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="4u9-JL-Y2N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,13 +162,41 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuProfileCell" rowHeight="72" id="kA2-vA-l8Z" customClass="VIL_MenuProfileTableViewCell" customModule="vvp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="100" width="375" height="72"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kA2-vA-l8Z" id="4K4-Be-ua4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FirstName LastName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psu-kP-rRI">
+                                            <rect key="frame" x="21" y="9" width="300" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKO-ih-nd2">
+                                            <rect key="frame" x="21" y="40" width="300" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lblFullName" destination="psu-kP-rRI" id="JC0-bs-AfK"/>
+                                    <outlet property="lblNickname" destination="PKO-ih-nd2" id="Cat-mb-MHS"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Ddt-ab-jRs" id="N4h-Of-P7S"/>
                             <outlet property="delegate" destination="Ddt-ab-jRs" id="6JK-Cr-zgx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="VVP Menu" id="rrm-pz-uRF"/>
+                    <navigationItem key="navigationItem" title="Virtual Video Pass" id="rrm-pz-uRF"/>
                     <connections>
                         <segue destination="8Js-Ql-p8v" kind="show" identifier="vilMenuToProfile" id="rc1-2H-V9k"/>
                         <segue destination="SDU-mM-tEG" kind="show" identifier="vilMenuToOrg" id="imT-Lb-YKo"/>
@@ -176,12 +204,12 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUN-Ia-Hk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1550" y="834"/>
+            <point key="canvasLocation" x="1549.5999999999999" y="833.43328335832086"/>
         </scene>
         <!--Menu Org Table View Controller-->
         <scene sceneID="BmS-c2-l4v">
             <objects>
-                <tableViewController storyboardIdentifier="vilMenuOrg" id="SDU-mM-tEG" customClass="UI_MenuOrgTableViewController" customModule="vvp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="vilMenuOrg" id="SDU-mM-tEG" customClass="VIL_MenuOrgTableViewController" customModule="vvp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ed2-uz-SYh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -191,7 +219,7 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OPV-p4-Fzz" id="nLj-gG-sHJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

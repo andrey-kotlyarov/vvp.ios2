@@ -33,7 +33,7 @@ class VIM_DesignData: NSObject
         self.colorBG_D = VIU_Color.colorFromHexString(hex: "#0d405f")!
         
         self.colorLogo = VIU_Color.colorFromHexString(hex: "#ff8400")!
-        self.colorRed = VIU_Color.colorFromHexString(hex: "#e71a1a")!
+        self.colorRed  = VIU_Color.colorFromHexString(hex: "#e71a1a")!
         self.colorTint = VIU_Color.colorFromHexString(hex: "#0e608f")!
         
         
