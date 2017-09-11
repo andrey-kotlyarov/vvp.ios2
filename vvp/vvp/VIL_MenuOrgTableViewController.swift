@@ -11,8 +11,8 @@ import UIKit
 class VIL_MenuOrgTableViewController: UITableViewController
 {
     
-    private var _checkedCellOrg: UITableViewCell?
-    private var _checkedOrg: VIM_Org?
+    //private var _checkedCellOrg: UITableViewCell?
+    //private var _checkedOrg: VIM_Org?
     
     
     
@@ -30,9 +30,9 @@ class VIL_MenuOrgTableViewController: UITableViewController
         
         self.navigationItem.title = "Organization"
         
-        let btnBack = UIBarButtonItem(title: "< VVPass", style: .plain, target: self, action: #selector(btnNavBack))
-        //btnBack.style = .
-        self.navigationItem.leftBarButtonItem = btnBack
+        //let btnBack = UIBarButtonItem(title: "< VVPass", style: .plain, target: self, action: #selector(btnNavBack))
+        ////btnBack.style = .done
+        //self.navigationItem.leftBarButtonItem = btnBack
         
     }
     
@@ -78,8 +78,8 @@ class VIL_MenuOrgTableViewController: UITableViewController
         {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
             
-            self._checkedOrg = VIM_AuthData.current.org
-            self._checkedCellOrg = cell
+            //self._checkedOrg = VIM_AuthData.current.org
+            //self._checkedCellOrg = cell
             
         }
         else
@@ -138,60 +138,12 @@ class VIL_MenuOrgTableViewController: UITableViewController
     {
         self.tableView.deselectRow(at: indexPath, animated: true)
         
-        
-        self._checkedCellOrg?.accessoryType = UITableViewCellAccessoryType.none
-        
-        self._checkedCellOrg = self.tableView.cellForRow(at: indexPath)
-        self._checkedOrg = VIM_AuthData.current.orgs![indexPath.row]
-        
-        self._checkedCellOrg?.accessoryType = UITableViewCellAccessoryType.checkmark
-        
-        
-        VIM_AuthData.current.org = self._checkedOrg
-        VIM_UserData.current.orgId = self._checkedOrg?.orgId
+        VIM_AuthData.current.org = VIM_AuthData.current.orgs![indexPath.row]
+        VIM_UserData.current.orgId = VIM_AuthData.current.orgs![indexPath.row].orgId
         VIM_UserData.current.saveUserData()
+        tableView.reloadData()
         
-        
-        
-        //[self.navigationController popViewControllerAnimated:YES]
         self.navigationController?.popViewController(animated: true)
-        
-        //UPDATE Menu Comtroller ...
-        //AND
-        //GO to Menu Controller
-        
-        // GO TO LOGIN???
-        //self.dismiss(animated: true, completion: nil)
-        
-        
-        //self.dismiss(animated: true, completion: nil)
-        /*
-        if indexPath.section == 0
-        {
-            performSegue(withIdentifier: "vilMenuToOrg", sender: self)
-        }
-        
-        if indexPath.section == 1
-        {
-            
-            if indexPath.row == 0
-            {
-                //TODO
-            }
-            if indexPath.row == 1
-            {
-                //TODO
-                let sb = UIStoryboard.init(name: "Stream", bundle: nil)
-                let vcStream = sb.instantiateViewController(withIdentifier: "visStream") as! VIS_StreamViewController
-                self.present(vcStream, animated: true, completion: nil)
-            }
-        }
-        
-        if indexPath.section == 2
-        {
-            performSegue(withIdentifier: "vilMenuToProfile", sender: self)
-        }
-         */
     }
     
     

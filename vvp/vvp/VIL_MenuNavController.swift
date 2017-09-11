@@ -16,6 +16,25 @@ class VIL_MenuNavController: UINavigationController
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
+        
+        
+        
+        /*
+        let navbarFont = UIFont(name: "Ubuntu", size: 17) ?? UIFont.systemFontOfSize(17)
+        let barbuttonFont = UIFont(name: "Ubuntu-Light", size: 15) ?? UIFont.systemFontOfSize(15)
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: navbarFont, NSForegroundColorAttributeName:UIColor.whiteColor()]
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: barbuttonFont, NSForegroundColorAttributeName:UIColor.whiteColor()], forState: UIControlState.Normal)
+        */
+        
+        let fontNavHeader = UIFont.systemFont(ofSize: 19)
+        let fontNavButton = UIFont.systemFont(ofSize: 15)
+        
+        navigationBar.titleTextAttributes = [NSFontAttributeName: fontNavHeader]
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: fontNavButton], for: UIControlState.normal)
+        
         navigationBar.tintColor = VIM_DesignData.current.colorTint
     }
 

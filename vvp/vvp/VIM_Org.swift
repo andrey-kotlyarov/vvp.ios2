@@ -25,6 +25,11 @@ class VIM_Org: NSObject
         return
     }
     
+    init(id: Int, name: String)
+    {
+        self.orgId = id
+        self.name = name
+    }
     
     
     override var description: String

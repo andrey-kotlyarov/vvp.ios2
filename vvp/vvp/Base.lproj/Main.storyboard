@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -145,7 +146,7 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
             </objects>
             <point key="canvasLocation" x="810" y="170"/>
         </scene>
-        <!--Virtual Video Pass-->
+        <!-- VVP-->
         <scene sceneID="UPK-c7-k6C">
             <objects>
                 <tableViewController storyboardIdentifier="vilMenu" id="Ddt-ab-jRs" customClass="VIL_MenuTableViewController" customModule="vvp" customModuleProvider="target" sceneMemberID="viewController">
@@ -166,7 +167,7 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                                 <rect key="frame" x="0.0" y="100" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kA2-vA-l8Z" id="4K4-Be-ua4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FirstName LastName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psu-kP-rRI">
@@ -196,7 +197,7 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                             <outlet property="delegate" destination="Ddt-ab-jRs" id="6JK-Cr-zgx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Virtual Video Pass" id="rrm-pz-uRF"/>
+                    <navigationItem key="navigationItem" title=" VVP" id="rrm-pz-uRF"/>
                     <connections>
                         <segue destination="8Js-Ql-p8v" kind="show" identifier="vilMenuToProfile" id="rc1-2H-V9k"/>
                         <segue destination="SDU-mM-tEG" kind="show" identifier="vilMenuToOrg" id="imT-Lb-YKo"/>
@@ -234,10 +235,10 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
             </objects>
             <point key="canvasLocation" x="2438" y="510"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu Profile View Controller-->
         <scene sceneID="rma-0Q-RHv">
             <objects>
-                <viewController storyboardIdentifier="vilMenuProfile" id="8Js-Ql-p8v" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vilMenuProfile" id="8Js-Ql-p8v" customClass="VIL_MenuProfileViewController" customModule="vvp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SEv-8Z-XKs"/>
                         <viewControllerLayoutGuide type="bottom" id="kNV-hJ-5cg"/>
@@ -245,12 +246,59 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                     <view key="view" contentMode="scaleToFill" id="vir-lS-zp5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FName LName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJz-Sd-7op">
+                                <rect key="frame" x="32" y="84" width="300" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="2Me-3l-0Wz"/>
+                                    <constraint firstAttribute="height" constant="20" id="WPe-wS-8Dt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGf-w3-5tW">
+                                <rect key="frame" x="32" y="108" width="300" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="WXU-2C-ceW"/>
+                                    <constraint firstAttribute="height" constant="19" id="tpS-E2-DKL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgL-Ec-llF">
+                                <rect key="frame" x="97.5" y="157" width="180" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="GfF-nF-Ypn"/>
+                                    <constraint firstAttribute="width" constant="180" id="JGh-ee-Nte"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <action selector="btnLogout_OnTouchUp:" destination="8Js-Ql-p8v" eventType="touchUpInside" id="HF9-MO-0OP"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zgL-Ec-llF" firstAttribute="top" secondItem="dGf-w3-5tW" secondAttribute="bottom" constant="30" id="BSh-rM-veP"/>
+                            <constraint firstItem="zgL-Ec-llF" firstAttribute="centerX" secondItem="vir-lS-zp5" secondAttribute="centerX" id="SjW-Ep-tj3"/>
+                            <constraint firstItem="FJz-Sd-7op" firstAttribute="top" secondItem="SEv-8Z-XKs" secondAttribute="bottom" constant="20" id="idP-3g-FkC"/>
+                            <constraint firstItem="dGf-w3-5tW" firstAttribute="leading" secondItem="vir-lS-zp5" secondAttribute="leadingMargin" constant="16" id="oht-B7-SVw"/>
+                            <constraint firstItem="FJz-Sd-7op" firstAttribute="leading" secondItem="vir-lS-zp5" secondAttribute="leadingMargin" constant="16" id="tJO-bW-t5Y"/>
+                            <constraint firstItem="dGf-w3-5tW" firstAttribute="top" secondItem="FJz-Sd-7op" secondAttribute="bottom" constant="4" id="xgI-od-gD2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnLogout" destination="zgL-Ec-llF" id="TNb-kg-Nby"/>
+                        <outlet property="lblFullName" destination="FJz-Sd-7op" id="EoS-fg-VtK"/>
+                        <outlet property="lblNickname" destination="dGf-w3-5tW" id="Gbz-Ui-J1f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWy-Ha-EfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2428" y="1212"/>
+            <point key="canvasLocation" x="2428" y="1211.2443778110946"/>
         </scene>
         <!--Menu Nav Controller-->
         <scene sceneID="PQX-de-JAi">

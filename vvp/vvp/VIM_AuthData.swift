@@ -107,6 +107,17 @@ class VIM_AuthData: NSObject
                 org = org_item
             }
         }
+
+
+        //DEBUG
+        /*
+        for index in 0 ..< 25
+        {
+            let org_item2 = VIM_Org(id: index + 100, name: "org \(index)")
+            self.orgs?.append(org_item2)
+        }
+        */
+        
         
         if org == nil && orgs != nil && orgs!.count > 0
         {
