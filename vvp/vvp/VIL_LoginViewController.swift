@@ -12,6 +12,7 @@ import UIKit
 
 class VIL_LoginViewController: UIViewController
 {
+    @IBOutlet var imgLogo: UIImageView!
     @IBOutlet var tblLogin: UITableView!
     @IBOutlet var btnLogin: UIButton!
     
@@ -87,8 +88,39 @@ class VIL_LoginViewController: UIViewController
         
         _txtUsername = nil;
         _txtPassword = nil;
+        
+        
+        //
+        //DEBUG
+        //
+        if VIM_UserData.current.isDebugMode()
+        {
+            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 320, height: 120))
+            //let button = UIButton(frame: imgLogo.frame)
+            button.backgroundColor = UIColor.white.withAlphaComponent(0.25)
+            button.setTitle("", for: UIControlState.normal)
+            button.addTarget(self, action: #selector(btnFillUsernamePassword_OnTouchUp), for: UIControlEvents.touchUpInside)
+            
+            self.view.addSubview(button)
+        }
     }
     
+    
+    var fillIndex = -1
+    func btnFillUsernamePassword_OnTouchUp(_ sender: Any)
+    {
+        
+        let usernames = ["admin@westeros.com", "eddard_stark@westeros.com", "jon_snow@westeros.com", "cersei_lannister@westeros.com", "tyrion_lannister@westeros.com", "daenerys_targaryen@westeros.com", "theon_greyjoy@westeros.com", "yara_greyjoy@westeros.com", "brienne_of_tarth@westeros.com", ""]
+        let passwords = ["a12345678", "eS12345678", "jS12345678", "cL12345678", "tL12345678", "dT12345678", "tG12345678", "yG12345678", "bT12345678", ""]
+        
+        
+        fillIndex = (fillIndex + 1) % usernames.count
+        
+        
+        _txtUsername?.text = usernames[fillIndex]
+        _txtPassword?.text = passwords[fillIndex]
+        
+    }
     
     
     override func viewDidLayoutSubviews()
@@ -314,12 +346,6 @@ extension VIL_LoginViewController: UITableViewDataSource
             
             self._txtUsername = cell.txtField
             self._txtUsername?.becomeFirstResponder()
-            
-            //DEBUG
-            if VIM_UserData.current.isDebugMode()
-            {
-                self._txtUsername?.text = "test@test.com"
-            }
         }
         
         if (indexPath.row == 1)
@@ -332,12 +358,6 @@ extension VIL_LoginViewController: UITableViewDataSource
             cell.txtField.isSecureTextEntry = true
             
             self._txtPassword = cell.txtField
-            
-            //DEBUG
-            if VIM_UserData.current.isDebugMode()
-            {
-                self._txtPassword?.text = "123Qwe!"
-            }
         }
  
         return cell

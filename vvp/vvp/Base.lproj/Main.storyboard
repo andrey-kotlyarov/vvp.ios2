@@ -139,6 +139,7 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                     </view>
                     <connections>
                         <outlet property="btnLogin" destination="eAQ-4y-ua3" id="QeN-Cl-WTx"/>
+                        <outlet property="imgLogo" destination="Oxm-9H-7yk" id="brD-c6-twW"/>
                         <outlet property="tblLogin" destination="l5E-N6-aob" id="oew-d3-oTy"/>
                     </connections>
                 </viewController>

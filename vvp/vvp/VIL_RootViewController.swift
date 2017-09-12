@@ -215,6 +215,8 @@ class VIL_RootViewController: UIViewController
                             VIM_UserData.current.orgId = VIM_AuthData.current.org?.orgId
                             VIM_UserData.current.saveUserData()
                             
+                            
+                            /*
                             if VIM_AuthData.current.org != nil
                             {
                                 //GOTO Menu ControllView
@@ -227,9 +229,16 @@ class VIL_RootViewController: UIViewController
                             }
                             else
                             {
+                                
+                                
                                 //GOTO Select Orgs ControllView
                                 //TODO
                             }
+                            */
+                            
+                            let vcMenu = self.storyboard?.instantiateViewController(withIdentifier: "vilNavMenu") as! VIL_MenuNavController
+                            self.present(vcMenu, animated: false, completion: nil)
+                            
                             
                         }
                         catch let jsonError as NSError
