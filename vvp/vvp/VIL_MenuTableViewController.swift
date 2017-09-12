@@ -98,14 +98,16 @@ class VIL_MenuTableViewController: UITableViewController
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
             
-            cell.accessoryType = UITableViewCellAccessoryType.detailButton
+            //cell.accessoryType = UITableViewCellAccessoryType.detailButton
             
             if indexPath.row == 0
             {
+                cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton
                 cell.textLabel?.text = "Viewer"
             }
             if indexPath.row == 1
             {
+                cell.accessoryType = UITableViewCellAccessoryType.detailButton
                 cell.textLabel?.text = "Streamer"
             }
             if indexPath.row == 2
@@ -268,7 +270,10 @@ class VIL_MenuTableViewController: UITableViewController
         
         if indexPath.section == 0 && indexPath.row == 1
         {
-            performSegue(withIdentifier: "vilMenuToOrg", sender: self)
+            if VIM_AuthData.current.orgs!.count > 1
+            {
+                performSegue(withIdentifier: "vilMenuToOrg", sender: self)
+            }
         }
         
         if indexPath.section == 1
@@ -276,7 +281,7 @@ class VIL_MenuTableViewController: UITableViewController
             
             if indexPath.row == 0
             {
-                //TODO
+                performSegue(withIdentifier: "vilMenuToStreamList", sender: self)
             }
             if indexPath.row == 1
             {

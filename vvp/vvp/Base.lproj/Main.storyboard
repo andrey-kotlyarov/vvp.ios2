@@ -75,25 +75,25 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l5E-N6-aob">
-                                <rect key="frame" x="63" y="286" width="248" height="88"/>
+                                <rect key="frame" x="55" y="286" width="264" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="QLd-4A-8DR"/>
-                                    <constraint firstAttribute="width" constant="248" id="vHu-Te-O0a"/>
+                                    <constraint firstAttribute="width" constant="264" id="vHu-Te-O0a"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginCell" id="ceF-F0-Jpy" customClass="VIL_LoginTableViewCell" customModule="vvp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="248" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="264" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ceF-F0-Jpy" id="JPY-ve-Xyj">
-                                            <rect key="frame" x="0.0" y="0.0" width="248" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="264" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="placeholder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w0S-1o-cDd">
-                                                    <rect key="frame" x="12" y="2" width="224" height="40"/>
+                                                    <rect key="frame" x="12" y="2" width="240" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="UxG-LY-r7d"/>
-                                                        <constraint firstAttribute="width" constant="224" id="ift-Ky-ovl"/>
+                                                        <constraint firstAttribute="width" constant="240" id="ift-Ky-ovl"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -112,10 +112,10 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAQ-4y-ua3">
-                                <rect key="frame" x="63" y="394" width="248" height="44"/>
+                                <rect key="frame" x="55" y="394" width="264" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="6D5-Ao-PzZ"/>
-                                    <constraint firstAttribute="width" constant="248" id="Ko0-CD-SD2"/>
+                                    <constraint firstAttribute="width" constant="264" id="Ko0-CD-SD2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Log in">
@@ -202,11 +202,20 @@ VmlydHVhbCBWaWRlbyBQYXNzIAPCqSAyMDE3A
                     <connections>
                         <segue destination="8Js-Ql-p8v" kind="show" identifier="vilMenuToProfile" id="rc1-2H-V9k"/>
                         <segue destination="SDU-mM-tEG" kind="show" identifier="vilMenuToOrg" id="imT-Lb-YKo"/>
+                        <segue destination="dfL-Zb-bWy" kind="show" identifier="vilMenuToStreamList" id="HL9-Wf-ayT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUN-Ia-Hk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1549.5999999999999" y="833.43328335832086"/>
+        </scene>
+        <!--vipStreamList-->
+        <scene sceneID="95c-Ii-NHA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Player" referencedIdentifier="vipStreamList" id="dfL-Zb-bWy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="epD-0U-bo8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1886" y="1291"/>
         </scene>
         <!--Menu Org Table View Controller-->
         <scene sceneID="BmS-c2-l4v">

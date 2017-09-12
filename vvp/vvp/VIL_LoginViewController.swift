@@ -95,7 +95,7 @@ class VIL_LoginViewController: UIViewController
         //
         if VIM_UserData.current.isDebugMode()
         {
-            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 320, height: 120))
+            let button = UIButton(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.width / 2.0, height: 120))
             //let button = UIButton(frame: imgLogo.frame)
             button.backgroundColor = UIColor.white.withAlphaComponent(0.25)
             button.setTitle("", for: UIControlState.normal)
@@ -110,7 +110,7 @@ class VIL_LoginViewController: UIViewController
     func btnFillUsernamePassword_OnTouchUp(_ sender: Any)
     {
         
-        let usernames = ["admin@westeros.com", "eddard_stark@westeros.com", "jon_snow@westeros.com", "cersei_lannister@westeros.com", "tyrion_lannister@westeros.com", "daenerys_targaryen@westeros.com", "theon_greyjoy@westeros.com", "yara_greyjoy@westeros.com", "brienne_of_tarth@westeros.com", ""]
+        let usernames = ["admin@mail.ws", "eddard_stark@mail.ws", "jon_snow@mail.ws", "cersei_lannister@mail.ws", "tyrion_lannister@mail.ws", "daenerys_targaryen@mail.ws", "theon_greyjoy@mail.ws", "yara_greyjoy@mail.ws", "brienne_of_tarth@mail.ws", ""]
         let passwords = ["a12345678", "eS12345678", "jS12345678", "cL12345678", "tL12345678", "dT12345678", "tG12345678", "yG12345678", "bT12345678", ""]
         
         
