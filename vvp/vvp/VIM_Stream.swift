@@ -37,8 +37,8 @@ class VIM_Stream: NSObject
         self.connectedUsers = dict["connected_users"] as! Int
         self.duration = dict["duration"] as! Int
         
-        
-        
+        self.thumbnailImage = nil
+        /*
         self.thumbnailImage = nil
         do
         {
@@ -50,10 +50,31 @@ class VIM_Stream: NSObject
         {
             
         }
-        
-        
+        */
         
         super.init()
+    }
+    
+    
+    func formatDuration() -> String
+    {
+        var d = ""
+        
+        let s: Int = duration % 60
+        var m: Int = duration / 60
+        let h: Int = m / 60
+        m = m % 60
+        
+        
+        if h > 0
+        {
+            d += "\(h):"
+        }
+        
+        d += (m > 9 ? "" : "0") + "\(m):"
+        d += (s > 9 ? "" : "0") + "\(s)"
+        
+        return d
     }
     
     

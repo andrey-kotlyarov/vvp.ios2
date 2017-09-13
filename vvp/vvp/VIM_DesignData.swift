@@ -44,9 +44,9 @@ class VIM_DesignData: NSObject
         
         
         
-        self.viewerThumb_W = UIScreen.main.bounds.width - 36.0
+        self.viewerThumb_W = UIScreen.main.bounds.width - 32.0
         self.viewerThumb_H = (9.0 * self.viewerThumb_W) / 16.0
-        self.viewerRow_H = self.viewerThumb_H + 90.0
+        self.viewerRow_H = self.viewerThumb_H + (16.0 + 8.0 + 16.0 + 51.0)
         
         super.init()
         

@@ -134,8 +134,8 @@ class VIP_StreamListTableViewController: UITableViewController
         
         let viuRequest: VIU_Request = VIU_Request(cmd: "getstreams")
         viuRequest.addPostValue(VIM_UserData.current.token!, forKey: "token")
-        viuRequest.addPostValue("800", forKey: "thumbnailwidth")
-        viuRequest.addPostValue("450", forKey: "thumbnailheight")
+        viuRequest.addPostValue(String(Int(VIM_DesignData.current.viewerThumb_W) * VIM_DesignData.current.sizeType), forKey: "thumbnailwidth")
+        viuRequest.addPostValue(String(Int(VIM_DesignData.current.viewerThumb_H) * VIM_DesignData.current.sizeType), forKey: "thumbnailheight")
         //viuRequest.addPostValue(String(VIM_DesignData.current.sizeType), forKey: "sizetype")
         
         //DEBUG
@@ -263,6 +263,7 @@ class VIP_StreamListTableViewController: UITableViewController
         
         
         cell.updateByStream(VIM_AuthData.current.streamList!.streams[indexPath.row])
+        //cell.updateByStream(VIM_AuthData.current.streamList!.streams[indexPath.row], tableView: self.tableView)
 
         // Configure the cell...
 
@@ -282,13 +283,14 @@ class VIP_StreamListTableViewController: UITableViewController
     
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
-    */
+    
 
     /*
     // Override to support editing the table view.
@@ -309,14 +311,18 @@ class VIP_StreamListTableViewController: UITableViewController
     }
     */
 
-    /*
+    
     // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
+    {
         // Return false if you do not want the item to be re-orderable.
-        return true
+        return false
     }
-    */
+    
 
+    
+    
+    
     /*
     // MARK: - Navigation
 

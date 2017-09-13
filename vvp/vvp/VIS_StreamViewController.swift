@@ -293,17 +293,21 @@ class VIS_StreamViewController: UIViewController
     }
     
     
-    /*
+    /**/
     override func viewWillDisappear(_ animated: Bool)
     {
-        print("Stream Controler - WILL DISAPPEAR")
+        super.viewWillDisappear(animated)
+        //print("Stream Controler - WILL DISAPPEAR")
     }
     
     override func viewDidDisappear(_ animated: Bool)
     {
-        print("Stream Controler - DID  DISAPPEAR")
+        super.viewDidDisappear(animated)
+        
+        UIApplication.shared.isIdleTimerDisabled = false
+        //print("Stream Controler - DID  DISAPPEAR")
     }
-    */
+    /**/
 
     override func didReceiveMemoryWarning()
     {
