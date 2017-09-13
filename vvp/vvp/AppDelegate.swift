@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let _ = VIM_AuthData.current
         
         //print(VIM_DesignData.current.description)
-        print(VIM_UserData.current.description)
-        print(VIM_AuthData.current.description)
+        //print(VIM_UserData.current.description)
+        //print(VIM_AuthData.current.description)
         
         
         

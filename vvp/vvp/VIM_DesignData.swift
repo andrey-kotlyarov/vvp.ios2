@@ -23,6 +23,12 @@ class VIM_DesignData: NSObject
     let colorRed: UIColor
     let colorTint: UIColor
     
+    let viewerThumb_W: CGFloat
+    let viewerThumb_H: CGFloat
+    let viewerRow_H: CGFloat
+    
+    
+    
     
     override private init()
     {
@@ -36,6 +42,11 @@ class VIM_DesignData: NSObject
         self.colorRed  = VIU_Color.colorFromHexString(hex: "#e71a1a")!
         self.colorTint = VIU_Color.colorFromHexString(hex: "#0e608f")!
         
+        
+        
+        self.viewerThumb_W = UIScreen.main.bounds.width - 36.0
+        self.viewerThumb_H = (9.0 * self.viewerThumb_W) / 16.0
+        self.viewerRow_H = self.viewerThumb_H + 90.0
         
         super.init()
         

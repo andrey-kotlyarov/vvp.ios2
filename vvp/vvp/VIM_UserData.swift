@@ -52,8 +52,6 @@ class VIM_UserData: NSObject
         
         //SAVE DATA
         self.saveUserData()
-        
-        return
     }
     
     

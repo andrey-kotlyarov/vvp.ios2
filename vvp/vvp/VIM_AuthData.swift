@@ -21,6 +21,8 @@ class VIM_AuthData: NSObject
     var orgs: [VIM_Org]?
     var org: VIM_Org?
     
+    var streamList: VIM_StreamList?
+    
     //var menu: VIM_Menu?
     
     //var username: String?
@@ -36,19 +38,9 @@ class VIM_AuthData: NSObject
         self.orgs = nil
         self.org = nil
         
-        //self.menu = nil
-        
-        //self.username = nil
-        //self.password = nil
-        //self.availableOrgs = nil
+        self.streamList = nil
         
         super.init()
-        
-        
-        //
-        //
-        //
-        //print("VIM_AuthData: init")
     }
     
     
@@ -136,7 +128,16 @@ class VIM_AuthData: NSObject
         //
     }
     
+    func updateStreamListBy(dict: NSDictionary)
+    {
+        let sl = VIM_StreamList(dict: dict)
+        self.streamList = sl
+    }
     
+    func clearStreamList()
+    {
+        self.streamList = nil
+    }
     
     
     func clearAuthData()
@@ -146,17 +147,7 @@ class VIM_AuthData: NSObject
         self.orgs = nil
         self.org = nil
         
-        //self.org = nil;
-        //self.menu = nil;
-        
-        //
-        //
-        //????
-        //self.username = nil
-        //self.password = nil
-        //
-        //
-        //
+        self.streamList = nil
         
         //
         //VIM_DesignData.current.setColorsByDefault()
@@ -178,6 +169,8 @@ class VIM_AuthData: NSObject
         desc += "profile = " + (self.profile == nil ? "[nil]" : self.profile!.description) + "; "
         desc += "orgs = " + (self.orgs == nil ? "[nil]" : self.orgs!.description) + "; "
         desc += "org = " + (self.org == nil ? "[nil]" : self.org!.description) + "; "
+        
+        desc += "streamList = " + (self.streamList == nil ? "[nil]" : self.streamList!.description) + "; "
         
         
         //desc += "menu = " + (self.menu == nil ? "[empty]" : self.menu!.description) + "; "

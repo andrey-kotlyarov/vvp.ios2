@@ -26,7 +26,7 @@ class VIM_Profile: NSObject
         self.firstName = dict["first_name"] as! String
         self.lastName = dict["last_name"] as! String
         
-        return
+        super.init()
     }
     
     

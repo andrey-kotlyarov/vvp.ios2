@@ -16,6 +16,8 @@
 		55724B9C1F631D7C00BCE6EE /* VIL_MenuNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55724B9B1F631D7C00BCE6EE /* VIL_MenuNavController.swift */; };
 		55724B9E1F631E6D00BCE6EE /* VIL_MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55724B9D1F631E6D00BCE6EE /* VIL_MenuTableViewController.swift */; };
 		55724BA01F631F6A00BCE6EE /* VIL_MenuOrgTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55724B9F1F631F6A00BCE6EE /* VIL_MenuOrgTableViewController.swift */; };
+		871422381F693F2100968F17 /* VIM_Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871422371F693F2100968F17 /* VIM_Stream.swift */; };
+		8714223A1F6942A000968F17 /* VIM_StreamList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871422391F6942A000968F17 /* VIM_StreamList.swift */; };
 		8740CD391F60215200BABC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740CD381F60215200BABC8C /* AppDelegate.swift */; };
 		8740CD3E1F60215300BABC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8740CD3C1F60215300BABC8C /* Main.storyboard */; };
 		8740CD401F60215300BABC8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8740CD3F1F60215300BABC8C /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		55724B9B1F631D7C00BCE6EE /* VIL_MenuNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_MenuNavController.swift; sourceTree = "<group>"; };
 		55724B9D1F631E6D00BCE6EE /* VIL_MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_MenuTableViewController.swift; sourceTree = "<group>"; };
 		55724B9F1F631F6A00BCE6EE /* VIL_MenuOrgTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_MenuOrgTableViewController.swift; sourceTree = "<group>"; };
+		871422371F693F2100968F17 /* VIM_Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_Stream.swift; sourceTree = "<group>"; };
+		871422391F6942A000968F17 /* VIM_StreamList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_StreamList.swift; sourceTree = "<group>"; };
 		8740CD351F60215200BABC8C /* vvp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vvp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8740CD381F60215200BABC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8740CD3D1F60215300BABC8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				8740CD621F6028E100BABC8C /* VIM_AuthData.swift */,
 				8740CD6A1F6047EB00BABC8C /* VIM_Profile.swift */,
 				87FBC6951F62D14800F479FD /* VIM_Org.swift */,
+				871422391F6942A000968F17 /* VIM_StreamList.swift */,
+				871422371F693F2100968F17 /* VIM_Stream.swift */,
 			);
 			name = "Model (VIM)";
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 				8740CD611F6028CE00BABC8C /* VIM_UserData.swift in Sources */,
 				8740CD4F1F60252A00BABC8C /* VIL_RootViewController.swift in Sources */,
 				8740CD691F6038BE00BABC8C /* VIS_StreamViewController.swift in Sources */,
+				8714223A1F6942A000968F17 /* VIM_StreamList.swift in Sources */,
 				553713AE1F608CFB00E67BC9 /* VIL_LoginTableViewCell.swift in Sources */,
 				554841031F68491200EF4D18 /* VIP_StreamListTableViewCell.swift in Sources */,
 				55724BA01F631F6A00BCE6EE /* VIL_MenuOrgTableViewController.swift in Sources */,
@@ -294,6 +301,7 @@
 				55724B9C1F631D7C00BCE6EE /* VIL_MenuNavController.swift in Sources */,
 				55227E7F1F6585740031D4F4 /* VIL_MenuProfileTableViewCell.swift in Sources */,
 				8740CD511F60255000BABC8C /* VIL_LoginViewController.swift in Sources */,
+				871422381F693F2100968F17 /* VIM_Stream.swift in Sources */,
 				554841011F6848BF00EF4D18 /* VIP_StreamListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

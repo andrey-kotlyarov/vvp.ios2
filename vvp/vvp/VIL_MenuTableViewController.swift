@@ -281,6 +281,8 @@ class VIL_MenuTableViewController: UITableViewController
             
             if indexPath.row == 0
             {
+                
+                VIM_AuthData.current.clearStreamList()
                 performSegue(withIdentifier: "vilMenuToStreamList", sender: self)
             }
             if indexPath.row == 1

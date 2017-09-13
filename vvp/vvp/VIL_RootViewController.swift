@@ -247,7 +247,6 @@ class VIL_RootViewController: UIViewController
                             return
                         }
                         
-                        return
                     }
                 
                     //

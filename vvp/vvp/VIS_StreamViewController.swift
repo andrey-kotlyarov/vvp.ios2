@@ -101,7 +101,7 @@ class VIS_StreamViewController: UIViewController
         
         // Do any additional setup after loading the view.
         
-        
+        UIApplication.shared.isIdleTimerDisabled = true
         self.view.backgroundColor = UIColor.black
         
         

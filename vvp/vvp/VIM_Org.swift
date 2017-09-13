@@ -22,7 +22,7 @@ class VIM_Org: NSObject
         self.orgId = dict["id"] as! Int
         self.name = dict["name"] as! String
         
-        return
+        super.init()
     }
     
     init(id: Int, name: String)
