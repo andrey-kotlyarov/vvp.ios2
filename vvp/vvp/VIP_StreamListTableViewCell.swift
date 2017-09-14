@@ -24,6 +24,10 @@ class VIP_StreamListTableViewCell: UITableViewCell
     
     @IBOutlet var viewCaption: UIView!
     @IBOutlet var viewUserIcon: UIView!
+    @IBOutlet var imgUserIcon: UIImageView!
+    @IBOutlet var imgUserIconMask: UIImageView!
+    
+    
     @IBOutlet var lblCaptionLine: UILabel!
     @IBOutlet var lblUserLine: UILabel!
     @IBOutlet var lblOrgLine: UILabel!
@@ -34,11 +38,15 @@ class VIP_StreamListTableViewCell: UITableViewCell
     
     
     
-    //func updateByStream(_ stream: VIM_Stream, tableView: UITableView)
     func updateByStream(_ stream: VIM_Stream)
     {
-        self.viewStatus.backgroundColor = VIM_DesignData.current.colorRed
-        self.lblStatus.text = "LIVE"
+        self.viewStatus.backgroundColor = VIM_DesignData.current.getColorForStreamState(stream.state)
+        self.lblStatus.text = VIM_DesignData.current.getTitleForStreamState(stream.state)
+        
+        
+        
+        
+        
         
         self.viewDuration.backgroundColor = UIColor.black
         self.lblDuration.text = stream.formatDuration()
@@ -49,6 +57,12 @@ class VIP_StreamListTableViewCell: UITableViewCell
         lblCaptionLine.text = stream.title
         lblUserLine.text = "\(stream.owner) - \(stream.connectedUsers) views"
         lblOrgLine.text = stream.desc
+        //lblOrgLine.text = "\(stream.formatOwnerLetter()) - " + stream.desc
+        
+        
+        imgUserIcon.image = getImageLetter(stream.formatOwnerLetter())
+        
+        
         
         
         
@@ -106,29 +120,24 @@ class VIP_StreamListTableViewCell: UITableViewCell
             //
             //
             
-            //var letter = stream.owner.substring(to: stream.owner.index(after: 0)).uppercased()
-            var letter = stream.owner.substring(to: stream.owner.index(after: stream.owner.startIndex ))
-
-            var iv: UIImageView = UIImageView(frame: CGRect(origin: .zero, size: viewUserIcon.frame.size))
-            iv.image = textToImage(drawText: letter as NSString)
-            
-            viewUserIcon.addSubview(iv)
-            
-            
         }
     }
     
     
-    func textToImage(drawText text: NSString) -> UIImage
+    
+    
+    
+    private func getImageLetter(_ letter: Character) -> UIImage?
     {
-        var image: UIImage! = imageWithSize(size: viewUserIcon.frame.size, filledWithColor: VIM_DesignData.current.colorBG)
-        
-        
+        let bgColor = VIM_DesignData.current.getBGColorForLetter(letter)
         let textColor = UIColor.white
         let textFont = UIFont(name: "Helvetica Bold", size: 29)!
         
         let scale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
+        UIGraphicsBeginImageContextWithOptions(imgUserIcon.frame.size, false, scale)
+        bgColor.set()
+        UIRectFill(imgUserIcon.frame)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = NSTextAlignment.center
@@ -137,28 +146,17 @@ class VIP_StreamListTableViewCell: UITableViewCell
             NSFontAttributeName: textFont,
             NSForegroundColorAttributeName: textColor,
             NSParagraphStyleAttributeName: paragraphStyle,
-            NSBaselineOffsetAttributeName: -4,
+            NSBaselineOffsetAttributeName: -3.5,
             ] as [String : Any]
-        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
+        image?.draw(in: CGRect(origin: CGPoint.zero, size: imgUserIcon.frame.size))
         
-        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: image.size)
-        text.draw(in: rect, withAttributes: textFontAttributes)
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: imgUserIcon.frame.size)
+        String(letter).draw(in: rect, withAttributes: textFontAttributes)
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return newImage!
-    }
-    func imageWithSize(size: CGSize, filledWithColor color: UIColor = UIColor.clear, scale: CGFloat = 0.0, opaque: Bool = false) -> UIImage
-    {
-        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        UIGraphicsBeginImageContextWithOptions(size, opaque, scale)
-        color.set()
-        UIRectFill(rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return image!
     }
     
     
@@ -174,15 +172,38 @@ class VIP_StreamListTableViewCell: UITableViewCell
         self.viewThumb_constraintH.constant = VIM_DesignData.current.viewerThumbLarge_H
         
         
-        self.viewThumb.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
-        self.viewCaption.backgroundColor = UIColor.white.withAlphaComponent(0.0)
-        self.viewUserIcon.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         
-        self.viewStatus.backgroundColor = VIM_DesignData.current.colorRed
-        self.viewDuration.backgroundColor = UIColor.black
+        
+        //
+        // User Icon Mask setting
+        //
+        imgUserIconMask.image = imgUserIconMask.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        imgUserIconMask.tintColor = UIColor.white
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        self.viewThumb.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
+        self.viewCaption.backgroundColor = UIColor.white.withAlphaComponent(0.00)
+        self.viewUserIcon.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
+        
+        self.viewStatus.backgroundColor = VIM_DesignData.current.colorRed.withAlphaComponent(0.75)
+        self.viewDuration.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         
     }
-
+    
+    
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool)
     {
         super.setSelected(selected, animated: animated)

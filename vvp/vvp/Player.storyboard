@@ -31,7 +31,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="160"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ya-3k-MpS">
-                                                    <rect key="frame" x="8" y="134" width="50" height="18"/>
+                                                    <rect key="frame" x="8" y="8" width="50" height="18"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATUS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgD-Wk-m2l">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
@@ -73,8 +73,8 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="8Ya-3k-MpS" firstAttribute="top" secondItem="eim-oY-irB" secondAttribute="top" constant="8" id="19E-14-OUa"/>
                                                 <constraint firstAttribute="height" constant="160" id="1Dn-Yr-lyD"/>
-                                                <constraint firstAttribute="bottom" secondItem="8Ya-3k-MpS" secondAttribute="bottom" constant="8" id="26K-GU-Ua3"/>
                                                 <constraint firstItem="8Ya-3k-MpS" firstAttribute="leading" secondItem="eim-oY-irB" secondAttribute="leading" constant="8" id="Ev2-ag-V9t"/>
                                                 <constraint firstAttribute="trailing" secondItem="xy8-F6-tb0" secondAttribute="trailing" id="VHF-PU-Qrb"/>
                                                 <constraint firstItem="xy8-F6-tb0" firstAttribute="top" secondItem="eim-oY-irB" secondAttribute="top" id="iA6-HS-x2n"/>
@@ -116,10 +116,26 @@
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lO3-a7-aZX">
                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8ZY-fI-all">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mask_round_40" translatesAutoresizingMaskIntoConstraints="NO" id="5sp-yO-8KJ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        </imageView>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="8ZY-fI-all" firstAttribute="leading" secondItem="lO3-a7-aZX" secondAttribute="leading" id="5FM-Sm-acN"/>
                                                         <constraint firstAttribute="height" constant="40" id="7oy-fr-jWZ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="8ZY-fI-all" secondAttribute="bottom" id="Flg-9z-LMx"/>
+                                                        <constraint firstItem="5sp-yO-8KJ" firstAttribute="leading" secondItem="lO3-a7-aZX" secondAttribute="leading" id="HF5-xB-nxt"/>
+                                                        <constraint firstAttribute="trailing" secondItem="5sp-yO-8KJ" secondAttribute="trailing" id="Lkk-7E-ACu"/>
                                                         <constraint firstAttribute="width" constant="40" id="RDn-xH-nXl"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5sp-yO-8KJ" secondAttribute="bottom" id="SAT-BI-vfM"/>
+                                                        <constraint firstItem="8ZY-fI-all" firstAttribute="top" secondItem="lO3-a7-aZX" secondAttribute="top" id="XD1-ia-nwc"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8ZY-fI-all" secondAttribute="trailing" id="dn8-9w-S6B"/>
+                                                        <constraint firstItem="5sp-yO-8KJ" firstAttribute="top" secondItem="lO3-a7-aZX" secondAttribute="top" id="n6Z-fK-Yrk"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -152,6 +168,8 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="imgThumb" destination="xy8-F6-tb0" id="TyQ-p5-azM"/>
+                                    <outlet property="imgUserIcon" destination="8ZY-fI-all" id="5Cn-8h-wg4"/>
+                                    <outlet property="imgUserIconMask" destination="5sp-yO-8KJ" id="PmX-w8-mGu"/>
                                     <outlet property="lblCaptionLine" destination="oui-Yz-Yff" id="sMG-66-5Fm"/>
                                     <outlet property="lblDuration" destination="Tbd-57-1Qx" id="Bif-dw-3Vk"/>
                                     <outlet property="lblOrgLine" destination="pIB-JH-s6K" id="Dhy-sj-CbG"/>
@@ -177,4 +195,7 @@
             <point key="canvasLocation" x="-92" y="312.59370314842579"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mask_round_40" width="40" height="40"/>
+    </resources>
 </document>

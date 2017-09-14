@@ -13,6 +13,7 @@ import UIKit
 class VIM_Stream: NSObject
 {
     let streamId: Int
+    let state: VIE_StreamState
     
     let name: String
     let thumbnailSrc: String
@@ -29,6 +30,8 @@ class VIM_Stream: NSObject
     init(dict: NSDictionary)
     {
         self.streamId = dict["id"] as! Int
+        self.state = VIE_StreamState(rawValue: dict["state"] as! Int)!
+        
         self.name = dict["name"] as! String
         self.thumbnailSrc = dict["thumbnail_src"] as! String
         self.title = dict["title"] as! String
@@ -76,6 +79,24 @@ class VIM_Stream: NSObject
         
         return d
     }
+    
+    func formatOwnerLetter() -> Character
+    {
+        var character: Character = " "
+        
+        for c in self.owner.uppercased().characters
+        {
+            if (c >= "A" && c <= "Z") || ((c >= "0" && c <= "9"))
+            {
+                character = c
+                break
+            }
+        }
+        
+        return character
+    }
+    
+    
     
     
     

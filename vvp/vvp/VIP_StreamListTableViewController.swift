@@ -148,7 +148,7 @@ class VIP_StreamListTableViewController: UITableViewController
         //viuRequest.addPostValue("2500", forKey: "_delay_")
         
         //DEBUG
-        print(viuRequest)
+        //print(viuRequest)
         
         let task = URLSession.shared.dataTask(
             with: viuRequest.urlRequest(),
