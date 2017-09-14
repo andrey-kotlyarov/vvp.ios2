@@ -20,14 +20,14 @@ class VIM_StreamList: NSObject
         let json_streams = dict["streams"] as! NSArray
         
         
-        for i in 1...24
-        {
+        //for i in 1...24
+        //{
         for json_stream in json_streams
         {
             let stream = VIM_Stream(dict: json_stream as! NSDictionary)
             self.streams.append(stream)
         }
-        }
+        //}
         self.createdAt = Date()
         
         super.init()

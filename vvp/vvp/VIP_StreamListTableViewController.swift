@@ -134,15 +134,21 @@ class VIP_StreamListTableViewController: UITableViewController
         
         let viuRequest: VIU_Request = VIU_Request(cmd: "getstreams")
         viuRequest.addPostValue(VIM_UserData.current.token!, forKey: "token")
-        viuRequest.addPostValue(String(Int(VIM_DesignData.current.viewerThumb_W) * VIM_DesignData.current.sizeType), forKey: "thumbnailwidth")
-        viuRequest.addPostValue(String(Int(VIM_DesignData.current.viewerThumb_H) * VIM_DesignData.current.sizeType), forKey: "thumbnailheight")
+        viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbLarge_W_px)", forKey: "thumbnailwidth")
+        viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbLarge_H_px)", forKey: "thumbnailheight")
         //viuRequest.addPostValue(String(VIM_DesignData.current.sizeType), forKey: "sizetype")
+        
+        if VIM_UserData.current.isDebugMode()
+        {
+            //DEBUG
+            viuRequest.addPostValue("1", forKey: "_testdata_")
+        }
         
         //DEBUG
         //viuRequest.addPostValue("2500", forKey: "_delay_")
         
         //DEBUG
-        //print(viuRequest)
+        print(viuRequest)
         
         let task = URLSession.shared.dataTask(
             with: viuRequest.urlRequest(),
@@ -273,12 +279,12 @@ class VIP_StreamListTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return VIM_DesignData.current.viewerRow_H
+        return VIM_DesignData.current.viewerRowLarge_H
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return VIM_DesignData.current.viewerRow_H
+        return VIM_DesignData.current.viewerRowLarge_H
     }
     
     
@@ -320,7 +326,10 @@ class VIP_StreamListTableViewController: UITableViewController
     }
     
 
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
     
     
     /*

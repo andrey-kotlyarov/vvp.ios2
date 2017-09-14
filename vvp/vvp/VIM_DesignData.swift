@@ -23,9 +23,18 @@ class VIM_DesignData: NSObject
     let colorRed: UIColor
     let colorTint: UIColor
     
+    /*
     let viewerThumb_W: CGFloat
     let viewerThumb_H: CGFloat
     let viewerRow_H: CGFloat
+    */
+    
+    let viewerThumbLarge_W: CGFloat
+    let viewerThumbLarge_H: CGFloat
+    let viewerRowLarge_H: CGFloat
+    
+    let viewerThumbLarge_W_px: Int
+    let viewerThumbLarge_H_px: Int
     
     
     
@@ -43,10 +52,19 @@ class VIM_DesignData: NSObject
         self.colorTint = VIU_Color.colorFromHexString(hex: "#0e608f")!
         
         
-        
+        /*
         self.viewerThumb_W = UIScreen.main.bounds.width - 32.0
         self.viewerThumb_H = (9.0 * self.viewerThumb_W) / 16.0
         self.viewerRow_H = self.viewerThumb_H + (16.0 + 8.0 + 16.0 + 51.0)
+        */
+        
+        self.viewerThumbLarge_W = UIScreen.main.bounds.width - 32.0
+        self.viewerThumbLarge_H = (9.0 * self.viewerThumbLarge_W) / 16.0
+        self.viewerRowLarge_H = self.viewerThumbLarge_H + (16.0 + 8.0 + 16.0 + 51.0)
+        
+        self.viewerThumbLarge_W_px = Int(0.5 + Double(self.viewerThumbLarge_W) * Double(UIScreen.main.scale))
+        self.viewerThumbLarge_H_px = Int(0.5 + Double(self.viewerThumbLarge_H) * Double(UIScreen.main.scale))
+        
         
         super.init()
         

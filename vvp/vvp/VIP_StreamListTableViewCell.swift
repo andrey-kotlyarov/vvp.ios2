@@ -106,9 +106,11 @@ class VIP_StreamListTableViewCell: UITableViewCell
             //
             //
             
-            
+            //var letter = stream.owner.substring(to: stream.owner.index(after: 0)).uppercased()
+            var letter = stream.owner.substring(to: stream.owner.index(after: stream.owner.startIndex ))
+
             var iv: UIImageView = UIImageView(frame: CGRect(origin: .zero, size: viewUserIcon.frame.size))
-            iv.image = textToImage(drawText: "S")
+            iv.image = textToImage(drawText: letter as NSString)
             
             viewUserIcon.addSubview(iv)
             
@@ -169,7 +171,7 @@ class VIP_StreamListTableViewCell: UITableViewCell
         self.separatorInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         self.layoutMargins = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         
-        self.viewThumb_constraintH.constant = VIM_DesignData.current.viewerThumb_H
+        self.viewThumb_constraintH.constant = VIM_DesignData.current.viewerThumbLarge_H
         
         
         self.viewThumb.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
