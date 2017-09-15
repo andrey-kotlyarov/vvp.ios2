@@ -37,7 +37,17 @@ class VIL_MenuNavController: UINavigationController
         
         navigationBar.tintColor = VIM_DesignData.current.colorTint
     }
-
+    
+    
+    override var shouldAutorotate: Bool
+    {
+        return false
+    }
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask
+    {
+        return .portrait
+    }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()

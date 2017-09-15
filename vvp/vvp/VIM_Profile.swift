@@ -29,6 +29,28 @@ class VIM_Profile: NSObject
         super.init()
     }
     
+    var fullName: String
+    {
+        return self.firstName + " " + self.lastName
+    }
+    
+    /*
+    func formatLetter() -> Character
+    {
+        var character: Character = " "
+        
+        for c in (self.firstName + " " + self.lastName).uppercased().characters
+        {
+            if (c >= "A" && c <= "Z") || ((c >= "0" && c <= "9"))
+            {
+                character = c
+                break
+            }
+        }
+        
+        return character
+    }
+    */
     
     
     override var description: String

@@ -91,8 +91,23 @@ class VIP_StreamListTableViewController: UITableViewController
     {
         super.viewDidAppear(animated)
         
+        //VIU_App.lockOrientation(.portrait)
         
     }
+    
+    override func viewDidDisappear(_ animated: Bool)
+    {
+        super.viewDidDisappear(animated)
+        
+        //VIU_App.lockOrientation(.all)
+    }
+    
+    
+    
+    
+    
+    
+    
 
     override func didReceiveMemoryWarning()
     {

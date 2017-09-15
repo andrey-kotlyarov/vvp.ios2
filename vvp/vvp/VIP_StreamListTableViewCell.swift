@@ -59,67 +59,9 @@ class VIP_StreamListTableViewCell: UITableViewCell
         lblCaptionLine.text = stream.title
         lblUserLine.text = "\(stream.owner) - \(stream.connectedUsers) views"
         lblOrgLine.text = stream.desc
-        //lblOrgLine.text = "\(stream.formatOwnerLetter()) - " + stream.desc
         
         
-        imgUserIcon.image = getImageLetter(stream.formatOwnerLetter())
-        
-        //
-        //
-        //
-        /*
-        self.imgThumb.image = nil
-        VIM_ImageData.current.imageBy(
-            src: stream.thumbnailSrc,
-            completationBlock:
-            {
-                (img: UIImage?) -> Void in
-                
-                self.imgThumb.image = img
-            }
-        )
-        */
-        //
-        //
-        //
-        
-        
-    }
-    
-    
-    
-    
-    
-    private func getImageLetter(_ letter: Character) -> UIImage?
-    {
-        let bgColor = VIM_DesignData.current.getBGColorForLetter(letter)
-        let textColor = UIColor.white
-        let textFont = UIFont(name: "Helvetica Bold", size: 29)!
-        
-        let scale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(imgUserIcon.frame.size, false, scale)
-        bgColor.set()
-        UIRectFill(imgUserIcon.frame)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = NSTextAlignment.center
-        
-        let textFontAttributes = [
-            NSFontAttributeName: textFont,
-            NSForegroundColorAttributeName: textColor,
-            NSParagraphStyleAttributeName: paragraphStyle,
-            NSBaselineOffsetAttributeName: -3.5,
-            ] as [String : Any]
-        image?.draw(in: CGRect(origin: CGPoint.zero, size: imgUserIcon.frame.size))
-        
-        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: imgUserIcon.frame.size)
-        String(letter).draw(in: rect, withAttributes: textFontAttributes)
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
+        imgUserIcon.image = VIU_UI.getImageLetter(stream.owner, frame: imgUserIcon.frame)
     }
     
     
@@ -142,15 +84,6 @@ class VIP_StreamListTableViewCell: UITableViewCell
         //
         imgUserIconMask.image = imgUserIconMask.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         imgUserIconMask.tintColor = UIColor.white
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         

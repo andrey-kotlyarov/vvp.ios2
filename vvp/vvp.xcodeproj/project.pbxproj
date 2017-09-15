@@ -38,6 +38,7 @@
 		87CC33E51F66A6F3002EF2BD /* VIL_MenuProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC33E41F66A6F3002EF2BD /* VIL_MenuProfileViewController.swift */; };
 		87EDD1221F6BE41C00957675 /* VIM_ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EDD1211F6BE41C00957675 /* VIM_ImageData.swift */; };
 		87EDD1241F6BE83B00957675 /* VIM_StorageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EDD1231F6BE83B00957675 /* VIM_StorageImage.swift */; };
+		87EDD1261F6C1A8100957675 /* VIU_UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EDD1251F6C1A8100957675 /* VIU_UI.swift */; };
 		87FBC6961F62D14800F479FD /* VIM_Org.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FBC6951F62D14800F479FD /* VIM_Org.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		87CC33E41F66A6F3002EF2BD /* VIL_MenuProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_MenuProfileViewController.swift; sourceTree = "<group>"; };
 		87EDD1211F6BE41C00957675 /* VIM_ImageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_ImageData.swift; sourceTree = "<group>"; };
 		87EDD1231F6BE83B00957675 /* VIM_StorageImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_StorageImage.swift; sourceTree = "<group>"; };
+		87EDD1251F6C1A8100957675 /* VIU_UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIU_UI.swift; sourceTree = "<group>"; };
 		87FBC6951F62D14800F479FD /* VIM_Org.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_Org.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +185,7 @@
 				8740CD5A1F60285200BABC8C /* VIU_Color.swift */,
 				8740CD5C1F60287900BABC8C /* VIU_Request.swift */,
 				553713AF1F60A9A300E67BC9 /* VIU_Activity.swift */,
+				87EDD1251F6C1A8100957675 /* VIU_UI.swift */,
 			);
 			name = "Util (VIU)";
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				8740CD6B1F6047EB00BABC8C /* VIM_Profile.swift in Sources */,
 				8740CD5B1F60285200BABC8C /* VIU_Color.swift in Sources */,
 				8740CD611F6028CE00BABC8C /* VIM_UserData.swift in Sources */,
+				87EDD1261F6C1A8100957675 /* VIU_UI.swift in Sources */,
 				8740CD4F1F60252A00BABC8C /* VIL_RootViewController.swift in Sources */,
 				8740CD691F6038BE00BABC8C /* VIS_StreamViewController.swift in Sources */,
 				8714223A1F6942A000968F17 /* VIM_StreamList.swift in Sources */,

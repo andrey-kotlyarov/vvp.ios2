@@ -65,6 +65,7 @@ class VIM_Stream: NSObject
         return d
     }
     
+    /*
     func formatOwnerLetter() -> Character
     {
         var character: Character = " "
@@ -80,7 +81,7 @@ class VIM_Stream: NSObject
         
         return character
     }
-    
+    */
     
     
     
