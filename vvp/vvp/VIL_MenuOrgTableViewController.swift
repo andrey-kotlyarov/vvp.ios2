@@ -14,6 +14,8 @@ class VIL_MenuOrgTableViewController: UITableViewController
     //private var _checkedCellOrg: UITableViewCell?
     //private var _checkedOrg: VIM_Org?
     
+    fileprivate var _bbtBack: UIBarButtonItem?
+    
     
     
     override func viewDidLoad()
@@ -27,25 +29,60 @@ class VIL_MenuOrgTableViewController: UITableViewController
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.tableView.tintColor = VIM_DesignData.current.colorTint
-        
         self.navigationItem.title = "Organization"
         
         //let btnBack = UIBarButtonItem(title: "< VVPass", style: .plain, target: self, action: #selector(btnNavBack))
         ////btnBack.style = .done
-        //self.navigationItem.leftBarButtonItem = btnBack
+        //self.navigationItem.leftBarButtonItem = nil
         
+        
+        
+        // NAVIGATION BAR
+        self._bbtBack = UIBarButtonItem(
+            image: UIImage(named: "ic_chevron_left_36pt"),
+            //style: UIBarButtonItemStyle.Bordered,
+            style: UIBarButtonItemStyle.plain,
+            target: self,
+            //action: Selector("btnBackToActions_Click:")
+            action: #selector(bbtBack_OnTouchUp(_:))
+        )
+        
+        self.navigationItem.setLeftBarButtonItems(NSArray(object: self._bbtBack!) as? [UIBarButtonItem], animated: false)
     }
     
-    func btnNavBack()
+    
+    
+    
+    func bbtBack_OnTouchUp(_ sender: UIBarButtonItem?)
     {
         self.navigationController?.popViewController(animated: true)
     }
-
+    
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        //self.navigationItem.setLeftBarButtonItems(NSArray(object: self._bbtBack!) as? [UIBarButtonItem], animated: false)
+    }
+    
+    
+    
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     // MARK: - Table view data source
 

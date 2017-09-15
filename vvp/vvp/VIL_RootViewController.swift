@@ -141,7 +141,7 @@ class VIL_RootViewController: UIViewController
         if let token = VIM_UserData.current.token
         {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            self._viuActivity?.show()
+            //self._viuActivity?.show()
         
             let viuRequest: VIU_Request = VIU_Request(cmd: "auth")
         
@@ -173,7 +173,7 @@ class VIL_RootViewController: UIViewController
                     DispatchQueue.main.async()
                     {
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                        self._viuActivity?.hide()
+                        //self._viuActivity?.hide()
                         
                         if error != nil || response == nil || data == nil
                         {

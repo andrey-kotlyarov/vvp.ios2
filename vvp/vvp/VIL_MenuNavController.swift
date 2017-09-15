@@ -19,7 +19,11 @@ class VIL_MenuNavController: UINavigationController
         
         
         
+        self.navigationBar.barStyle = UIBarStyle.default
+        self.navigationBar.tintColor = VIM_DesignData.current.colorTint
         
+        //self.navigationBar.barTintColor = UIColor.white
+        //self.navigationBar.isTranslucent = false
         
         /*
         let navbarFont = UIFont(name: "Ubuntu", size: 17) ?? UIFont.systemFontOfSize(17)
@@ -35,7 +39,7 @@ class VIL_MenuNavController: UINavigationController
         navigationBar.titleTextAttributes = [NSFontAttributeName: fontNavHeader]
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: fontNavButton], for: UIControlState.normal)
         
-        navigationBar.tintColor = VIM_DesignData.current.colorTint
+        //navigationBar.tintColor = VIM_DesignData.current.colorTint
     }
     
     
