@@ -34,12 +34,14 @@ class VIP_StreamListTableViewCell: UITableViewCell
     
     
     
+    var myRowIndex: Int = -1
     
     
     
-    
-    func updateByStream(_ stream: VIM_Stream)
+    func updateByStream(_ stream: VIM_Stream, theRowIndex: Int)
     {
+        self.myRowIndex = theRowIndex
+        
         self.viewStatus.backgroundColor = VIM_DesignData.current.getColorForStreamState(stream.state)
         self.lblStatus.text = VIM_DesignData.current.getTitleForStreamState(stream.state)
         
@@ -62,65 +64,26 @@ class VIP_StreamListTableViewCell: UITableViewCell
         
         imgUserIcon.image = getImageLetter(stream.formatOwnerLetter())
         
+        //
+        //
+        //
+        /*
+        self.imgThumb.image = nil
+        VIM_ImageData.current.imageBy(
+            src: stream.thumbnailSrc,
+            completationBlock:
+            {
+                (img: UIImage?) -> Void in
+                
+                self.imgThumb.image = img
+            }
+        )
+        */
+        //
+        //
+        //
         
         
-        
-        
-        if stream.thumbnailImage != nil
-        {
-            self.imgThumb.image = stream.thumbnailImage
-        }
-        else
-        {
-            self.imgThumb.image = nil
-            
-            let session = URLSession.shared
-            var task = URLSessionDownloadTask()
-            
-            
-            //
-            //DEBUG
-            //
-            print("load image - start \(Date())")
-            
-            let url: URL! = URL(string: stream.thumbnailSrc)
-            task = session.downloadTask(
-                with: url,
-                completionHandler:
-                {
-                    (location: URL?, response: URLResponse?, error: Error?) -> Void in
-                    
-                    
-                    if let data = try? Data(contentsOf: url)
-                    {
-                        DispatchQueue.main.async(
-                            execute:
-                            {
-                                () -> Void in
-                                
-                                let img: UIImage! = UIImage(data: data)
-                                
-                                // не туда!!!
-                                self.imgThumb.image = img
-                                
-                                
-                                stream.thumbnailImage = img
-                                //tableView.reloadData()
-                                
-                                
-                                //DEBUG
-                                print("load image - done \(Date())")
-                            }
-                        )
-                    }
-                }
-            )
-            task.resume()
-            //
-            //
-            //
-            
-        }
     }
     
     

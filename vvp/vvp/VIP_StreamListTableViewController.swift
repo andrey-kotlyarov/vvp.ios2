@@ -268,7 +268,35 @@ class VIP_StreamListTableViewController: UITableViewController
         let cell = tableView.dequeueReusableCell(withIdentifier: "StreamListCell", for: indexPath) as! VIP_StreamListTableViewCell
         
         
-        cell.updateByStream(VIM_AuthData.current.streamList!.streams[indexPath.row])
+        
+        //
+        //
+        //
+        cell.updateByStream(VIM_AuthData.current.streamList!.streams[indexPath.row], theRowIndex: indexPath.row)
+        
+        cell.imgThumb.image = nil
+        VIM_ImageData.current.imageBy(
+            src: VIM_AuthData.current.streamList!.streams[indexPath.row].thumbnailSrc,
+            ttl: 120,
+            completationBlock:
+            {
+                (img: UIImage?) -> Void in
+                
+                //print("\(indexPath.row) <-> \(cell.myRowIndex)")
+                
+                if indexPath.row == cell.myRowIndex
+                {
+                    cell.imgThumb.image = img
+                }
+            }
+        )
+        //
+        //
+        //
+        
+        
+        
+        
         //cell.updateByStream(VIM_AuthData.current.streamList!.streams[indexPath.row], tableView: self.tableView)
 
         // Configure the cell...

@@ -17,7 +17,6 @@ class VIM_Stream: NSObject
     
     let name: String
     let thumbnailSrc: String
-    var thumbnailImage: UIImage?
     
     let title: String
     let desc: String
@@ -40,20 +39,6 @@ class VIM_Stream: NSObject
         self.connectedUsers = dict["connected_users"] as! Int
         self.duration = dict["duration"] as! Int
         
-        self.thumbnailImage = nil
-        /*
-        self.thumbnailImage = nil
-        do
-        {
-            let url = URL(string: self.thumbnailSrc)
-            let imgData = try Data(contentsOf: url!)
-            thumbnailImage = UIImage(data: imgData)!
-        }
-        catch
-        {
-            
-        }
-        */
         
         super.init()
     }
