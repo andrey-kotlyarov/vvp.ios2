@@ -10,6 +10,9 @@ import UIKit
 
 class VIL_MenuProfileViewController: UIViewController
 {
+    fileprivate var _bbtBack: UIBarButtonItem?
+    
+    
     
     @IBOutlet var lblFullName: UILabel!
     @IBOutlet var lblNickname: UILabel!
@@ -44,7 +47,24 @@ class VIL_MenuProfileViewController: UIViewController
         
         self.view.tintColor = VIM_DesignData.current.colorTint
         
+        
+        
+        // NAVIGATION BAR
         self.navigationItem.title = "Profile"
+        self._bbtBack = UIBarButtonItem(
+            image: UIImage(named: "ic_chevron_left_36pt"),
+            //style: UIBarButtonItemStyle.Bordered,
+            style: UIBarButtonItemStyle.plain,
+            target: self,
+            //action: Selector("btnBackToActions_Click:")
+            action: #selector(bbtBack_OnTouchUp(_:))
+        )
+        
+        self.navigationItem.setLeftBarButtonItems(NSArray(object: self._bbtBack!) as? [UIBarButtonItem], animated: false)
+        
+        
+        
+        
         
         //let btnBack = UIBarButtonItem(title: "< VVPass", style: .plain, target: self, action: #selector(btnNavBack))
         ////btnBack.style = .done
@@ -54,11 +74,16 @@ class VIL_MenuProfileViewController: UIViewController
         lblNickname.text = "\(VIM_AuthData.current.profile!.username)"
     }
     
+    func bbtBack_OnTouchUp(_ sender: UIBarButtonItem?)
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
+    /*
     func btnNavBack()
     {
         self.navigationController?.popViewController(animated: true)
     }
-
+     */
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()

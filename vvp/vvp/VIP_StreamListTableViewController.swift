@@ -10,6 +10,15 @@ import UIKit
 
 class VIP_StreamListTableViewController: UITableViewController
 {
+    
+    fileprivate var _bbtBack: UIBarButtonItem?
+    fileprivate var _bbtThumbLarge: UIBarButtonItem?
+    fileprivate var _bbtThumbSmall: UIBarButtonItem?
+    
+    
+    
+    
+    
     fileprivate var _viuActivity: VIU_Activity?
     
     
@@ -80,12 +89,55 @@ class VIP_StreamListTableViewController: UITableViewController
         self._viuActivity = VIU_Activity()
         
         self.view.tintColor = VIM_DesignData.current.colorTint
+        
+        
+        // NAVIGATION BAR
         self.navigationItem.title = "Viewer"
+        self._bbtBack = UIBarButtonItem(
+            image: UIImage(named: "ic_chevron_left_36pt"),
+            style: UIBarButtonItemStyle.plain,
+            target: self,
+            action: #selector(bbtBack_OnTouchUp(_:))
+        )
+        self._bbtThumbLarge = UIBarButtonItem(
+            image: UIImage(named: "ic_view_agenda_36pt"),
+            style: UIBarButtonItemStyle.plain,
+            target: self,
+            action: #selector(bbtThumbLarge_OnTouchUp(_:))
+        )
+        self._bbtThumbSmall = UIBarButtonItem(
+            image: UIImage(named: "ic_reorder_36pt"),
+            style: UIBarButtonItemStyle.plain,
+            target: self,
+            action: #selector(bbtThumbSmall_OnTouchUp(_:))
+        )
+        
+        
+        self.navigationItem.setLeftBarButtonItems(NSArray(object: self._bbtBack!) as? [UIBarButtonItem], animated: false)
+        
+        self.navigationItem.setRightBarButtonItems(NSArray(objects: self._bbtThumbSmall!, self._bbtThumbLarge!) as? [UIBarButtonItem], animated: true)
+        
         
         self.myTask_GetStreams()
         
         
     }
+    
+    func bbtBack_OnTouchUp(_ sender: UIBarButtonItem?)
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
+    func bbtThumbLarge_OnTouchUp(_ sender: UIBarButtonItem?)
+    {
+        //todo
+    }
+    func bbtThumbSmall_OnTouchUp(_ sender: UIBarButtonItem?)
+    {
+        //todo
+    }
+    
+    
+    
     
     override func viewDidAppear(_ animated: Bool)
     {
