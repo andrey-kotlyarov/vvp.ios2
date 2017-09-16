@@ -28,8 +28,8 @@ class VIL_MenuOrgTableViewController: UITableViewController
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        self.tableView.tintColor = VIM_DesignData.current.colorTint
-        self.navigationItem.title = "Organization"
+        //self.tableView.tintColor = VIM_DesignData.current.colorTint
+        
         
         //let btnBack = UIBarButtonItem(title: "< VVPass", style: .plain, target: self, action: #selector(btnNavBack))
         ////btnBack.style = .done
@@ -38,12 +38,11 @@ class VIL_MenuOrgTableViewController: UITableViewController
         
         
         // NAVIGATION BAR
+        self.navigationItem.title = "Organization"
         self._bbtBack = UIBarButtonItem(
-            image: UIImage(named: "ic_chevron_left_36pt"),
-            //style: UIBarButtonItemStyle.Bordered,
+            image: UIImage(named: "ic_chevron_left"),
             style: UIBarButtonItemStyle.plain,
             target: self,
-            //action: Selector("btnBackToActions_Click:")
             action: #selector(bbtBack_OnTouchUp(_:))
         )
         

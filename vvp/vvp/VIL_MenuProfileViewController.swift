@@ -45,18 +45,16 @@ class VIL_MenuProfileViewController: UIViewController
 
         // Do any additional setup after loading the view.
         
-        self.view.tintColor = VIM_DesignData.current.colorTint
+        //self.view.tintColor = VIM_DesignData.current.colorTint
         
         
         
         // NAVIGATION BAR
         self.navigationItem.title = "Profile"
         self._bbtBack = UIBarButtonItem(
-            image: UIImage(named: "ic_chevron_left_36pt"),
-            //style: UIBarButtonItemStyle.Bordered,
+            image: UIImage(named: "ic_chevron_left"),
             style: UIBarButtonItemStyle.plain,
             target: self,
-            //action: Selector("btnBackToActions_Click:")
             action: #selector(bbtBack_OnTouchUp(_:))
         )
         

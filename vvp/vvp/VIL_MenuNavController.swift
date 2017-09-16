@@ -20,7 +20,7 @@ class VIL_MenuNavController: UINavigationController
         
         
         self.navigationBar.barStyle = UIBarStyle.default
-        self.navigationBar.tintColor = VIM_DesignData.current.colorTint
+        //self.navigationBar.tintColor = VIM_DesignData.current.colorTint
         
         //self.navigationBar.barTintColor = UIColor.white
         //self.navigationBar.isTranslucent = false

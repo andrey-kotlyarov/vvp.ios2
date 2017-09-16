@@ -88,25 +88,25 @@ class VIP_StreamListTableViewController: UITableViewController
         
         self._viuActivity = VIU_Activity()
         
-        self.view.tintColor = VIM_DesignData.current.colorTint
+        //self.view.tintColor = VIM_DesignData.current.colorTint
         
         
         // NAVIGATION BAR
         self.navigationItem.title = "Viewer"
         self._bbtBack = UIBarButtonItem(
-            image: UIImage(named: "ic_chevron_left_36pt"),
+            image: UIImage(named: "ic_chevron_left"),
             style: UIBarButtonItemStyle.plain,
             target: self,
             action: #selector(bbtBack_OnTouchUp(_:))
         )
         self._bbtThumbLarge = UIBarButtonItem(
-            image: UIImage(named: "ic_view_agenda_36pt"),
+            image: UIImage(named: "ic_view_agenda"),
             style: UIBarButtonItemStyle.plain,
             target: self,
             action: #selector(bbtThumbLarge_OnTouchUp(_:))
         )
         self._bbtThumbSmall = UIBarButtonItem(
-            image: UIImage(named: "ic_reorder_36pt"),
+            image: UIImage(named: "ic_reorder"),
             style: UIBarButtonItemStyle.plain,
             target: self,
             action: #selector(bbtThumbSmall_OnTouchUp(_:))
@@ -115,8 +115,8 @@ class VIP_StreamListTableViewController: UITableViewController
         
         self.navigationItem.setLeftBarButtonItems(NSArray(object: self._bbtBack!) as? [UIBarButtonItem], animated: false)
         
-        self.navigationItem.setRightBarButtonItems(NSArray(objects: self._bbtThumbSmall!, self._bbtThumbLarge!) as? [UIBarButtonItem], animated: true)
-        
+        //self.navigationItem.setRightBarButtonItems(NSArray(objects: self._bbtThumbSmall!, self._bbtThumbLarge!) as? [UIBarButtonItem], animated: true)
+        self.navigationItem.setRightBarButtonItems(NSArray(object: self._bbtThumbLarge!) as? [UIBarButtonItem], animated: true)
         
         self.myTask_GetStreams()
         
@@ -130,10 +130,12 @@ class VIP_StreamListTableViewController: UITableViewController
     func bbtThumbLarge_OnTouchUp(_ sender: UIBarButtonItem?)
     {
         //todo
+        self.navigationItem.setRightBarButtonItems(NSArray(object: self._bbtThumbSmall!) as? [UIBarButtonItem], animated: true)
     }
     func bbtThumbSmall_OnTouchUp(_ sender: UIBarButtonItem?)
     {
         //todo
+        self.navigationItem.setRightBarButtonItems(NSArray(object: self._bbtThumbLarge!) as? [UIBarButtonItem], animated: true)
     }
     
     

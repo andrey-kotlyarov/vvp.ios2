@@ -68,6 +68,12 @@ class VIM_DesignData: NSObject
         
         super.init()
         
+        
+        
+        UIApplication.shared.delegate!.window!?.tintColor = self.colorBG
+        //AppDelegate.win
+        
+        
         //
         //
         //

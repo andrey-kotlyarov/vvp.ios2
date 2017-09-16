@@ -30,7 +30,7 @@ class VIL_MenuTableViewController: UITableViewController
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.navigationItem.title = "Virtual Video Pass"
-        tableView.tintColor = VIM_DesignData.current.colorTint
+        //tableView.tintColor = VIM_DesignData.current.colorTint
     }
     
     
