@@ -38,6 +38,14 @@ class VIM_DesignData: NSObject
     
     
     
+    let viewerThumbSmall_W: CGFloat
+    //let viewerCaptionSmall_W: CGFloat
+    let viewerThumbSmall_H: CGFloat
+    let viewerRowSmall_H: CGFloat
+    
+    let viewerThumbSmall_W_px: Int
+    let viewerThumbSmall_H_px: Int
+    
     
     override private init()
     {
@@ -64,6 +72,20 @@ class VIM_DesignData: NSObject
         
         self.viewerThumbLarge_W_px = Int(0.5 + Double(self.viewerThumbLarge_W) * Double(UIScreen.main.scale))
         self.viewerThumbLarge_H_px = Int(0.5 + Double(self.viewerThumbLarge_H) * Double(UIScreen.main.scale))
+        
+        
+        
+        
+        self.viewerThumbSmall_W = (UIScreen.main.bounds.width - (16.0 + 8.0 + 20.0 + 16.0)) / 2.5
+        //self.viewerCaptionSmall_W = UIScreen.main.bounds.width - (16.0 + 8.0 + 20.0 + 16.0 + self.viewerThumbSmall_W)
+        self.viewerThumbSmall_H = (9.0 * self.viewerThumbSmall_W) / 16.0
+        self.viewerRowSmall_H = self.viewerThumbSmall_H + (8.0 + 8.0)
+        
+        self.viewerThumbSmall_W_px = Int(0.5 + Double(self.viewerThumbSmall_W) * Double(UIScreen.main.scale))
+        self.viewerThumbSmall_H_px = Int(0.5 + Double(self.viewerThumbSmall_H) * Double(UIScreen.main.scale))
+        
+        
+        
         
         
         super.init()

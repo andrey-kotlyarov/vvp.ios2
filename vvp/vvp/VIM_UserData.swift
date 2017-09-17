@@ -20,10 +20,13 @@ class VIM_UserData: NSObject
     private let _keyLaunchNumber = "LAUNCH_NUMBER"
     private let _keyToken = "TOKEN"
     private let _keyOrgId = "ORG_ID"
+    private let _keyThumbType = "THUMB_TYPE"
+    
     
     var launchNumber: Int
     var token: String?
     var orgId: Int?
+    var thumbType: VIE_ThumbType
     
     
     
@@ -33,6 +36,8 @@ class VIM_UserData: NSObject
         self.launchNumber = 0
         self.token = nil
         self.orgId = nil
+        self.thumbType = VIE_ThumbType.large
+        
         
         
         // --- LAUNCH NUMBER ---
@@ -44,6 +49,11 @@ class VIM_UserData: NSObject
         // --- ORG_ID ---
         //self.orgId = userDefaults.integer(forKey: self._keyOrgId)
         self.orgId = UserDefaults.standard.object(forKey: self._keyOrgId) as! Int?
+        
+        if let tt = UserDefaults.standard.object(forKey: self._keyThumbType) as! Int?
+        {
+            self.thumbType = VIE_ThumbType(rawValue: tt) ?? VIE_ThumbType.large
+        }
  
         super.init()
         
@@ -73,11 +83,26 @@ class VIM_UserData: NSObject
         userDefaults.set(self.launchNumber, forKey: self._keyLaunchNumber)
         userDefaults.set(self.token, forKey: self._keyToken)
         userDefaults.set(self.orgId, forKey: self._keyOrgId)
+        userDefaults.set(self.thumbType.rawValue, forKey: self._keyThumbType)
         
         userDefaults.synchronize()
         
         return
     }
+    
+    func saveUserData_ThumbType()
+    {
+        let userDefaults = UserDefaults.standard
+        
+        userDefaults.set(self.thumbType, forKey: self._keyThumbType)
+        
+        userDefaults.synchronize()
+        
+        return
+    }
+    
+    
+    
     
     func clearUserData()
     {
@@ -99,7 +124,8 @@ class VIM_UserData: NSObject
         desc += "VIM_USER-DATA ("
         desc += "launchNumber = " + String(launchNumber) + "; "
         desc += "token = " + (self.token == nil ? "[nil]" : self.token!) + "; "
-        desc += "orgId = " + (orgId != nil ? String(orgId!) : "[nil]")
+        desc += "orgId = " + (orgId != nil ? String(orgId!) : "[nil]") + "; "
+        desc += "thumbType = " + thumbType.description
         desc += ")"
         
         return desc

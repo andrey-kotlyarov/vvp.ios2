@@ -30,44 +30,6 @@ class VIP_StreamListTableViewController: UITableViewController
     
     
     
-    //
-    //
-    //
-    
-    
-    
-    /*
-    override func shouldAutorotate() -> Bool {
-        // Lock autorotate
-        return false
-    }
-    
-    override func supportedInterfaceOrientations() -> Int {
-        
-        // Only allow Portrait
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
-    }
-    
-    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
-        
-        // Only allow Portrait
-        return UIInterfaceOrientation.Portrait
-    }
-    */
-    
-    
-    //
-    //
-    //
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -116,7 +78,18 @@ class VIP_StreamListTableViewController: UITableViewController
         self.navigationItem.setLeftBarButtonItems(NSArray(object: self._bbtBack!) as? [UIBarButtonItem], animated: false)
         
         //self.navigationItem.setRightBarButtonItems(NSArray(objects: self._bbtThumbSmall!, self._bbtThumbLarge!) as? [UIBarButtonItem], animated: true)
-        self.navigationItem.setRightBarButtonItems(NSArray(object: self._bbtThumbLarge!) as? [UIBarButtonItem], animated: true)
+        
+        if (VIM_UserData.current.thumbType == .large)
+        {
+            self.navigationItem.setRightBarButtonItems(NSArray(object: self._bbtThumbLarge!) as? [UIBarButtonItem], animated: true)
+        }
+        else if (VIM_UserData.current.thumbType == .small)
+        {
+            self.navigationItem.setRightBarButtonItems(NSArray(object: self._bbtThumbSmall!) as? [UIBarButtonItem], animated: true)
+        }
+        
+        
+        
         
         self.myTask_GetStreams()
         
@@ -129,13 +102,23 @@ class VIP_StreamListTableViewController: UITableViewController
     }
     func bbtThumbLarge_OnTouchUp(_ sender: UIBarButtonItem?)
     {
-        //todo
+        VIM_UserData.current.thumbType = .small
+        VIM_UserData.current.saveUserData()
+        
+        
+        //todo ???
         self.navigationItem.setRightBarButtonItems(NSArray(object: self._bbtThumbSmall!) as? [UIBarButtonItem], animated: true)
+        self.tableView.reloadData()
     }
     func bbtThumbSmall_OnTouchUp(_ sender: UIBarButtonItem?)
     {
-        //todo
+        VIM_UserData.current.thumbType = .large
+        VIM_UserData.current.saveUserData()
+        
+        
+        //todo ???
         self.navigationItem.setRightBarButtonItems(NSArray(object: self._bbtThumbLarge!) as? [UIBarButtonItem], animated: true)
+        self.tableView.reloadData()
     }
     
     
@@ -325,6 +308,10 @@ class VIP_StreamListTableViewController: UITableViewController
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         // #warning Incomplete implementation, return the number of rows
+        
+        //DEBUG
+        //print("tt = \(VIM_UserData.current.thumbType.description)")
+        
         return VIM_AuthData.current.streamList?.streams.count ?? 0
     }
     
@@ -334,54 +321,103 @@ class VIP_StreamListTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StreamListCell", for: indexPath) as! VIP_StreamListTableViewCell
         
-        
-        
-        //
-        //
-        //
-        cell.updateByStream(VIM_AuthData.current.streamList!.streams[indexPath.row], theRowIndex: indexPath.row)
-        
-        cell.imgThumb.image = nil
-        VIM_ImageData.current.imageBy(
-            src: VIM_AuthData.current.streamList!.streams[indexPath.row].thumbnailSrc,
-            ttl: 120,
-            completationBlock:
-            {
-                (img: UIImage?) -> Void in
-                
-                //print("\(indexPath.row) <-> \(cell.myRowIndex)")
-                
-                if indexPath.row == cell.myRowIndex
+        if VIM_UserData.current.thumbType == .small
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "StreamListSmallCell", for: indexPath) as! VIP_StreamListSmallTableViewCell
+            
+            //
+            //
+            //
+            cell.updateByStream(VIM_AuthData.current.streamList!.streams[indexPath.row], theRowIndex: indexPath.row)
+            
+            cell.imgThumb.image = nil
+            VIM_ImageData.current.imageBy(
+                src: VIM_AuthData.current.streamList!.streams[indexPath.row].thumbnailSrc,
+                ttl: 120,
+                completationBlock:
                 {
-                    cell.imgThumb.image = img
-                }
+                    (img: UIImage?) -> Void in
+                    
+                    //print("\(indexPath.row) <-> \(cell.myRowIndex)")
+                    
+                    if indexPath.row == cell.myRowIndex
+                    {
+                        cell.imgThumb.image = img
+                    }
             }
-        )
-        //
-        //
-        //
+            )
+            //
+            //
+            //
+            
+            return cell
         
         
+        }
+        //else if VIM_UserData.current.thumbType == .large
+        //{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "StreamListCell", for: indexPath) as! VIP_StreamListTableViewCell
+            
+            //
+            //
+            //
+            cell.updateByStream(VIM_AuthData.current.streamList!.streams[indexPath.row], theRowIndex: indexPath.row)
         
+            cell.imgThumb.image = nil
+            VIM_ImageData.current.imageBy(
+                src: VIM_AuthData.current.streamList!.streams[indexPath.row].thumbnailSrc,
+                ttl: 120,
+                completationBlock:
+                {
+                    (img: UIImage?) -> Void in
+                    
+                    //print("\(indexPath.row) <-> \(cell.myRowIndex)")
+                    
+                    if indexPath.row == cell.myRowIndex
+                    {
+                        cell.imgThumb.image = img
+                    }
+                }
+            )
+            //
+            //
+            //
+            
+            return cell
+        //}
         
-        //cell.updateByStream(VIM_AuthData.current.streamList!.streams[indexPath.row], tableView: self.tableView)
-
-        // Configure the cell...
-
-        return cell
     }
     
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return VIM_DesignData.current.viewerRowLarge_H
+        var height: CGFloat = 0.0
+        
+        switch VIM_UserData.current.thumbType
+        {
+        case .large:
+            height = VIM_DesignData.current.viewerRowLarge_H
+        case .small:
+            height = VIM_DesignData.current.viewerRowSmall_H
+        }
+        
+        return height
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return VIM_DesignData.current.viewerRowLarge_H
+        var height: CGFloat = 0.0
+        
+        switch VIM_UserData.current.thumbType
+        {
+        case .large:
+            height = VIM_DesignData.current.viewerRowLarge_H
+        case .small:
+            height = VIM_DesignData.current.viewerRowSmall_H
+        }
+        
+        return height
     }
     
     
