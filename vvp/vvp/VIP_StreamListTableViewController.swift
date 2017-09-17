@@ -36,13 +36,37 @@ class VIP_StreamListTableViewController: UITableViewController
     
     
     
-    
+    override func viewDidLayoutSubviews()
+    {
+        
+        //print("viewDidLayoutSubviews")
+        
+        if VIM_UserData.current.thumbType == .large
+        {
+            self.tableView.separatorStyle = .singleLine
+        }
+        if VIM_UserData.current.thumbType == .small
+        {
+            self.tableView.separatorStyle = .none
+        }
+        
+        
+        
+    }
     
     
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        
+        //print("did load")
+        self.tableView.separatorStyle = .none
+        self.tableView.separatorColor = VIM_DesignData.current.colorBG.withAlphaComponent(0.25)
+        self.tableView.separatorInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+        //self.tableView.layoutMargins = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -484,10 +508,15 @@ class VIP_StreamListTableViewController: UITableViewController
         
         let pvc = storyboard?.instantiateViewController(withIdentifier: "vipPlayer") as! VIP_PlayerViewController
         
-        //let streamUrl = URL(string: txtStreamUrl.text!)
-        pvc.player = AVPlayer(url: VIM_AuthData.current.stream!.videoURL);
         
-        present(pvc, animated: true, completion: nil)
+        
+        if let urlVideo = VIM_AuthData.current.stream!.videoURL
+        {
+            pvc.player = AVPlayer(url: urlVideo);
+            present(pvc, animated: true, completion: nil)
+        }
+        
+        
         
         
         

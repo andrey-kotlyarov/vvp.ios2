@@ -45,8 +45,8 @@ class VIP_StreamListSmallTableViewCell: UITableViewCell
         super.awakeFromNib()
         // Initialization code
         
-        self.separatorInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
-        self.layoutMargins = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+        //self.separatorInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+        //self.layoutMargins = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         
         self.viewThumb_constraintW.constant = VIM_DesignData.current.viewerThumbSmall_W
         self.viewThumb_constraintH.constant = VIM_DesignData.current.viewerThumbSmall_H

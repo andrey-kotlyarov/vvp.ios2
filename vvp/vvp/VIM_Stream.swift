@@ -30,7 +30,7 @@ class VIM_Stream: NSObject
     let duration: Int
     
     //TODO
-    let videoURL: URL
+    let videoURL: URL?
     
     
     init(dict: NSDictionary)
@@ -47,7 +47,8 @@ class VIM_Stream: NSObject
         self.duration = dict["duration"] as! Int
         
         //TODO
-        self.videoURL = URL(string: "")!
+        //self.videoURL = URL(string: dict["video_url"] as! String)
+        self.videoURL = URL(string: "")
         
         super.init()
     }
@@ -110,7 +111,7 @@ class VIM_Stream: NSObject
         desc += "owner = '\(self.owner)'; "
         desc += "connectedUsers = '\(self.connectedUsers)'; "
         desc += "duration = '\(self.duration)'"
-        desc += "videoUrl = '\(self.videoURL)'"
+        desc += "videoUrl = '\(String(describing: self.videoURL))'"
         
         
         desc += ")"

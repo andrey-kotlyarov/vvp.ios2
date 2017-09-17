@@ -291,7 +291,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="eyB-Mi-yyl" secondAttribute="bottom" constant="8" id="vKu-ti-eZt"/>
                                             </constraints>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_person" translatesAutoresizingMaskIntoConstraints="NO" id="vYJ-Ii-Beo">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_account_circle" translatesAutoresizingMaskIntoConstraints="NO" id="vYJ-Ii-Beo">
                                             <rect key="frame" x="339" y="47.5" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="1ZX-ny-XOI"/>
@@ -347,7 +347,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_person" width="24" height="24"/>
+        <image name="ic_account_circle" width="24" height="24"/>
         <image name="mask_round_40" width="40" height="40"/>
     </resources>
 </document>

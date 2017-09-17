@@ -134,6 +134,8 @@ class VIM_AuthData: NSObject
     
     func updateStreamListBy(dict: NSDictionary)
     {
+        self.stream = nil
+        
         let sl = VIM_StreamList(dict: dict)
         self.streamList = sl
     }
@@ -177,7 +179,7 @@ class VIM_AuthData: NSObject
         desc += "org = " + (self.org == nil ? "[nil]" : self.org!.description) + "; "
         
         desc += "streamList = " + (self.streamList == nil ? "[nil]" : self.streamList!.description) + "; "
-        desc += "streamList = " + (self.stream == nil ? "[nil]" : self.stream!.description) + "; "
+        desc += "stream = " + (self.stream == nil ? "[nil]" : self.stream!.description) + "; "
         
         
         
