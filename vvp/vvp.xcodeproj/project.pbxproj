@@ -18,6 +18,7 @@
 		55724BA01F631F6A00BCE6EE /* VIL_MenuOrgTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55724B9F1F631F6A00BCE6EE /* VIL_MenuOrgTableViewController.swift */; };
 		55D6D8DB1F6E62E100BDD2BC /* VIP_StreamListSmallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D6D8DA1F6E62E100BDD2BC /* VIP_StreamListSmallTableViewCell.swift */; };
 		55D6D8DD1F6E6DCD00BDD2BC /* VIE_ThumbType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D6D8DC1F6E6DCD00BDD2BC /* VIE_ThumbType.swift */; };
+		55D6D8DF1F6E8B4700BDD2BC /* VIP_PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D6D8DE1F6E8B4700BDD2BC /* VIP_PlayerViewController.swift */; };
 		55E0197C1F6AE0DB008CB754 /* VIE_StreamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E0197B1F6AE0DB008CB754 /* VIE_StreamState.swift */; };
 		871422381F693F2100968F17 /* VIM_Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871422371F693F2100968F17 /* VIM_Stream.swift */; };
 		8714223A1F6942A000968F17 /* VIM_StreamList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871422391F6942A000968F17 /* VIM_StreamList.swift */; };
@@ -70,6 +71,7 @@
 		55724B9F1F631F6A00BCE6EE /* VIL_MenuOrgTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIL_MenuOrgTableViewController.swift; sourceTree = "<group>"; };
 		55D6D8DA1F6E62E100BDD2BC /* VIP_StreamListSmallTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIP_StreamListSmallTableViewCell.swift; sourceTree = "<group>"; };
 		55D6D8DC1F6E6DCD00BDD2BC /* VIE_ThumbType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIE_ThumbType.swift; sourceTree = "<group>"; };
+		55D6D8DE1F6E8B4700BDD2BC /* VIP_PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIP_PlayerViewController.swift; sourceTree = "<group>"; };
 		55E0197B1F6AE0DB008CB754 /* VIE_StreamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIE_StreamState.swift; sourceTree = "<group>"; };
 		871422371F693F2100968F17 /* VIM_Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_Stream.swift; sourceTree = "<group>"; };
 		871422391F6942A000968F17 /* VIM_StreamList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIM_StreamList.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				554841001F6848BF00EF4D18 /* VIP_StreamListTableViewController.swift */,
 				554841021F68491200EF4D18 /* VIP_StreamListTableViewCell.swift */,
 				55D6D8DA1F6E62E100BDD2BC /* VIP_StreamListSmallTableViewCell.swift */,
+				55D6D8DE1F6E8B4700BDD2BC /* VIP_PlayerViewController.swift */,
 			);
 			name = "VIP (Player, Viewer)";
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			files = (
 				553713B01F60A9A300E67BC9 /* VIU_Activity.swift in Sources */,
 				8740CD6B1F6047EB00BABC8C /* VIM_Profile.swift in Sources */,
+				55D6D8DF1F6E8B4700BDD2BC /* VIP_PlayerViewController.swift in Sources */,
 				8740CD5B1F60285200BABC8C /* VIU_Color.swift in Sources */,
 				55D6D8DD1F6E6DCD00BDD2BC /* VIE_ThumbType.swift in Sources */,
 				8740CD611F6028CE00BABC8C /* VIM_UserData.swift in Sources */,

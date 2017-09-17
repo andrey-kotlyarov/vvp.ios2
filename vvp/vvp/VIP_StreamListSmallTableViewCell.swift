@@ -29,6 +29,7 @@ class VIP_StreamListSmallTableViewCell: UITableViewCell
     //@IBOutlet var viewUserIcon: UIView!
     //@IBOutlet var imgUserIcon: UIImageView!
     //@IBOutlet var imgUserIconMask: UIImageView!
+    @IBOutlet var imgUserIcon: UIImageView!
     
     
     @IBOutlet var lblCaptionLine: UILabel!
@@ -55,10 +56,10 @@ class VIP_StreamListSmallTableViewCell: UITableViewCell
         
         
         //
-        // User Icon Mask setting
+        // User Icon setting
         //
-        //imgUserIconMask.image = imgUserIconMask.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-        //imgUserIconMask.tintColor = UIColor.white
+        self.imgUserIcon.image = imgUserIcon.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        self.imgUserIcon.tintColor = UIColor.white
         
         
         
@@ -90,12 +91,13 @@ class VIP_StreamListSmallTableViewCell: UITableViewCell
         self.lblDuration.text = stream.formatDuration()
         
         
-        lblCaptionLine.text = stream.title
-        lblUserLine.text = "\(stream.owner) - \(stream.connectedUsers) views"
-        lblOrgLine.text = stream.desc
+        self.lblCaptionLine.text = stream.title
+        self.lblUserLine.text = "\(stream.owner) - \(stream.connectedUsers) views"
+        self.lblOrgLine.text = stream.desc
         
         
-        //imgUserIcon.image = VIU_UI.getImageLetter(stream.owner, frame: imgUserIcon.frame)
+        self.imgUserIcon.tintColor = VIM_DesignData.current.getBGColorForLetter(VIU_UI.getOneLetter(stream.owner))
+        //self.imgUserIcon.image = VIU_UI.getImageLetter(stream.owner, frame: imgUserIcon.frame)
     }
     
     

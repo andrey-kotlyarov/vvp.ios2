@@ -57,8 +57,8 @@ class VIP_StreamListTableViewCell: UITableViewCell
         //
         // User Icon Mask setting
         //
-        imgUserIconMask.image = imgUserIconMask.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-        imgUserIconMask.tintColor = UIColor.white
+        self.imgUserIconMask.image = imgUserIconMask.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        self.imgUserIconMask.tintColor = UIColor.white
         
         
         
@@ -99,12 +99,12 @@ class VIP_StreamListTableViewCell: UITableViewCell
         
         
         
-        lblCaptionLine.text = stream.title
-        lblUserLine.text = "\(stream.owner) - \(stream.connectedUsers) views"
-        lblOrgLine.text = stream.desc
+        self.lblCaptionLine.text = stream.title
+        self.lblUserLine.text = "\(stream.owner) - \(stream.connectedUsers) views"
+        self.lblOrgLine.text = stream.desc
         
         
-        imgUserIcon.image = VIU_UI.getImageLetter(stream.owner, frame: imgUserIcon.frame)
+        self.imgUserIcon.image = VIU_UI.getImageLetter(stream.owner, frame: imgUserIcon.frame)
     }
 
 

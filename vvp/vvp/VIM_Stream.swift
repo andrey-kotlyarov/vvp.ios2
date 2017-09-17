@@ -17,6 +17,10 @@ class VIM_Stream: NSObject
     
     let name: String
     let thumbnailSrc: String
+    //TODO
+    //let thumbLargeSrc: String
+    //let thumbSmallSrc: String
+    
     
     let title: String
     let desc: String
@@ -24,6 +28,9 @@ class VIM_Stream: NSObject
     let owner: String
     let connectedUsers: Int
     let duration: Int
+    
+    //TODO
+    let videoURL: URL
     
     
     init(dict: NSDictionary)
@@ -39,6 +46,8 @@ class VIM_Stream: NSObject
         self.connectedUsers = dict["connected_users"] as! Int
         self.duration = dict["duration"] as! Int
         
+        //TODO
+        self.videoURL = URL(string: "")!
         
         super.init()
     }
@@ -101,6 +110,8 @@ class VIM_Stream: NSObject
         desc += "owner = '\(self.owner)'; "
         desc += "connectedUsers = '\(self.connectedUsers)'; "
         desc += "duration = '\(self.duration)'"
+        desc += "videoUrl = '\(self.videoURL)'"
+        
         
         desc += ")"
         

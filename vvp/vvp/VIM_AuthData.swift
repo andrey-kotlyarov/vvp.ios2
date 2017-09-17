@@ -22,6 +22,7 @@ class VIM_AuthData: NSObject
     var org: VIM_Org?
     
     var streamList: VIM_StreamList?
+    var stream: VIM_Stream?
     
     //var menu: VIM_Menu?
     
@@ -39,6 +40,7 @@ class VIM_AuthData: NSObject
         self.org = nil
         
         self.streamList = nil
+        self.stream = nil
         
         super.init()
     }
@@ -121,6 +123,8 @@ class VIM_AuthData: NSObject
         //self.menu = VIM_Menu(dict: dict["menu"] as! NSDictionary)
         
         
+        self.clearStreamList()
+        
         
         //
         //VIM_DesignData.current.setColorsByOrg(self.org)
@@ -137,6 +141,7 @@ class VIM_AuthData: NSObject
     func clearStreamList()
     {
         self.streamList = nil
+        self.stream = nil
     }
     
     
@@ -148,6 +153,7 @@ class VIM_AuthData: NSObject
         self.org = nil
         
         self.streamList = nil
+        self.stream = nil
         
         //
         //VIM_DesignData.current.setColorsByDefault()
@@ -171,6 +177,8 @@ class VIM_AuthData: NSObject
         desc += "org = " + (self.org == nil ? "[nil]" : self.org!.description) + "; "
         
         desc += "streamList = " + (self.streamList == nil ? "[nil]" : self.streamList!.description) + "; "
+        desc += "streamList = " + (self.stream == nil ? "[nil]" : self.stream!.description) + "; "
+        
         
         
         //desc += "menu = " + (self.menu == nil ? "[empty]" : self.menu!.description) + "; "

@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
+
+
+
 
 class VIP_StreamListTableViewController: UITableViewController
 {
@@ -186,8 +191,18 @@ class VIP_StreamListTableViewController: UITableViewController
         
         let viuRequest: VIU_Request = VIU_Request(cmd: "getstreams")
         viuRequest.addPostValue(VIM_UserData.current.token!, forKey: "token")
+        
+        
         viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbLarge_W_px)", forKey: "thumbnailwidth")
         viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbLarge_H_px)", forKey: "thumbnailheight")
+        //TODO
+        viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbLarge_W_px)", forKey: "thumblargewidth")
+        viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbLarge_H_px)", forKey: "thumblargeheight")
+        viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbSmall_W_px)", forKey: "thumbsmallwidth")
+        viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbSmall_H_px)", forKey: "thumbsmallheight")
+        
+        
+        
         //viuRequest.addPostValue(String(VIM_DesignData.current.sizeType), forKey: "sizetype")
         
         if VIM_UserData.current.isDebugMode()
@@ -462,6 +477,20 @@ class VIP_StreamListTableViewController: UITableViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         tableView.deselectRow(at: indexPath, animated: false)
+        
+        
+        VIM_AuthData.current.stream = VIM_AuthData.current.streamList!.streams[indexPath.row]
+        
+        
+        let pvc = storyboard?.instantiateViewController(withIdentifier: "vipPlayer") as! VIP_PlayerViewController
+        
+        //let streamUrl = URL(string: txtStreamUrl.text!)
+        pvc.player = AVPlayer(url: VIM_AuthData.current.stream!.videoURL);
+        
+        present(pvc, animated: true, completion: nil)
+        
+        
+        
     }
     
     
