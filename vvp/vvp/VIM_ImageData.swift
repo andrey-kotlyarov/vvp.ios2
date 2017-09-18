@@ -22,6 +22,10 @@ class VIM_ImageData: NSObject
     // TTL by default in seconds
     private let _defaultTimeToLive: TimeInterval = 300
     
+    
+    
+    
+    
     override private init()
     {
         self.storageImages = [:]
@@ -31,6 +35,7 @@ class VIM_ImageData: NSObject
     }
 
     
+    
     func imageBy(src: String, completationBlock: @escaping (UIImage?) -> Void)
     {
         self.imageBy(src: src, ttl: _defaultTimeToLive, completationBlock: completationBlock)
@@ -38,22 +43,30 @@ class VIM_ImageData: NSObject
     
     func imageBy(src: String, ttl: TimeInterval, completationBlock: @escaping (UIImage?) -> Void)
     {
+        //
+        // Clear old srss
+        //
+        for storageImage in self.storageImages
+        {
+            if let expireAt = storageImage.value.expireAt
+            {
+                if Date() > expireAt
+                {
+                    self.storageImages.removeValue(forKey: storageImage.value.src)
+                }
+            }
+        }
+        //
+        //
+        //
+        
+        
+        
         if src.isEmpty
         {
             completationBlock(nil)
             return
         }
-        
-        
-        if let loadedAt = self.storageImages[src]?.loadedAt
-        {
-            if Date().timeIntervalSince(loadedAt) > ttl
-            {
-                completationBlock(self.storageImages[src]?.image)
-                self.storageImages.removeValue(forKey: src)
-            }
-        }
-        
         
         
         if let storageImage = self.storageImages[src]
@@ -71,7 +84,6 @@ class VIM_ImageData: NSObject
         {
             let storageImage = VIM_StorageImage(src: src)
             self.storageImages[src] = storageImage
-            
             
             let task: URLSessionDownloadTask = URLSession.shared.downloadTask(
                 with: URL(string: src)!,
@@ -99,8 +111,7 @@ class VIM_ImageData: NSObject
                                     let img: UIImage! = UIImage(data: data)
                                     
                                     self.storageImages[src]?.image = img
-                                    self.storageImages[src]?.loadedAt = Date()
-                                    
+                                    self.storageImages[src]?.expireAt = Date(timeIntervalSinceNow: ttl)
                                     
                                     completationBlock(img)
                                     //completationBlock(self.storageImages[src]?.image)
@@ -113,7 +124,6 @@ class VIM_ImageData: NSObject
                 }
             )
             task.resume()
-            
         }
     }
     

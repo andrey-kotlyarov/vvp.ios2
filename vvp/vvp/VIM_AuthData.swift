@@ -52,30 +52,6 @@ class VIM_AuthData: NSObject
         return (self.token != nil && self.profile != nil)
     }
     
-    /*
-    func updateBy(username: String, password: String)
-    {
-        self.token = nil;
-        self.profile = nil;
-        //self.org = nil;
-        //self.menu = nil;
-        
-        self.username = username
-        self.password = password
-        
-        /*
-        self.availableOrgs = []
-        let json_items = dict["items"] as! NSArray
-        
-        for json_item in json_items
-        {
-            let org = JEM_Org(dict: json_item as! NSDictionary)
-            self.availableOrgs!.append(org)
-        }
-        */
-    }
-    */
-    //func updateBy(#dict: NSDictionary)
     func updateBy(_ dict: NSDictionary)
     {
         //self.username = nil
@@ -101,30 +77,13 @@ class VIM_AuthData: NSObject
                 org = org_item
             }
         }
-
-
-        //DEBUG
-        /*
-        for index in 0 ..< 25
-        {
-            let org_item2 = VIM_Org(id: index + 100, name: "org \(index)")
-            self.orgs?.append(org_item2)
-        }
-        */
-        
         
         if org == nil && orgs != nil && orgs!.count > 0
         {
             self.org = self.orgs![0]
         }
         
-        
-        //self.org = VIM_Org(dict: dict["org"] as! NSDictionary)
-        //self.menu = VIM_Menu(dict: dict["menu"] as! NSDictionary)
-        
-        
         self.clearStreamList()
-        
         
         //
         //VIM_DesignData.current.setColorsByOrg(self.org)

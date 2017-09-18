@@ -122,7 +122,7 @@ class VIL_MenuOrgTableViewController: UITableViewController
         {
             cell.accessoryType = UITableViewCellAccessoryType.none
         }
-        cell.textLabel?.text = VIM_AuthData.current.orgs![indexPath.row].name
+        cell.textLabel?.text = VIM_AuthData.current.orgs![indexPath.row].title
         
 
         return cell

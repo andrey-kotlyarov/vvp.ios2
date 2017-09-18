@@ -90,7 +90,7 @@ class VIL_MenuTableViewController: UITableViewController
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
             
             cell.accessoryType = (VIM_AuthData.current.orgs!.count > 1 ? UITableViewCellAccessoryType.disclosureIndicator : UITableViewCellAccessoryType.none)
-            cell.textLabel?.text = "Organization: " + (VIM_AuthData.current.org?.name ?? "")
+            cell.textLabel?.text = "Organization: " + (VIM_AuthData.current.org?.title ?? "")
             
             return cell
         }
