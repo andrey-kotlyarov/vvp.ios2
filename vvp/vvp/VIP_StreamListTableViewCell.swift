@@ -95,17 +95,17 @@ class VIP_StreamListTableViewCell: UITableViewCell
         
         
         self.viewDuration.backgroundColor = UIColor.black
-        self.lblDuration.text = stream.formatDuration()
+        self.lblDuration.text = VIU_String.formatTime(duration: stream.duration)
         
         
         
         
         self.lblCaptionLine.text = stream.title
-        self.lblUserLine.text = "\(stream.owner) - \(stream.connectedUsers) views"
+        self.lblUserLine.text = "\(stream.owner.fullName) - \(stream.connectedUsers) views"
         self.lblOrgLine.text = stream.desc
         
         
-        self.imgUserIcon.image = VIU_UI.getImageLetter(stream.owner, frame: imgUserIcon.frame)
+        self.imgUserIcon.image = VIU_UI.getImageLetter(stream.owner.fullName, frame: imgUserIcon.frame)
     }
 
 

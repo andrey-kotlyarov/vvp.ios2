@@ -161,29 +161,6 @@ class VIL_LoginViewController: UIViewController
     
     
     
-    private func myDidError(_ title: String, errorMessage: String) -> Void
-    {
-        self.myHideKeyboard()
-        
-        
-        let alertController = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
-        alertController.view.tintColor = VIM_DesignData.current.colorTint
-        
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(action)
-        
-        self.present(alertController, animated: true, completion: nil)
-        
-        return
-    }
-    
-    private func myDidError(_ title: String, error: Error?) -> Void
-    {
-        self.myDidError(title, errorMessage: error?.localizedDescription ?? "")
-    }
-    
-    
-    
     private func myTask_Login() -> Void
     {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -196,7 +173,6 @@ class VIL_LoginViewController: UIViewController
         
         viuRequest.addPostValue(self._txtUsername!.text!, forKey: "username")
         viuRequest.addPostValue(self._txtPassword!.text!, forKey: "password")
-        viuRequest.addPostValue(String(VIM_DesignData.current.sizeType), forKey: "sizetype")
         
         //DEBUG
         //viuRequest.addPostValue("2500", forKey: "_delay_")
@@ -227,13 +203,13 @@ class VIL_LoginViewController: UIViewController
                     
                     if error != nil || response == nil || data == nil
                     {
-                        self.myDidError("URL Error", error:error)
+                        VIU_UI.alertError(title: "URL Error", error: error, viewController: self)
                         return
                     }
                     
                     if (response as? HTTPURLResponse)!.statusCode / 100 != 2 || response!.mimeType != "application/json"
                     {
-                        self.myDidError("HTTP Error", errorMessage: "HTTP error details:\nmime-type: \(response!.mimeType ?? "-")\nstatus-code: \((response as? HTTPURLResponse)!.statusCode)")
+                        VIU_UI.alertError(title: "HTTP Error", errorMessage: "HTTP Error\nmime-type: \(response!.mimeType ?? "-")\nstatus-code: \((response as? HTTPURLResponse)!.statusCode)", viewController: self)
                         return
                     }
                     
@@ -255,8 +231,7 @@ class VIL_LoginViewController: UIViewController
                                 self._txtPassword?.text = ""
                             }
                             
-                            
-                            self.myDidError("API Error", errorMessage: json_mess + "\n(code = \(json_code))")
+                            VIU_UI.alertError(title: "API Error", errorMessage: json_mess, viewController: self, code: json_code)
                             return
                         }
                         
@@ -292,7 +267,7 @@ class VIL_LoginViewController: UIViewController
                     }
                     catch let jsonError as NSError
                     {
-                        self.myDidError("JSON Error", error:(jsonError as Error))
+                        VIU_UI.alertError(title: "JSON Error", error: jsonError as Error, viewController: self)
                         return
                     }
                     

@@ -14,7 +14,7 @@ class VIU_UI
 {
     public static func getImageLetter(_ letter: Character, frame: CGRect, font: UIFont = UIFont(name: "Helvetica Bold", size: 29)!) -> UIImage?
     {
-        let bgColor = VIM_DesignData.current.getBGColorForLetter(letter)
+        let bgColor = VIU_Color.colorByCharacter(character: letter)
         let textColor = UIColor.white
         
         let scale = UIScreen.main.scale
@@ -45,23 +45,40 @@ class VIU_UI
     
     public static func getImageLetter(_ str: String, frame: CGRect, font: UIFont = UIFont(name: "Helvetica Bold", size: 29)!) -> UIImage?
     {
-        return self.getImageLetter(self.getOneLetter(str), frame: frame, font: font)
+        return self.getImageLetter(VIU_String.characterByString(str), frame: frame, font: font)
     }
     
     
-    public static func getOneLetter(_ str: String) -> Character
+    
+    
+    
+    static public func alertError(title: String, errorMessage: String, viewController: UIViewController, code: Int? = nil)
     {
-        var character: Character = " "
+        var message = errorMessage
+        var header = ""
         
-        for c in str.uppercased().characters
+        if VIM_UserData.current.isDebugMode()
         {
-            if (c >= "A" && c <= "Z") || ((c >= "0" && c <= "9"))
-            {
-                character = c
-                break
-            }
+            header = title
+        }
+        if VIM_UserData.current.isDebugMode(), let code = code
+        {
+            message += "\n(code = \(code))"
         }
         
-        return character
+        
+        
+        
+        let alertController = UIAlertController(title: header, message: message, preferredStyle: .alert)
+        //alertController.view.tintColor = VIM_DesignData.current.colorTint
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(action)
+        
+        viewController.present(alertController, animated: true, completion: nil)
+    }
+    static public func alertError(title: String, error: Error?, viewController: UIViewController, code: Int? = nil) -> Void
+    {
+        self.alertError(title: title, errorMessage: error?.localizedDescription ?? "", viewController: viewController, code: code)
     }
 }

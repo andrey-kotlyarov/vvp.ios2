@@ -186,7 +186,7 @@ class VIP_StreamListTableViewController: UITableViewController
     //
     // My methods
     //
-    
+    /*
     private func myDidError(_ title: String, errorMessage: String) -> Void
     {
         let alertController = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
@@ -204,7 +204,7 @@ class VIP_StreamListTableViewController: UITableViewController
     {
         self.myDidError(title, errorMessage: error?.localizedDescription ?? "")
     }
-    
+    */
     
     
     private func myTask_GetStreams() -> Void
@@ -213,21 +213,8 @@ class VIP_StreamListTableViewController: UITableViewController
         self._viuActivity?.show()
         
         
-        let viuRequest: VIU_Request = VIU_Request(cmd: "getstreams")
+        let viuRequest: VIU_Request = VIU_Request(cmd: "get_stream_list")
         viuRequest.addPostValue(VIM_UserData.current.token!, forKey: "token")
-        
-        
-        viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbLarge_W_px)", forKey: "thumbnailwidth")
-        viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbLarge_H_px)", forKey: "thumbnailheight")
-        //TODO
-        viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbLarge_W_px)", forKey: "thumblargewidth")
-        viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbLarge_H_px)", forKey: "thumblargeheight")
-        viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbSmall_W_px)", forKey: "thumbsmallwidth")
-        viuRequest.addPostValue("\(VIM_DesignData.current.viewerThumbSmall_H_px)", forKey: "thumbsmallheight")
-        
-        
-        
-        //viuRequest.addPostValue(String(VIM_DesignData.current.sizeType), forKey: "sizetype")
         
         if VIM_UserData.current.isDebugMode()
         {
@@ -264,13 +251,13 @@ class VIP_StreamListTableViewController: UITableViewController
                     
                     if error != nil || response == nil || data == nil
                     {
-                        self.myDidError("URL Error", error:error)
+                        VIU_UI.alertError(title: "URL Error", error: error, viewController: self)
                         return
                     }
                     
                     if (response as? HTTPURLResponse)!.statusCode / 100 != 2 || response!.mimeType != "application/json"
                     {
-                        self.myDidError("HTTP Error", errorMessage: "HTTP error details:\nmime-type: \(response!.mimeType ?? "-")\nstatus-code: \((response as? HTTPURLResponse)!.statusCode)")
+                        VIU_UI.alertError(title: "HTTP Error", errorMessage: "HTTP Error\nmime-type: \(response!.mimeType ?? "-")\nstatus-code: \((response as? HTTPURLResponse)!.statusCode)", viewController: self)
                         return
                     }
                     
@@ -292,7 +279,7 @@ class VIP_StreamListTableViewController: UITableViewController
                         
                         if json_code != 0
                         {
-                            self.myDidError("API Error", errorMessage: json_mess + "\n(code = \(json_code))")
+                            VIU_UI.alertError(title: "API Error", errorMessage: json_mess, viewController: self, code: json_code)
                             return
                         }
                         
@@ -306,7 +293,7 @@ class VIP_StreamListTableViewController: UITableViewController
                     }
                     catch let jsonError as NSError
                     {
-                        self.myDidError("JSON Error", error:(jsonError as Error))
+                        VIU_UI.alertError(title: "JSON Error", error: jsonError as Error, viewController: self)
                         return
                     }
                     
@@ -372,7 +359,7 @@ class VIP_StreamListTableViewController: UITableViewController
             
             cell.imgThumb.image = nil
             VIM_ImageData.current.imageBy(
-                src: VIM_AuthData.current.streamList!.streams[indexPath.row].thumbnailSrc,
+                src: VIM_AuthData.current.streamList!.streams[indexPath.row].takeThumbSmallSrc(),
                 ttl: 120,
                 completationBlock:
                 {
@@ -405,7 +392,7 @@ class VIP_StreamListTableViewController: UITableViewController
         
             cell.imgThumb.image = nil
             VIM_ImageData.current.imageBy(
-                src: VIM_AuthData.current.streamList!.streams[indexPath.row].thumbnailSrc,
+                src: VIM_AuthData.current.streamList!.streams[indexPath.row].takeThumbLargeSrc(),
                 ttl: 120,
                 completationBlock:
                 {

@@ -116,26 +116,6 @@ class VIL_RootViewController: UIViewController
     // My methods
     //
     
-    private func myDidError(_ title: String, errorMessage: String) -> Void
-    {
-        let alertController = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
-        alertController.view.tintColor = VIM_DesignData.current.colorTint
-        
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(action)
-        
-        self.present(alertController, animated: true, completion: nil)
-        
-        return
-    }
-    
-    private func myDidError(_ title: String, error: Error?) -> Void
-    {
-        self.myDidError(title, errorMessage: error?.localizedDescription ?? "")
-    }
-    
-    
-    
     private func myTask_Auth() -> Void
     {
         if let token = VIM_UserData.current.token
@@ -146,8 +126,7 @@ class VIL_RootViewController: UIViewController
             let viuRequest: VIU_Request = VIU_Request(cmd: "auth")
         
             viuRequest.addPostValue(token, forKey: "token")
-            viuRequest.addPostValue(String(VIM_DesignData.current.sizeType), forKey: "sizetype")
-        
+            
             //DEBUG
             //viuRequest.addPostValue("2500", forKey: "_delay_")
         
@@ -177,13 +156,13 @@ class VIL_RootViewController: UIViewController
                         
                         if error != nil || response == nil || data == nil
                         {
-                            self.myDidError("URL Error", error:error)
+                            VIU_UI.alertError(title: "URL Error", error: error, viewController: self)
                             return
                         }
                         
                         if (response as? HTTPURLResponse)!.statusCode / 100 != 2 || response!.mimeType != "application/json"
                         {
-                            self.myDidError("HTTP Error", errorMessage: "HTTP error details:\nmime-type: \(response!.mimeType ?? "-")\nstatus-code: \((response as? HTTPURLResponse)!.statusCode)")
+                            VIU_UI.alertError(title: "HTTP Error", errorMessage: "HTTP Error\nmime-type: \(response!.mimeType ?? "-")\nstatus-code: \((response as? HTTPURLResponse)!.statusCode)", viewController: self)
                             return
                         }
                         
@@ -243,7 +222,7 @@ class VIL_RootViewController: UIViewController
                         }
                         catch let jsonError as NSError
                         {
-                            self.myDidError("JSON Error", error:(jsonError as Error))
+                            VIU_UI.alertError(title: "JSON Error", error: jsonError as Error, viewController: self)
                             return
                         }
                         
